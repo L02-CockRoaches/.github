@@ -1,3 +1,55 @@
+
+
+   # 🪳 L02-CockRoaches
+
+Welcome to the GitHub organization for the **Mobile Development course – Class L02**.
+
+This organization is used to manage repositories for:
+
+- 📱 Mobile Development assignments
+- 👥 Team projects
+- 🧪 Experiments and practice repositories
+- 📚 Course-related resources
+
+---
+
+## 📦 Repositories
+
+Each repository in this organization corresponds to:
+
+- A team project
+- A course assignment
+
+Students collaborate using **Git**, **GitHub Issues**, and **Pull Requests**.
+
+---
+
+## 👥 Team
+
+Class: **L02 – Mobile Development**
+
+Members collaborate here to develop Android / mobile applications during the course.
+
+---
+
+## 🛠 Technologies
+
+Projects in this organization may use:
+
+- Android Studio
+- Kotlin / Java
+- Gradle
+- Firebase
+- REST APIs
+
+---
+## 🎯 Purpose & Goals:
+
+- Improve Agile Workflow.
+- Build a Scalable MVP.
+- Optimize User Experience.
+- Technical Proficiency.
+
 # GameTwoShape
 
 ## 1. Project Overview
@@ -7,9 +59,6 @@
 **Slogan:**  
 - Tiếng Việt: "Kích thích hai bán cầu, hoàn hảo đôi tay"  
 - Tiếng Anh: "Train your brain, both sides at once"
-
-**Purpose & Goals:**  
-GameTwoShape là một ứng dụng game di động giải trí nhanh (*hyper-casual*) hỗ trợ chơi offline. Mục tiêu của ứng dụng là giúp người chơi rèn luyện sự tập trung và phản xạ của cả hai bán cầu não thông qua việc **vẽ đồng thời hai hình khối khác nhau bằng hai tay**.  
 
 Ứng dụng cung cấp:  
 - Công cụ "tập thể dục não bộ" dựa trên các nghiên cứu khoa học.  
@@ -131,50 +180,3 @@ Dưới đây là luồng người dùng cho **2 tính năng quan trọng nhất
 
 
 
-
-
-
-
-   # 🪳 L02-CockRoaches
-
-Welcome to the GitHub organization for the **Mobile Development course – Class L02**.
-
-This organization is used to manage repositories for:
-
-- 📱 Mobile Development assignments
-- 👥 Team projects
-- 🧪 Experiments and practice repositories
-- 📚 Course-related resources
-
----
-
-## 📦 Repositories
-
-Each repository in this organization corresponds to:
-
-- A team project
-- A course assignment
-
-Students collaborate using **Git**, **GitHub Issues**, and **Pull Requests**.
-
----
-
-## 👥 Team
-
-Class: **L02 – Mobile Development**
-
-Members collaborate here to develop Android / mobile applications during the course.
-
----
-
-## 🛠 Technologies
-
-Projects in this organization may use:
-
-- Android Studio
-- Kotlin / Java
-- Gradle
-- Firebase
-- REST APIs
-
----
