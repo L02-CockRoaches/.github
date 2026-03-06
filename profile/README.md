@@ -42,6 +42,17 @@ Projects in this organization may use:
 - REST APIs
 
 ---
+## 📌 Purpose
+
+The goal of this organization is to:
+
+- Practice **version control**
+- Learn **team collaboration**
+- Develop **real mobile applications**
+
+---
+
+⭐ Maintained for the **Mobile Development course**
 # GameTwoShape
 
 ## 1. Project Overview
