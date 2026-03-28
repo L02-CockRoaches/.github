@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-
-
-   # 🪳 L02-CockRoaches
+# 🪳 L02-CockRoaches
 
 Welcome to the GitHub organization for the **Mobile Development course – Class L02**.
 
@@ -96,6 +93,7 @@ Projects in this organization may use:
 - **GameTwoShape** lấp đầy khoảng trống này bằng một **cơ chế cốt lõi duy nhất**:  
   - Dễ hiểu, dễ gây nghiện (người chơi dễ bị ức chế khi vẽ sai và muốn chơi lại ngay).  
   - Có thể lan truyền tốt trên mạng xã hội (ví dụ: thử thách quay video chơi game).
+
 ## 3. Business Model Canvas
 Ứng dụng luyện phối hợp hai tay bằng cách vẽ hai hình khác nhau cùng lúc (ví dụ: hình tròn và hình vuông).
 
@@ -132,6 +130,7 @@ Projects in this organization may use:
 
 3. **Time & Score System**  
    Hệ thống đếm ngược, tự động làm khó (giảm thời gian) và cộng điểm khi vẽ đúng.
+
 ## 5. User Flows
 
 Dưới đây là luồng người dùng cho **2 tính năng quan trọng nhất của MVP**:
@@ -176,59 +175,3 @@ Dưới đây là luồng người dùng cho **2 tính năng quan trọng nhất
    - Trái: Pass/Fail  
    - Phải: Pass/Fail  
    - Chỉ khi (**Trái == Pass && Phải == Pass**) → **hệ thống kích hoạt luồng cộng điểm**
-
-
-
-
-=======
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
->>>>>>> e257e21 (first commit)
