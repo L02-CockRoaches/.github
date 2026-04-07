@@ -22,6 +22,7 @@ export default function TabLayout() {
         options={{
           title: "Onboarding",
           href: null,
+          tabBarStyle: { display: "none" },
         }}
       />
       <Tabs.Screen
