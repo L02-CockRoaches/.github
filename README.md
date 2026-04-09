@@ -19,7 +19,6 @@ Each repository in this organization corresponds to:
 - A course assignment
 
 Students collaborate using **Git**, **GitHub Issues**, and **Pull Requests**.
-
 ---
 
 ## 👥 Team
@@ -83,7 +82,7 @@ Projects in this organization may use:
 Trong một vài trường hợp, thiết lập của mạng LAN sẽ không cho phép truy cập vào cổng của máy tính (port) do tường lửa. Khi đó, hãy chạy:
 
 ```bash
-npm run start -- --tunnel
+npx expo start -- --tunnel
 ```
 
 Khi đó, Expo sẽ sử dụng `ngrok` để tạo ra một URL, đóng vai trò là máy chủ proxy chuyển hướng đến port của máy tính, cho phép các thiết bị truy cập dù không chung Wi-Fi.
