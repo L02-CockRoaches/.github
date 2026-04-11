@@ -1,232 +1,148 @@
-import { Link } from "expo-router";
-import React from "react";
-import {
-    Pressable,
-    ScrollView,
-    Text,
-    useWindowDimensions,
-    View,
-} from "react-native";
+import { Link } from 'expo-router';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
-
-const HOME_STATS = [
-  { label: "Metric A", value: "00" },
-  { label: "Metric B", value: "00" },
-  { label: "Metric C", value: "00" },
-] as const;
-
-const HOME_LIST_ITEMS = [
-  "Template list item one",
-  "Template list item two",
-  "Template list item three",
-] as const;
-
-export default function HomeTemplateScreen() {
-  const colorScheme = useColorScheme() ?? "light";
-  const palette = Colors[colorScheme];
-  const { width } = useWindowDimensions();
-  const isCompact = width < 420;
-
+export default function Home() {
   return (
     <ScrollView
       contentInsetAdjustmentBehavior="automatic"
-      contentContainerStyle={{
-        flexGrow: 1,
-        paddingHorizontal: 20,
-        paddingTop: 24,
-        paddingBottom: 40,
-        gap: 18,
-        backgroundColor: palette.background,
-      }}
+      contentContainerStyle={{ paddingVertical: 20 }}
     >
-      <View
-        style={{
-          borderRadius: 28,
-          borderCurve: "continuous",
-          padding: 20,
-          gap: 10,
-          backgroundColor: colorScheme === "dark" ? "#1A1D1F" : "#F5F8FA",
-          boxShadow:
-            colorScheme === "dark"
-              ? "0 8px 20px rgba(0, 0, 0, 0.35)"
-              : "0 10px 24px rgba(17, 24, 28, 0.08)",
-        }}
-      >
-        <Text
-          selectable
-          style={{
-            color: palette.icon,
-            fontSize: 13,
-            textTransform: "uppercase",
-            letterSpacing: 1,
-          }}
-        >
-          Home template
-        </Text>
-        <Text
-          selectable
-          style={{
-            color: palette.text,
-            fontSize: 32,
-            lineHeight: 36,
-            fontWeight: "700",
-          }}
-        >
-          Replace with your main headline
-        </Text>
-        <Text
-          selectable
-          style={{
-            color: palette.icon,
-            fontSize: 16,
-            lineHeight: 24,
-            maxWidth: "95%",
-          }}
-        >
-          Use this section for a short overview. Keep it focused on one clear
-          outcome and one next action.
-        </Text>
-      </View>
-
-      <View style={{ gap: 10 }}>
-        <Text
-          selectable
-          style={{
-            color: palette.text,
-            fontSize: 18,
-            fontWeight: "600",
-          }}
-        >
-          Snapshot
-        </Text>
-        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
-          {HOME_STATS.map((stat) => (
-            <View
-              key={stat.label}
-              style={{
-                width: isCompact ? "100%" : "31%",
-                minHeight: 88,
-                borderRadius: 18,
-                borderCurve: "continuous",
-                padding: 14,
-                justifyContent: "space-between",
-                backgroundColor: colorScheme === "dark" ? "#202427" : "#FFFFFF",
-                borderWidth: 1,
-                borderColor: colorScheme === "dark" ? "#2D353A" : "#E8EDF1",
-              }}
-            >
-              <Text selectable style={{ color: palette.icon, fontSize: 13 }}>
-                {stat.label}
-              </Text>
-              <Text
-                selectable
-                style={{
-                  color: palette.text,
-                  fontSize: 28,
-                  lineHeight: 30,
-                  fontWeight: "700",
-                  fontVariant: ["tabular-nums"],
-                }}
-              >
-                {stat.value}
-              </Text>
-            </View>
-          ))}
+      <View style={{ paddingHorizontal: 16, gap: 24 }}>
+        <View style={{ gap: 8 }}>
+          <Text selectable style={{ fontSize: 32, fontWeight: '700' }}>
+            Welcome! 👋
+          </Text>
+          <Text selectable style={{ fontSize: 16, color: '#666' }}>
+            Đây là dự án App Mobile Dev của nhóm L02-CockRoaches
+          </Text>
         </View>
-      </View>
 
-      <View style={{ gap: 10 }}>
-        <Text
-          selectable
-          style={{
-            color: palette.text,
-            fontSize: 18,
-            fontWeight: "600",
-          }}
-        >
-          Quick actions
-        </Text>
-        <View style={{ flexDirection: isCompact ? "column" : "row", gap: 10 }}>
-          <Link href="/(tabs)/home" asChild>
-            <Pressable
-              style={{
-                flex: 1,
-                minHeight: 52,
-                borderRadius: 16,
-                borderCurve: "continuous",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: palette.tint,
-              }}
-            >
-              <Text
-                selectable
-                style={{ color: "#FFFFFF", fontSize: 16, fontWeight: "700" }}
-              >
-                Primary action
-              </Text>
-            </Pressable>
-          </Link>
-
-          <Link href="/(tabs)/onboarding" asChild>
-            <Pressable
-              style={{
-                flex: 1,
-                minHeight: 52,
-                borderRadius: 16,
-                borderCurve: "continuous",
-                alignItems: "center",
-                justifyContent: "center",
-                borderWidth: 1,
-                borderColor: palette.tabIconDefault,
-              }}
-            >
-              <Text
-                selectable
-                style={{ color: palette.text, fontSize: 16, fontWeight: "600" }}
-              >
-                Secondary action
-              </Text>
-            </Pressable>
-          </Link>
+        <View style={{ gap: 12 }}>
+          <FeatureCard
+            icon="🎮"
+            title="GameTwoShape"
+            description="Luyện phối hợp hai tay qua cơ chế vẽ song song"
+          />
+          <FeatureCard
+            icon="🧠"
+            title="Brain Training"
+            description="Rèn chia đôi sự chú ý và tập trung ngắn hạn"
+          />
+          <FeatureCard
+            icon="🚀"
+            title="MVP Ready"
+            description="Core loop, điểm số và flow demo đã sẵn sàng"
+          />
         </View>
-      </View>
 
-      <View style={{ gap: 10 }}>
-        <Text
-          selectable
+        <View
           style={{
-            color: palette.text,
-            fontSize: 18,
-            fontWeight: "600",
+            backgroundColor: '#007AFF',
+            borderRadius: 12,
+            padding: 20,
+            gap: 12,
           }}
         >
-          Recent items
-        </Text>
-        {HOME_LIST_ITEMS.map((item) => (
-          <View
-            key={item}
-            style={{
-              borderRadius: 14,
-              borderCurve: "continuous",
-              paddingHorizontal: 14,
-              paddingVertical: 12,
-              backgroundColor: colorScheme === "dark" ? "#1C2023" : "#FFFFFF",
-              borderWidth: 1,
-              borderColor: colorScheme === "dark" ? "#2B3338" : "#E9EEF3",
-            }}
+          <Text
+            selectable
+            style={{ fontSize: 18, fontWeight: '600', color: 'white' }}
           >
-            <Text
-              selectable
-              style={{ color: palette.text, fontSize: 15, lineHeight: 22 }}
-            >
-              {item}
-            </Text>
+            Demo Stats
+          </Text>
+          <View style={{ flexDirection: 'row', gap: 20 }}>
+            <StatItem number="2" label="Flows" />
+            <StatItem number="3" label="Tabs" />
+            <StatItem number="MVP" label="Scope" />
           </View>
-        ))}
+        </View>
+
+        <View style={{ gap: 10 }}>
+          <Link href="/explore" asChild>
+            <Pressable
+              style={{
+                backgroundColor: '#007AFF',
+                paddingVertical: 14,
+                borderRadius: 10,
+                alignItems: 'center',
+              }}
+            >
+              <Text
+                selectable
+                style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+              >
+                Explore Features
+              </Text>
+            </Pressable>
+          </Link>
+          <Link href="/profile" asChild>
+            <Pressable
+              style={{
+                backgroundColor: '#f5f5f5',
+                paddingVertical: 14,
+                borderRadius: 10,
+                alignItems: 'center',
+              }}
+            >
+              <Text
+                selectable
+                style={{ color: '#000', fontSize: 16, fontWeight: '600' }}
+              >
+                View Team Profile
+              </Text>
+            </Pressable>
+          </Link>
+        </View>
       </View>
     </ScrollView>
+  );
+}
+
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <View
+      style={{
+        backgroundColor: '#fff',
+        padding: 16,
+        borderRadius: 12,
+        borderColor: '#eee',
+        borderWidth: 1,
+        gap: 8,
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+      }}
+    >
+      <Text selectable style={{ fontSize: 28 }}>
+        {icon}
+      </Text>
+      <Text selectable style={{ fontSize: 16, fontWeight: '600' }}>
+        {title}
+      </Text>
+      <Text selectable style={{ fontSize: 14, color: '#666' }}>
+        {description}
+      </Text>
+    </View>
+  );
+}
+
+function StatItem({ number, label }: { number: string; label: string }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', gap: 4 }}>
+      <Text
+        selectable
+        style={{ fontSize: 24, fontWeight: '700', color: 'white' }}
+      >
+        {number}
+      </Text>
+      <Text selectable style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)' }}>
+        {label}
+      </Text>
+    </View>
   );
 }
