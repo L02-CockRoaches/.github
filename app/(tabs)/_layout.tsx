@@ -1,28 +1,55 @@
-import { Tabs } from "expo-router";
-import React from "react";
+import { Tabs } from 'expo-router';
+import { Text } from 'react-native';
 
-import { HapticTab } from "@/components/haptic-tab";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarActiveTintColor: '#007AFF',
+        tabBarInactiveTintColor: '#999',
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopColor: '#eee',
+          borderTopWidth: 1,
+        },
+        headerStyle: {
+          backgroundColor: '#fff',
+          borderBottomColor: '#eee',
+          borderBottomWidth: 1,
+        },
+        headerTintColor: '#000',
+        headerTitleStyle: {
+          fontWeight: '600',
+        },
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
-          title: "/home",
+          title: 'Home',
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <Text style={{ color, fontSize: 20 }}>🏠</Text>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          title: 'Explore',
+          tabBarLabel: 'Explore',
+          tabBarIcon: ({ color }) => (
+            <Text style={{ color, fontSize: 20 }}>🔍</Text>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <Text style={{ color, fontSize: 20 }}>👤</Text>
           ),
         }}
       />

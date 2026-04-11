@@ -1,0 +1,1 @@
+npx eas-cli@latest update --channel preview --message "Onboarding demo for lecturer"
