@@ -41,8 +41,14 @@ jobs:
     - name: Run Build
       run: npm run build
 
-  # Bước deploy có thể thêm vào sau khi workflow test/build đã chạy ổn định
-  # deploy:
-  #   needs: backend-test-and-build
-  #   if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/WebService-Cloud')
-  #   ...
+    - name: Docker Build (Demo)
+      run: docker build -t game2shape-backend ./backend
+
+  deploy:
+    needs: backend-test-and-build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/WebService-Cloud')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"

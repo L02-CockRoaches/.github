@@ -45,23 +45,37 @@ Dự án Brain Training yêu cầu độ trễ thấp và khả năng scale nhan
 
 ## Phần 3 – CI/CD với GitHub Actions
 
-### 1. Quy trình Pipeline tự động
-Mỗi khi nhóm push code lên GitHub, một pipeline sẽ tự động chạy:
-1. **Linter & Test**: Kiểm tra cú pháp và chạy unit test cho module Scores.
-2. **Build**: Build ứng dụng NestJS.
-3. **Dockerize**: Tạo Docker image và đẩy lên Docker Hub.
-4. **Deploy**: Tự động thông báo cho Cloud Provider kéo image mới nhất về (Webhook).
+### 1. Khái niệm và Lợi ích
+CI/CD (Continuous Integration / Continuous Deployment) là quy trình tự động hóa việc tích hợp và triển khai mã nguồn.
+- **Lợi ích cho nhóm môn học**:
+  - **Tránh xung đột mã nguồn**: Khi nhiều thành viên cùng code, CI sẽ chạy test để đảm bảo code mới không làm hỏng tính năng cũ.
+  - **Phản hồi nhanh**: Biết ngay build fail/pass sau khi push, không cần đợi đến lúc tích hợp thủ công.
+  - **Triển khai rảnh tay**: Code pass test sẽ tự động lên server Render, nhóm có thể demo cho giảng viên bất cứ lúc nào.
 
-### 2. Secrets Management
-Các API Key, Database URL được lưu trữ an toàn trong **GitHub Secrets**, không bao giờ bị lộ trong mã nguồn.
+### 2. Quy trình Pipeline (Build -> Test -> Docker -> Deploy)
+Mỗi khi nhóm push code hoặc merge PR vào branch `WebService-Cloud`, pipeline sẽ tự động chạy:
+1. **Build & Test**: Sử dụng Jest để test module `Scores`, đảm bảo logic tính điểm chuẩn xác.
+2. **Dockerize**: Pipeline chạy `docker build` để đóng gói backend thành một "container" độc lập, dễ dàng chạy trên bất kỳ hệ điều hành nào.
+3. **Deploy**: Sau khi test xong, GitHub Actions gửi lệnh (Webhook) yêu cầu Render cập nhật phiên bản mới nhất.
+
+### 3. Secrets Management
+Các API Key, Database URL được lưu trữ an toàn trong **GitHub Secrets**, đảm bảo an toàn thông tin tuyệt đối cho Cloud Provider.
 
 ---
 
-## Phần 4 – Gợi ý mở rộng tương lai
+## Phần 4 – Gợi ý mở rộng & Monitoring
 
-1. **Leaderboard Nâng cao**: Tích hợp Redis để tính toán bảng xếp hạng thời gian thực khi lượng người chơi lên tới hàng ngàn.
-2. **Game Analytics**: Lưu trữ thêm thông tin về "Accuracy" và "TimeSpent" để phân tích xu hướng tiến bộ não bộ của người chơi.
-3. **Managed SQL**: Sử dụng Azure Database for PostgreSQL để đảm bảo dữ liệu game được backup tự động.
+### 1. Managed Database (Neon/Supabase)
+Dự án sử dụng **Neon PostgreSQL** - một dịch vụ database trên cloud hoàn toàn miễn phí cho sinh viên, hỗ trợ tự động mở rộng và có sẵn bộ gom kết nối (Connection Pooler).
+
+### 2. Logging & Monitoring (Cloud Cloud)
+- **Health Check (Terminus)**: Theo dõi sức khỏe hệ thống tại route `/health`. Nếu database bị ngắt kết nối, route này sẽ báo lỗi để Admin xử lý kịp thời.
+- **Logging Interceptor**: Toàn bộ các yêu cầu API gửi lên đều được ghi nhật ký (Log) chi tiết về thời gian phản hồi tại `logging.interceptor.ts`.
+
+### 3. Tách rời Frontend & Backend
+Hệ thống triển khai theo kiến trúc **Decoupled**:
+- **Backend**: NestJS chạy trên Render (Cloud Run/Web Service).
+- **Frontend**: Ứng dụng React Native liên kết qua endpoint URL chuẩn.
 
 ---
 *Tài liệu được cập nhật phù hợp với ứng dụng Game L02. Chúc nhóm thực hiện tốt bài tập lớn!*
