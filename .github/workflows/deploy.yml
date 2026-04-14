@@ -42,7 +42,7 @@ jobs:
       run: npm run build
 
     - name: Docker Build (Demo)
-      run: docker build -t game2shape-backend ./backend
+      run: docker build -t game2shape-backend .
 
   deploy:
     needs: backend-test-and-build
