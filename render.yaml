@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: brain-training-backend
+    name: game2shape-backend
     runtime: node
     plan: free
     rootDir: backend
