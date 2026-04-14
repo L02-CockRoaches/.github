@@ -3,7 +3,7 @@ services:
     name: brain-training-backend
     runtime: node
     plan: free
-    rootDirectory: backend
+    rootDir: backend
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npm run start:prod
     envVars:
