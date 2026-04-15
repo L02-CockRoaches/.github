@@ -50,8 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Render
-        if: env.RENDER_DEPLOY_HOOK != ''
+        if: env.RENDER_DEPLOY_HOOK_URL != ''
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
         env:
-          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
