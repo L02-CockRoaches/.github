@@ -7,6 +7,9 @@ import * as Sentry from '@sentry/nestjs';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
 
 async function bootstrap() {
+  // Load .env manual trước khi NestJS ConfigModule khởi động để lấy cho Sentry
+  require('dotenv').config();
+
   // Khởi tạo Sentry ngay lúc app bắt đầu chạy
   Sentry.init({
     dsn: process.env.SENTRY_DSN, // Lấy từ biến môi trường
