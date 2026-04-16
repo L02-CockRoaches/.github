@@ -8,39 +8,33 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// 1. Model User (Người dùng) - Sửa lại để hợp với game
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   password  String
   name      String?
-  scores    Score[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  scores    Score[]
 }
 
-// 2. Model Game (Danh sách các trò chơi luyện não)
 model Game {
   id          Int      @id @default(autoincrement())
   title       String   @unique
   description String?
-  scores      Score[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  scores      Score[]
 }
 
-// 3. Model Score (Điểm số người chơi đạt được)
 model Score {
   id        Int      @id @default(autoincrement())
   value     Int
-  accuracy  Float?   // Độ chính xác (Ví dụ: vẽ hình khớp 90%)
-  timeSpent Int?     // Thời gian hoàn thành (giây)
-  
-  // Quan hệ: Một Score thuộc về một User và một Game
-  user      User     @relation(fields: [userId], references: [id])
+  accuracy  Float?
+  timeSpent Int?
   userId    Int
-  game      Game     @relation(fields: [gameId], references: [id])
   gameId    Int
-
   createdAt DateTime @default(now())
+  game      Game     @relation(fields: [gameId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
