@@ -4,26 +4,32 @@ import { PrismaService } from '../prisma/prisma.service';
 
 describe('UsersService', () => {
   let service: UsersService;
-  let prisma: PrismaService;
+  let prisma: {
+    user: {
+      findUnique: jest.Mock;
+      create: jest.Mock;
+    };
+  };
 
   beforeEach(async () => {
+    prisma = {
+      user: {
+        findUnique: jest.fn(),
+        create: jest.fn(),
+      },
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         UsersService,
         {
           provide: PrismaService,
-          useValue: {
-            user: {
-              findUnique: jest.fn(),
-              create: jest.fn(),
-            },
-          },
+          useValue: prisma,
         },
       ],
     }).compile();
 
     service = module.get<UsersService>(UsersService);
-    prisma = module.get<PrismaService>(PrismaService);
   });
 
   it('should be defined', () => {
@@ -36,6 +42,22 @@ describe('UsersService', () => {
       await service.findOne(email);
       expect(prisma.user.findUnique).toHaveBeenCalledWith({
         where: { email },
+      });
+    });
+  });
+
+  describe('create', () => {
+    it('should call prisma.user.create with the provided payload', async () => {
+      const userData = {
+        email: 'new-user@example.com',
+        password: 'hashed-password',
+        name: 'New User',
+      };
+
+      await service.create(userData);
+
+      expect(prisma.user.create).toHaveBeenCalledWith({
+        data: userData,
       });
     });
   });
