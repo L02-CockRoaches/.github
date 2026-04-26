@@ -110,4 +110,7 @@ npm run test:coverage
 
 # Chạy test ở chế độ watch (tự động chạy lại khi code thay đổi)
 npm run test:watch
+
+# Chạy test cho backend
+npm run test:backend
 ```
