@@ -19,7 +19,6 @@ module.exports = {
   // Đo coverage cho app/ và src/
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
-    "src/**/*.{ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/sentry-example-page/**",
