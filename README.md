@@ -1,8 +1,8 @@
 # 🪳 L02-CockRoaches
 
 ![CI — Test & SonarCloud Analysis](https://github.com/L02-CockRoaches/main-app/actions/workflows/test.yml/badge.svg)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Flappy-Devs_ScrapTech&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Flappy-Devs_ScrapTech)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Flappy-Devs_ScrapTech&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Flappy-Devs_ScrapTech)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=L02-CockRoaches_main-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=L02-CockRoaches_main-app)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=L02-CockRoaches_main-app&metric=coverage)](https://sonarcloud.io/summary/new_code?id=L02-CockRoaches_main-app)
 
 Welcome to the GitHub organization for the **Mobile Development course – Class L02**.
 
