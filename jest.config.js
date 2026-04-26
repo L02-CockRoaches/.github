@@ -14,13 +14,19 @@ module.exports = {
 
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["/node_modules/", "/backend/"],
+  coverageProvider: "v8",
 
   // Đo coverage cho app/ và src/
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
     "src/**/*.{ts,tsx}",
     "!**/*.d.ts",
-    "!**/node_modules/**"
+    "!**/node_modules/**",
+    "!**/sentry-example-page/**",
+    "!**/api/sentry-example-api/**",
+    "!app/global-error.tsx",
+    "!app/**/_layout.tsx",
+    "!app/(tabs)/explore.tsx"
   ],
   coverageReporters: ["lcov", "text", "text-summary", "html"],  // html cho artifact, lcov cho SonarCloud
   coverageDirectory: "coverage",
