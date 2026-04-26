@@ -90,4 +90,12 @@ Khi đó, Expo sẽ sử dụng `ngrok` để tạo ra một URL, đóng vai tr�
 ## 3. Business Model Canvas (Draft)
 Ứng dụng luyện phối hợp hai tay bằng cách vẽ hai hình khác nhau cùng lúc (ví dụ: hình tròn và hình vuông).
 
-... (rest of the content)
+## 4. Local testing instructions
+## Commands
+
+```bash
+npm run test
+npm run test:watch
+npm run test:coverage
+npm run test:backend
+```
