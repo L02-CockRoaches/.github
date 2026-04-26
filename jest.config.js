@@ -1,34 +1,28 @@
 module.exports = {
-  preset: 'jest-expo',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testMatch: [
-    '**/__tests__/**/*.test.ts',
-    '**/__tests__/**/*.test.tsx',
-    '**/__tests__/**/*.spec.ts',
-    '**/__tests__/**/*.spec.tsx',
-  ],
-  testPathIgnorePatterns: ['/node_modules/', '/backend/'],
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-    '^@components/(.*)$': '<rootDir>/components/$1',
-    '^@screens/(.*)$': '<rootDir>/screens/$1',
-    '^@assets/(.*)$': '<rootDir>/assets/$1',
-    '^@utils/(.*)$': '<rootDir>/utils/$1',
-    '^@hooks/(.*)$': '<rootDir>/hooks/$1',
-    '^@constants/(.*)$': '<rootDir>/constants/$1',
-    '^@types/(.*)$': '<rootDir>/types/$1',
-    '^@scripts/(.*)$': '<rootDir>/scripts/$1',
-  },
+  preset: "jest-expo",
+
+  // Bỏ qua native modules, chỉ transform code cần thiết
   transformIgnorePatterns: [
-    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg))',
+    "node_modules/(?!((jest-)?react-native|@react-native|expo|@expo|expo-router))"
   ],
+
+  moduleNameMapper: {
+    "^expo/src/winter(.*)$": "<rootDir>/__mocks__/expoWinterMock.js", // Fix Expo ESM
+    "^@/(.*)$": "<rootDir>/$1",                                        // Alias @/
+    "\\.(png|jpg|svg)$": "<rootDir>/__mocks__/fileMock.js"            // Mock ảnh
+  },
+
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  testPathIgnorePatterns: ["/node_modules/", "/backend/"],
+
+  // Đo coverage cho app/ và src/
   collectCoverageFrom: [
-    'app/**/*.{ts,tsx}',
-    'components/**/*.{ts,tsx}',
-    'hooks/**/*.{ts,tsx}',
-    'utils/**/*.{ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**',
-    '!**/.expo/**',
+    "app/**/*.{ts,tsx}",
+    "src/**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**"
   ],
+  coverageReporters: ["lcov", "text", "text-summary", "html"],  // html cho artifact, lcov cho SonarCloud
+  coverageDirectory: "coverage",
 };
+

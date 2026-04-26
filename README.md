@@ -1,5 +1,9 @@
 # 🪳 L02-CockRoaches
 
+![CI — Test & SonarCloud Analysis](https://github.com/L02-CockRoaches/main-app/actions/workflows/test.yml/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Flappy-Devs_ScrapTech&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Flappy-Devs_ScrapTech)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Flappy-Devs_ScrapTech&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Flappy-Devs_ScrapTech)
+
 Welcome to the GitHub organization for the **Mobile Development course – Class L02**.
 
 This organization is used to manage repositories for:
@@ -91,3 +95,19 @@ Khi đó, Expo sẽ sử dụng `ngrok` để tạo ra một URL, đóng vai tr�
 Ứng dụng luyện phối hợp hai tay bằng cách vẽ hai hình khác nhau cùng lúc (ví dụ: hình tròn và hình vuông).
 
 ... (rest of the content)
+
+## 🧪 Testing
+
+### Chạy test locally
+Để chạy unit test trên máy cá nhân, sử dụng các lệnh sau:
+
+```bash
+# Chạy toàn bộ test
+npm test
+
+# Chạy test với báo cáo coverage (sinh thư mục coverage/)
+npm run test:coverage
+
+# Chạy test ở chế độ watch (tự động chạy lại khi code thay đổi)
+npm run test:watch
+```
