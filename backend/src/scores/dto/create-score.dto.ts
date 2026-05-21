@@ -1,10 +1,10 @@
-import { IsNumber, IsNotEmpty, IsOptional, IsPositive, Max } from 'class-validator';
+import { IsNumber, IsNotEmpty, IsOptional, Min, Max } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateScoreDto {
   @ApiProperty({ example: 1250, description: 'Điểm số người chơi đạt được' })
   @IsNumber()
-  @IsPositive()
+  @Min(0)
   @IsNotEmpty()
   value: number;
 
