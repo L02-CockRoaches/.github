@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 
-const mockLinkPress = jest.fn();
+const mockReplace = jest.fn();
 
 jest.mock('expo-router', () => {
   const React = require('react');
@@ -10,11 +10,17 @@ jest.mock('expo-router', () => {
     Link: ({ children, href, asChild }: any) => {
       if (asChild && React.isValidElement(children)) {
         return React.cloneElement(children, {
-          onPress: () => mockLinkPress(href),
+          onPress: () => {},
         });
       }
 
       return children;
+    },
+    useLocalSearchParams: () => ({}),
+    router: {
+      push: jest.fn(),
+      replace: (...args: unknown[]) => mockReplace(...args),
+      setParams: jest.fn(),
     },
   };
 });
@@ -23,26 +29,23 @@ import Home from '@/app/(tabs)/home';
 
 describe('<Home />', () => {
   beforeEach(() => {
-    mockLinkPress.mockClear();
+    mockReplace.mockClear();
   });
 
   it('renders the home screen content', () => {
     const { getByText } = render(<Home />);
 
-    expect(getByText('Welcome! 👋')).toBeTruthy();
-    expect(
-      getByText('Đây là dự án App Mobile Dev của nhóm L02-CockRoaches')
-    ).toBeTruthy();
-    expect(getByText('GameTwoShape')).toBeTruthy();
-    expect(getByText('Explore Features')).toBeTruthy();
+    expect(getByText(/STITCH SYNC/i)).toBeTruthy();
+    expect(getByText(/CHƠI ĐƠN & CO-OP/i)).toBeTruthy();
+    expect(getByText(/TÌM TRẬN THI ĐẤU/i)).toBeTruthy();
   });
 
-  it('calls navigation when the explore button is pressed', () => {
+  it('calls navigation when the play button is pressed', () => {
     const { getByText } = render(<Home />);
 
-    fireEvent.press(getByText('Explore Features'));
+    fireEvent.press(getByText(/CHƠI ĐƠN & CO-OP/i));
 
-    expect(mockLinkPress).toHaveBeenCalledWith('/explore');
+    expect(mockReplace).toHaveBeenCalledWith('/(tabs)/explore');
   });
 
   it('mounts without crashing', () => {

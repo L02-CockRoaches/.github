@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react-native';
+import { fireEvent, render, act } from '@testing-library/react-native';
 
 const mockReplace = jest.fn();
 
@@ -15,23 +15,38 @@ import OnboardingScreen from '@/app/index';
 describe('<OnboardingScreen />', () => {
   beforeEach(() => {
     mockReplace.mockClear();
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('renders the onboarding content', () => {
     const { getByText } = render(<OnboardingScreen />);
 
-    expect(getByText('🪳 GameTwoShape')).toBeTruthy();
-    expect(getByText('Train your brain, both sides at once.')).toBeTruthy();
-    expect(getByText('Core Gameplay')).toBeTruthy();
-    expect(getByText('Bắt đầu demo')).toBeTruthy();
+    // Fast forward the splash screen progress simulation
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
+
+    expect(getByText(/GameTwoShape/i)).toBeTruthy();
+    expect(getByText(/Train your brain, both sides at once/i)).toBeTruthy();
+    expect(getByText(/Core Gameplay/i)).toBeTruthy();
+    expect(getByText(/Bắt đầu tập luyện/i)).toBeTruthy();
   });
 
   it('navigates to explore when the CTA button is pressed', () => {
     const { getByText } = render(<OnboardingScreen />);
 
-    fireEvent.press(getByText('Bắt đầu demo'));
+    // Fast forward the splash screen progress simulation
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
 
-    expect(mockReplace).toHaveBeenCalledWith('/explore');
+    fireEvent.press(getByText(/Bắt đầu tập luyện/i));
+
+    expect(mockReplace).toHaveBeenCalledWith('/(tabs)/home');
   });
 
   it('mounts without crashing', () => {
