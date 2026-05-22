@@ -2,6 +2,7 @@ import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
+import { GoogleLoginDto } from './dto/google-login.dto';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('auth')
@@ -19,5 +20,11 @@ export class AuthController {
   @ApiOperation({ summary: 'Đăng nhập để lấy Access Token' })
   login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
+  }
+
+  @Post('google')
+  @ApiOperation({ summary: 'Đăng nhập bằng Google ID Token' })
+  googleLogin(@Body() googleLoginDto: GoogleLoginDto) {
+    return this.authService.googleLogin(googleLoginDto);
   }
 }
