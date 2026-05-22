@@ -21,11 +21,12 @@ jobs:
           node-version: '20'
           cache: 'npm'
           cache-dependency-path: |
-            package-lock.json
+            frontend/package-lock.json
             backend/package-lock.json
 
       - name: Install frontend dependencies
         run: npm install --legacy-peer-deps
+        working-directory: frontend
 
       - name: Install backend dependencies
         run: npm install
@@ -39,6 +40,7 @@ jobs:
 
       - name: Run frontend Jest with coverage
         run: npx jest --coverage --passWithNoTests
+        working-directory: frontend
         env:
           EXPO_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
           EXPO_PUBLIC_SUPABASE_KEY: placeholder_key
