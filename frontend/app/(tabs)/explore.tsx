@@ -45,6 +45,11 @@ export default function Explore() {
   const leftCanvasRef = useRef<View>(null);
   const rightCanvasRef = useRef<View>(null);
 
+  // Multi-touch simultaneous drawing tracking refs
+  const isLeftActive = useRef(false);
+  const isRightActive = useRef(false);
+  const overlappedTouch = useRef(false);
+
   const triggerHaptic = (style = Haptics.ImpactFeedbackStyle.Light) => {
     Haptics.impactAsync(style).catch(() => {});
   };
@@ -82,6 +87,10 @@ export default function Explore() {
           setTimer(10);
           setLeftLines([]);
           setRightLines([]);
+          // Reset multi-touch refs for the new round
+          overlappedTouch.current = false;
+          isLeftActive.current = false;
+          isRightActive.current = false;
           return 0;
         }
         triggerHaptic(Haptics.ImpactFeedbackStyle.Light);
@@ -210,6 +219,15 @@ export default function Explore() {
 
   const validateDrawing = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+
+    // Chơi đơn yêu cầu phải vẽ đồng thời cả 2 tay cùng lúc
+    if (!isVersusMode && !overlappedTouch.current) {
+      setGameState('mismatch');
+      setStreak(0);
+      setAccuracy((prev) => Math.max(70, prev - 6));
+      return;
+    }
+
     const isSuccess = Math.random() > 0.15; // 85% success rate simulation
 
     if (isSuccess) {
@@ -381,8 +399,20 @@ export default function Explore() {
                 setLeftLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
               }}
               onResponderRelease={handleTouchEnd}
+              onTouchStart={() => {
+                isLeftActive.current = true;
+                if (isRightActive.current) {
+                  overlappedTouch.current = true;
+                }
+              }}
               onTouchMove={handleLeftTouchMove}
-              onTouchEnd={handleTouchEnd}
+              onTouchEnd={() => {
+                isLeftActive.current = false;
+                handleTouchEnd();
+              }}
+              onTouchCancel={() => {
+                isLeftActive.current = false;
+              }}
               style={[styles.canvasContainerHalf, { borderRightWidth: 1, borderRightColor: '#202D33' }]}
             >
               {/* Target Outline Shape */}
@@ -418,8 +448,23 @@ export default function Explore() {
                 setRightLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
               }}
               onResponderRelease={handleTouchEnd}
+              onTouchStart={() => {
+                if (isVersusMode) return;
+                isRightActive.current = true;
+                if (isLeftActive.current) {
+                  overlappedTouch.current = true;
+                }
+              }}
               onTouchMove={handleRightTouchMove}
-              onTouchEnd={handleTouchEnd}
+              onTouchEnd={() => {
+                if (isVersusMode) return;
+                isRightActive.current = false;
+                handleTouchEnd();
+              }}
+              onTouchCancel={() => {
+                if (isVersusMode) return;
+                isRightActive.current = false;
+              }}
               style={styles.canvasContainerHalf}
             >
               {/* Target Outline Shape */}
@@ -537,7 +582,9 @@ export default function Explore() {
           <View style={styles.errorTipCard}>
             <Ionicons name="bulb" size={24} color="#FFD700" />
             <Text style={styles.errorTipText}>
-              Hãy đảm bảo Tay Phải vẽ góc nhọn của hình vuông khớp với vị trí mẫu.
+              {!isVersusMode && !overlappedTouch.current
+                ? 'Lỗi: Bạn phải chạm và vẽ đồng thời bằng cả 2 tay cùng một lúc!'
+                : 'Hãy đảm bảo Tay Phải vẽ góc nhọn của hình vuông khớp với vị trí mẫu.'}
             </Text>
           </View>
 
