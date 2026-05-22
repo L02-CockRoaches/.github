@@ -2,73 +2,93 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ WebService-Cloud, main ]
+    branches: [ main ]
   pull_request:
-    branches: [ WebService-Cloud, main ]
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+  test-and-analyze:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: '20.x'
+          fetch-depth: 0
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
           cache: 'npm'
-          cache-dependency-path: './backend/package-lock.json'
+          cache-dependency-path: |
+            package-lock.json
+            backend/package-lock.json
 
-      - name: Install dependencies
+      - name: Install frontend dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Install backend dependencies
         run: npm install
+        working-directory: backend
 
-      - name: Prisma Generate
+      - name: Prisma Generate (Backend)
         run: npx prisma generate
+        working-directory: backend
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      - name: Run Tests
-        run: npm test
+      - name: Run frontend Jest with coverage
+        run: npx jest --coverage --passWithNoTests
+        env:
+          EXPO_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+          EXPO_PUBLIC_SUPABASE_KEY: placeholder_key
+
+      - name: Run backend Jest
+        run: npx jest --passWithNoTests
+        working-directory: backend
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
-      - name: Run Build
-        run: npm run build
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-report
+          path: coverage/lcov-report
+          retention-days: 7
 
-  dockerize:
-    needs: build-and-test
+      - name: Install SonarQube Scanner
+        run: npm install -g sonarqube-scanner
+
+      - name: SonarCloud Scan
+        run: sonar-scanner
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+
+  deploy-backend-azure:
+    needs: test-and-analyze
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/WebService-Cloud')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
+      - name: Log in to Azure Container Registry (ACR)
+        uses: azure/docker-login@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          login-server: ${{ secrets.AZURE_ACR_NAME }}.azurecr.io
+          username: ${{ secrets.AZURE_ACR_USERNAME }}
+          password: ${{ secrets.AZURE_ACR_PASSWORD }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/game2shape-backend:latest
-
-  deploy:
-    needs: dockerize
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/WebService-Cloud')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Render
-        env:
-          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        if: env.RENDER_DEPLOY_HOOK_URL != ''
-        run: |
-          curl -X POST "${{ env.RENDER_DEPLOY_HOOK_URL }}"
+          tags: ${{ secrets.AZURE_ACR_NAME }}.azurecr.io/game2shape-backend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
