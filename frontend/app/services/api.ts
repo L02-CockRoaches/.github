@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001/v1';
+const BASE_URL = 'https://game2shape-backend.azurewebsites.net/v1';
 
 let authToken: string | null = null;
 
@@ -66,6 +66,29 @@ export const api = {
       const result = await response.json();
       if (!response.ok) {
         return { success: false, error: result.message || 'Đăng nhập không thành công' };
+      }
+      if (result.access_token) {
+        setToken(result.access_token);
+        return { success: true, token: result.access_token, user: result.user };
+      }
+      return { success: false, error: 'Phản hồi từ máy chủ không hợp lệ' };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Lỗi mạng, vui lòng thử lại' };
+    }
+  },
+
+  async googleLogin(idToken: string): Promise<{ success: boolean; token?: string; user?: UserProfile; error?: string }> {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/google`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idToken }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        return { success: false, error: result.message || 'Đăng nhập Google thất bại' };
       }
       if (result.access_token) {
         setToken(result.access_token);

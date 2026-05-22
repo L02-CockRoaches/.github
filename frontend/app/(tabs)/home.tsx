@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Pressable, ScrollView, Text, View, StyleSheet, Switch, TextInput } from 'react-native';
+import { Pressable, ScrollView, Text, View, StyleSheet, Switch, TextInput, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { Ionicons } from '@expo/vector-icons';
@@ -159,6 +159,20 @@ export default function Home() {
     setAuthError('');
     setIsAuthLoading(true);
     
+    if (Platform.OS === 'web') {
+      const clientId = '860435877394-1p0enmcu2v5u1t72do1kueq5dmr5lhps.apps.googleusercontent.com';
+      const redirectUri = window.location.origin + window.location.pathname;
+      const oauthUrl = `https://accounts.google.com/o/oauth2/v2/auth` +
+        `?client_id=${clientId}` +
+        `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+        `&response_type=id_token` +
+        `&scope=${encodeURIComponent('openid profile email')}` +
+        `&nonce=${Math.random().toString(36).substring(2)}`;
+      window.location.href = oauthUrl;
+      return;
+    }
+
+    // Fallback/Mock cho thiết bị di động
     const email = 'player.google@gmail.com';
     const password = 'googleSignInPassword123';
     const name = 'Google Player';
@@ -202,6 +216,41 @@ export default function Home() {
       }
     }
   };
+
+  // Bắt sự kiện Redirect từ Google OAuth Token trên Web
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      const hash = window.location.hash;
+      if (hash && hash.includes('id_token=')) {
+        const params = new URLSearchParams(hash.substring(1));
+        const idToken = params.get('id_token');
+        if (idToken) {
+          // Xóa hash trên thanh địa chỉ URL để tránh lặp lại
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          
+          setIsAuthLoading(true);
+          setAuthError('');
+          setActiveModal('auth');
+          
+          api.googleLogin(idToken).then(res => {
+            setIsAuthLoading(false);
+            if (res.success && res.user) {
+              setUser({
+                username: res.user.name,
+                email: res.user.email
+              });
+              setActiveModal(null);
+            } else {
+              setAuthError(res.error || 'Đăng nhập Google thất bại');
+            }
+          }).catch(err => {
+            setIsAuthLoading(false);
+            setAuthError(err.message || 'Lỗi mạng khi đăng nhập Google');
+          });
+        }
+      }
+    }
+  }, []);
 
   const handleLogOut = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
