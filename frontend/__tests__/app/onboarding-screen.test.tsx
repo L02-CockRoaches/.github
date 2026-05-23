@@ -36,7 +36,7 @@ describe('<OnboardingScreen />', () => {
     expect(getByText(/Bắt đầu tập luyện/i)).toBeTruthy();
   });
 
-  it('navigates to explore when the CTA button is pressed', () => {
+  it('navigates to home when the CTA button is pressed', () => {
     const { getByText } = render(<OnboardingScreen />);
 
     // Fast forward the splash screen progress simulation

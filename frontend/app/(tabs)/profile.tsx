@@ -1,6 +1,6 @@
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
 export default function Profile() {
   const triggerHaptic = () => {
@@ -103,9 +103,9 @@ export default function Profile() {
               justifyContent: 'center',
             }}
           >
-            <StatCell label="Members" value="4+" />
+            <StatCell label="Members" value="5" />
             <StatCell label="Focus" value="MVP" />
-            <StatCell label="Course" value="L02" />
+            <StatCell label="Course" value="Mobile app" />
           </View>
         </View>
 
@@ -150,7 +150,7 @@ export default function Profile() {
             <TechRow label="Expo / React Native" value="Frontend" accentColor="#00F2FF" />
             <TechRow label="TypeScript" value="Code safety" accentColor="#BF00FF" />
             <TechRow label="REST APIs" value="Extensible" accentColor="#FF007F" />
-            <TechRow label="Firebase" value="Database" accentColor="#707979" />
+            <TechRow label="PostgreSQL" value="Database" accentColor="#707979" />
           </View>
         </View>
 

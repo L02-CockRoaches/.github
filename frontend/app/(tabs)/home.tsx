@@ -941,7 +941,8 @@ export default function Home() {
                     desc="Nâng cao khả năng phối hợp"
                     shapes={['hexagon', 'pentagon']}
                     selected={selectedPracticeCategory === 'HEX_PENTA'}
-                    onPress={() => { triggerHaptic(); setSelectedPracticeCategory('HEX_PENTA'); }}
+                    locked={true}
+                    onPress={() => {}}
                   />
                   <PracticeCategoryCard
                     id="STAR_DIAMOND"
@@ -949,7 +950,8 @@ export default function Home() {
                     desc="Cấp độ thử thách não bộ"
                     shapes={['star', 'diamond']}
                     selected={selectedPracticeCategory === 'STAR_DIAMOND'}
-                    onPress={() => { triggerHaptic(); setSelectedPracticeCategory('STAR_DIAMOND'); }}
+                    locked={true}
+                    onPress={() => {}}
                   />
                 </View>
               </View>
@@ -966,7 +968,14 @@ export default function Home() {
             </ScrollView>
 
             <Pressable
-              onPress={() => { triggerHaptic(Haptics.ImpactFeedbackStyle.Medium); setActiveModal(null); router.replace('/(tabs)/explore'); }}
+              onPress={() => {
+                triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+                setActiveModal(null);
+                router.replace({
+                  pathname: '/(tabs)/explore',
+                  params: { category: selectedPracticeCategory }
+                });
+              }}
               style={[styles.closeBtn, { backgroundColor: '#00F2FF' }]}
             >
               <Text style={[styles.closeBtnText, { color: '#0B0F12' }]}>BẮT ĐẦU LUYỆN TẬP</Text>
@@ -1801,6 +1810,7 @@ function PracticeCategoryCard({
   desc,
   shapes,
   selected,
+  locked = false,
   onPress,
 }: {
   id: string;
@@ -1808,21 +1818,30 @@ function PracticeCategoryCard({
   desc: string;
   shapes: string[];
   selected: boolean;
+  locked?: boolean;
   onPress: () => void;
 }) {
   return (
     <Pressable
-      onPress={onPress}
+      onPress={locked ? undefined : onPress}
       style={[
         styles.practiceCard,
         selected && { borderColor: '#00F2FF', backgroundColor: 'rgba(0, 242, 255, 0.03)' },
+        locked && { opacity: 0.45, borderColor: '#1D2428' },
       ]}
     >
-      <Text style={[styles.practiceCardTitle, selected && { color: '#00F2FF' }]}>{title}</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={[styles.practiceCardTitle, selected && { color: '#00F2FF' }, locked && { color: '#707979' }]}>{title}</Text>
+        {locked && (
+          <View style={{ backgroundColor: 'rgba(255, 75, 43, 0.12)', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, borderWidth: 1, borderColor: 'rgba(255, 75, 43, 0.2)' }}>
+            <Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 8, color: '#FF4B2B' }}>LOCK</Text>
+          </View>
+        )}
+      </View>
       <Text style={styles.practiceCardDesc}>{desc}</Text>
       <View style={styles.practiceShapesRow}>
-        <View style={styles.practiceShapeBullet} />
-        <View style={[styles.practiceShapeBullet, { backgroundColor: '#BF00FF' }]} />
+        <View style={[styles.practiceShapeBullet, locked && { backgroundColor: '#202D33' }]} />
+        <View style={[styles.practiceShapeBullet, { backgroundColor: '#BF00FF' }, locked && { backgroundColor: '#202D33' }]} />
       </View>
     </Pressable>
   );

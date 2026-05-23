@@ -6,6 +6,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { recognize } from '../../utils/shape-recognizer';
 
 type GameState = 'get-ready' | 'playing' | 'success' | 'mismatch' | 'game-over';
 
@@ -15,43 +16,23 @@ interface Point {
 }
 
 // Per-round shape configurations
-interface RoundShapeConfig {
-  leftLabel: string;
-  leftGuide: string;
-  rightLabel: string;
-  rightGuide: string;
-}
 
-const ROUND_SHAPES: RoundShapeConfig[] = [
-  { leftLabel: 'Vẽ hình Tròn',     leftGuide: 'Vẽ đường tròn khép kín',      rightLabel: 'Vẽ hình Vuông nghiêng', rightGuide: 'Vẽ hình vuông nghiêng' },
-  { leftLabel: 'Vẽ hình Oval',     leftGuide: 'Vẽ hình bầu dục khép kín',   rightLabel: 'Vẽ hình Tam giác',      rightGuide: 'Vẽ hình tam giác khép kín' },
-  { leftLabel: 'Vẽ hình Tròn lớn', leftGuide: 'Vẽ đường tròn lớn khép kín', rightLabel: 'Vẽ hình Chữ nhật',      rightGuide: 'Vẽ hình chữ nhật khép kín' },
-];
-
-/** Equilateral triangle outline built from 3 rotated View lines. */
-function TriangleOutline({ size, color }: { size: number; color: string }) {
-  const h = size * Math.sqrt(3) / 2;
-  const line = { position: 'absolute' as const, height: 2, backgroundColor: color };
-  return (
-    <View style={{ width: size, height: h }}>
-      <View style={[line, { left: 0, top: h - 2, width: size }]} />
-      <View style={[line, { left: -(size / 4), top: h / 2 - 1, width: size, transform: [{ rotate: '-60deg' }] }]} />
-      <View style={[line, { left: size / 4,    top: h / 2 - 1, width: size, transform: [{ rotate: '60deg'  }] }]} />
-    </View>
-  );
-}
 
 export default function Explore() {
   const params = useLocalSearchParams();
   const isVersusMode = params.mode === 'versus';
   const opponentName = (params.opponentName as string) || 'Đối thủ';
 
+  const category = (params.category as string) || 'CIRCLE_SQUARE';
+  const leftShape: 'circle' | 'square' | 'triangle' = isVersusMode ? 'circle' : (category === 'DOUBLE_TRIANGLE' ? 'triangle' : 'circle');
+  const rightShape: 'circle' | 'square' | 'triangle' = isVersusMode ? 'square' : (category === 'DOUBLE_TRIANGLE' ? 'triangle' : 'square');
+
   const [gameState, setGameState] = useState<GameState>('get-ready');
   const [countdown, setCountdown] = useState(3);
   const [timer, setTimer] = useState(10);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
-  const currentShape = ROUND_SHAPES[(round - 1) % ROUND_SHAPES.length];
+
   const [streak, setStreak] = useState(0);
   const [accuracy, setAccuracy] = useState(96);
   
@@ -67,6 +48,8 @@ export default function Explore() {
   const [leftLines, setLeftLines] = useState<Point[]>([]);
   const [rightLines, setRightLines] = useState<Point[]>([]);
   const [isPaused, setIsPaused] = useState(false);
+  const [leftCanvasSize, setLeftCanvasSize] = useState({ width: 200, height: 400 });
+  const [rightCanvasSize, setRightCanvasSize] = useState({ width: 200, height: 400 });
 
   // Layout refs
   const leftCanvasRef = useRef<View>(null);
@@ -306,22 +289,40 @@ export default function Explore() {
     }
   };
 
-  const validateDrawing = () => {
+  const validateDrawing = (customLeft?: Point[], customRight?: Point[]) => {
     // Guard: only validate once per round
     if (hasValidated.current) return;
     hasValidated.current = true;
-
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+
+    const actualLeft = customLeft || leftLines;
+    const actualRight = customRight || rightLines;
 
     // Chơi đơn yêu cầu phải vẽ đồng thời cả 2 tay cùng lúc
     if (!isVersusMode && !overlappedTouch.current) {
       setGameState('mismatch');
       setStreak(0);
-      setAccuracy((prev) => Math.max(70, prev - 6));
+      setAccuracy(50);
       return;
     }
 
-    const isSuccess = Math.random() > 0.15; // 85% success rate simulation
+    let isSuccess = false;
+    let computedAccuracy = 0;
+
+    if (isVersusMode) {
+      const userAcc = recognize(actualLeft, leftShape);
+      computedAccuracy = Math.round(userAcc * 100);
+      isSuccess = computedAccuracy >= 65;
+      console.log('validateDrawing (versus):', { userAcc, computedAccuracy, isSuccess, leftLinesLength: actualLeft.length });
+    } else {
+      const leftAcc = recognize(actualLeft, leftShape);
+      const rightAcc = recognize(actualRight, rightShape);
+      computedAccuracy = Math.round(((leftAcc + rightAcc) / 2) * 100);
+      isSuccess = leftAcc >= 0.65 && rightAcc >= 0.65;
+      console.log('validateDrawing (practice):', { leftAcc, rightAcc, computedAccuracy, isSuccess, leftLinesLength: actualLeft.length, rightLinesLength: actualRight.length });
+    }
+
+    setAccuracy(computedAccuracy);
 
     if (isSuccess) {
       setGameState('success');
@@ -330,7 +331,6 @@ export default function Explore() {
     } else {
       setGameState('mismatch');
       setStreak(0);
-      setAccuracy((prev) => Math.max(70, prev - 4));
     }
 
     if (isVersusMode) {
@@ -341,6 +341,132 @@ export default function Explore() {
         setOpponentAccuracy((prev) => Math.max(65, prev - Math.floor(Math.random() * 5)));
       }
     }
+  };
+
+  const runDevMultiTouchSimulation = () => {
+    // Reset lines
+    setLeftLines([]);
+    setRightLines([]);
+    
+    // Simulate multi-touch active states
+    isLeftActive.current = true;
+    isRightActive.current = true;
+    overlappedTouch.current = true;
+    
+    const leftCenterX = leftCanvasSize.width / 2;
+    const leftCenterY = leftCanvasSize.height / 2;
+    const rightCenterX = rightCanvasSize.width / 2;
+    const rightCenterY = rightCanvasSize.height / 2;
+
+    const simulatedLeft: Point[] = [];
+    const simulatedRight: Point[] = [];
+
+    let step = 0;
+    const maxSteps = 30;
+    const interval = setInterval(() => {
+      step++;
+      
+      // Left shape
+      let x1 = leftCenterX;
+      let y1 = leftCenterY;
+      
+      if (leftShape === 'circle') {
+        const angle = (step / maxSteps) * Math.PI * 2;
+        x1 = leftCenterX + Math.cos(angle) * 55;
+        y1 = leftCenterY + Math.sin(angle) * 55;
+      } else if (leftShape === 'triangle') {
+        const side = 100;
+        const h = side * (Math.sqrt(3) / 2);
+        const q = maxSteps / 3;
+        if (step <= q) {
+          const t = step / q;
+          x1 = leftCenterX + t * (side / 2);
+          y1 = leftCenterY - ((2 / 3) * h) + t * h;
+        } else if (step <= q * 2) {
+          const t = (step - q) / q;
+          x1 = leftCenterX + side / 2 - t * side;
+          y1 = leftCenterY + ((1 / 3) * h);
+        } else {
+          const t = (step - q * 2) / q;
+          x1 = leftCenterX - side / 2 + t * (side / 2);
+          y1 = leftCenterY + ((1 / 3) * h) - t * h;
+        }
+      } else { // square
+        const size = 95;
+        const q = maxSteps / 4;
+        if (step <= q) {
+          x1 = leftCenterX - size / 2 + (step / q) * size;
+          y1 = leftCenterY - size / 2;
+        } else if (step <= q * 2) {
+          x1 = leftCenterX + size / 2;
+          y1 = leftCenterY - size / 2 + ((step - q) / q) * size;
+        } else if (step <= q * 3) {
+          x1 = leftCenterX + size / 2 - ((step - q * 2) / q) * size;
+          y1 = leftCenterY + size / 2;
+        } else {
+          x1 = leftCenterX - size / 2;
+          y1 = leftCenterY + size / 2 - ((step - q * 3) / q) * size;
+        }
+      }
+      
+      // Right shape
+      let x2 = rightCenterX;
+      let y2 = rightCenterY;
+      
+      if (rightShape === 'circle') {
+        const angle = (step / maxSteps) * Math.PI * 2;
+        x2 = rightCenterX + Math.cos(angle) * 55;
+        y2 = rightCenterY + Math.sin(angle) * 55;
+      } else if (rightShape === 'square') {
+        const size = 95;
+        const q = maxSteps / 4;
+        if (step <= q) {
+          x2 = rightCenterX - size / 2 + (step / q) * size;
+          y2 = rightCenterY - size / 2;
+        } else if (step <= q * 2) {
+          x2 = rightCenterX + size / 2;
+          y2 = rightCenterY - size / 2 + ((step - q) / q) * size;
+        } else if (step <= q * 3) {
+          x2 = rightCenterX + size / 2 - ((step - q * 2) / q) * size;
+          y2 = rightCenterY + size / 2;
+        } else {
+          x2 = rightCenterX - size / 2;
+          y2 = rightCenterY + size / 2 - ((step - q * 3) / q) * size;
+        }
+      } else if (rightShape === 'triangle') {
+        const side = 100;
+        const h = side * (Math.sqrt(3) / 2);
+        const q = maxSteps / 3;
+        if (step <= q) {
+          const t = step / q;
+          x2 = rightCenterX + t * (side / 2);
+          y2 = rightCenterY - ((2 / 3) * h) + t * h;
+        } else if (step <= q * 2) {
+          const t = (step - q) / q;
+          x2 = rightCenterX + side / 2 - t * side;
+          y2 = rightCenterY + ((1 / 3) * h);
+        } else {
+          const t = (step - q * 2) / q;
+          x2 = rightCenterX - side / 2 + t * (side / 2);
+          y2 = rightCenterY + ((1 / 3) * h) - t * h;
+        }
+      }
+      
+      simulatedLeft.push({ x: x1, y: y1 });
+      simulatedRight.push({ x: x2, y: y2 });
+      
+      setLeftLines([...simulatedLeft]);
+      setRightLines([...simulatedRight]);
+      
+      if (step >= maxSteps) {
+        clearInterval(interval);
+        setTimeout(() => {
+          validateDrawing(simulatedLeft, simulatedRight);
+          isLeftActive.current = false;
+          isRightActive.current = false;
+        }, 100);
+      }
+    }, 40);
   };
 
   const handleRoundTimeout = () => {
@@ -356,6 +482,7 @@ export default function Explore() {
   // Sync all stable callback refs and timerRef after every render
   useEffect(() => { timerRef.current = timer; }, [timer]);
   useEffect(() => { handleRoundTimeoutRef.current = handleRoundTimeout; });
+  useEffect(() => { handleOpponentSurrenderRef.current = handleOpponentSurrender; });
   useEffect(() => { validateDrawingRef.current = validateDrawing; });
 
   const handleNextRound = () => {
@@ -421,28 +548,20 @@ export default function Explore() {
           <View style={styles.readyVisualContainer}>
             {/* Left Box Preview */}
             <View style={[styles.readyBoxHalf, { borderColor: '#00E5FF' }]}>
-              {round === 2
-                ? <View style={[styles.readyShapeDotted, { borderRadius: 20, height: 40, borderColor: '#00E5FF' }]} />
-                : <View style={[styles.readyShapeDotted, { borderRadius: 30, borderColor: '#00E5FF' }]} />
-              }
+              <ShapePreview shape={leftShape} color="#00E5FF" size={60} />
               <Text style={[styles.readyBoxLabel, { color: '#00E5FF' }]}>
                 {isVersusMode ? 'BẠN (YOU)' : 'TAY TRÁI'}
               </Text>
-              <Text style={styles.readyBoxDesc}>{currentShape.leftLabel}</Text>
+              <Text style={styles.readyBoxDesc}>Vẽ {shapeLabels[leftShape]}</Text>
             </View>
 
             {/* Right Box Preview */}
             <View style={[styles.readyBoxHalf, { borderColor: '#E040FB' }]}>
-              {round === 2
-                ? <View style={{ marginVertical: 10 }}><TriangleOutline size={48} color="rgba(224, 64, 251, 0.8)" /></View>
-                : round === 3
-                ? <View style={[styles.readyShapeDotted, { borderRadius: 0, height: 38, borderColor: '#E040FB' }]} />
-                : <View style={[styles.readyShapeDotted, { transform: [{ rotate: '45deg' }], borderColor: '#E040FB' }]} />
-              }
+              <ShapePreview shape={rightShape} color="#E040FB" size={60} />
               <Text style={[styles.readyBoxLabel, { color: '#E040FB' }]}>
                 {isVersusMode ? opponentName.toUpperCase() : 'TAY PHẢI'}
               </Text>
-              <Text style={styles.readyBoxDesc}>{currentShape.rightLabel}</Text>
+              <Text style={styles.readyBoxDesc}>Vẽ {shapeLabels[rightShape]}</Text>
             </View>
           </View>
 
@@ -456,6 +575,27 @@ export default function Explore() {
       {/* --- 2. GAMEPLAY STATE --- */}
       {gameState === 'playing' && (
         <View style={{ flex: 1 }}>
+          {/* Dev Test Button */}
+          {process.env.NODE_ENV === 'development' && (
+            <Pressable
+              onPress={runDevMultiTouchSimulation}
+              style={{
+                position: 'absolute',
+                top: 75,
+                right: 20,
+                backgroundColor: 'rgba(0, 242, 255, 0.15)',
+                borderColor: '#00F2FF',
+                borderWidth: 1,
+                paddingHorizontal: 12,
+                paddingVertical: 6,
+                borderRadius: 8,
+                zIndex: 9999,
+              }}
+            >
+              <Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 10, color: '#00F2FF', letterSpacing: 0.5 }}>DEV SIMULATE DRAW</Text>
+            </Pressable>
+          )}
+
           {/* Top Panel (Score, Timer, Pause) */}
           <View style={styles.gameTopBar}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
@@ -513,19 +653,40 @@ export default function Explore() {
             {/* Left Screen Canvas */}
             <View
               ref={leftCanvasRef}
+              onLayout={(e) => {
+                const { width, height } = e.nativeEvent.layout;
+                setLeftCanvasSize({ width, height });
+              }}
+              onStartShouldSetResponder={() => true}
+              onResponderMove={(e: any) => {
+                if (gameState !== 'playing' || isPaused) return;
+                const { locationX, locationY } = e.nativeEvent;
+                if (locationX === undefined || locationY === undefined || isNaN(locationX) || isNaN(locationY)) return;
+                setLeftLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
+              }}
+              onResponderRelease={handleTouchEnd}
+              onTouchStart={() => {
+                isLeftActive.current = true;
+                if (isRightActive.current) {
+                  overlappedTouch.current = true;
+                }
+              }}
+              onTouchMove={handleLeftTouchMove}
+              onTouchEnd={() => {
+                isLeftActive.current = false;
+                handleTouchEnd();
+              }}
+              onTouchCancel={() => {
+                isLeftActive.current = false;
+              }}
               style={[styles.canvasContainerHalf, { borderRightWidth: 1, borderRightColor: '#202D33' }]}
             >
               {/* Target Outline Shape */}
-              {round === 2
-                ? <View style={[styles.targetShapeDotted, { width: 160, height: 110, borderRadius: 55, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
-                : round === 3
-                ? <View style={[styles.targetShapeDotted, { width: 160, height: 160, borderRadius: 80, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
-                : <View style={[styles.targetShapeDotted, { width: 140, height: 140, borderRadius: 70, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
-              }
+              <ShapePreview shape={leftShape} color="rgba(0, 229, 255, 0.15)" size={140} />
               <Text style={[styles.canvasHandIndicator, { color: '#00E5FF' }]}>
                 {isVersusMode ? 'BẠN (YOU)' : 'TAY TRÁI (LEFT)'}
               </Text>
-              <Text style={styles.canvasShapeGuide}>{currentShape.leftGuide}</Text>
+              <Text style={styles.canvasShapeGuide}>{shapeGuides[leftShape]}</Text>
 
               {/* Render points */}
               {leftLines.map((pt, i) => {
@@ -545,20 +706,44 @@ export default function Explore() {
             {/* Right Screen Canvas */}
             <View
               ref={rightCanvasRef}
+              onLayout={(e) => {
+                const { width, height } = e.nativeEvent.layout;
+                setRightCanvasSize({ width, height });
+              }}
+              onStartShouldSetResponder={() => true}
+              onResponderMove={(e: any) => {
+                if (isVersusMode || gameState !== 'playing' || isPaused) return;
+                const { locationX, locationY } = e.nativeEvent;
+                if (locationX === undefined || locationY === undefined || isNaN(locationX) || isNaN(locationY)) return;
+                setRightLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
+              }}
+              onResponderRelease={handleTouchEnd}
+              onTouchStart={() => {
+                if (isVersusMode) return;
+                isRightActive.current = true;
+                if (isLeftActive.current) {
+                  overlappedTouch.current = true;
+                }
+              }}
+              onTouchMove={handleRightTouchMove}
+              onTouchEnd={() => {
+                if (isVersusMode) return;
+                isRightActive.current = false;
+                handleTouchEnd();
+              }}
+              onTouchCancel={() => {
+                if (isVersusMode) return;
+                isRightActive.current = false;
+              }}
               style={styles.canvasContainerHalf}
             >
               {/* Target Outline Shape */}
-              {round === 2
-                ? <View style={{ position: 'absolute' }}><TriangleOutline size={110} color="rgba(224, 64, 251, 0.15)" /></View>
-                : round === 3
-                ? <View style={[styles.targetShapeDotted, { width: 150, height: 100, borderRadius: 4, borderColor: 'rgba(224, 64, 251, 0.15)' }]} />
-                : <View style={[styles.targetShapeDotted, { width: 130, height: 130, borderRadius: 4, transform: [{ rotate: '45deg' }], borderColor: 'rgba(224, 64, 251, 0.15)' }]} />
-              }
+              <ShapePreview shape={rightShape} color="rgba(224, 64, 251, 0.15)" size={130} />
               <Text style={[styles.canvasHandIndicator, { color: '#E040FB' }]}>
                 {isVersusMode ? opponentName.toUpperCase() : 'TAY PHẢI (RIGHT)'}
               </Text>
               <Text style={styles.canvasShapeGuide}>
-                {isVersusMode ? 'Đang vẽ đối ứng...' : currentShape.rightGuide}
+                {isVersusMode ? 'Đang vẽ đối ứng...' : shapeGuides[rightShape]}
               </Text>
 
               {/* Render points */}
@@ -632,9 +817,9 @@ export default function Explore() {
 
           <View style={styles.successScoreCard}>
             <Text style={styles.cardHeader}>ĐIỂM SỐ ROUND {round}</Text>
-            <Text style={styles.cardMainScore}>+2,850 PTS</Text>
+            <Text style={styles.cardMainScore}>+{2500 + timer * 100} PTS</Text>
             <View style={styles.cardMetrics}>
-              <Text style={styles.metricText}>Độ chính xác: 98%</Text>
+              <Text style={styles.metricText}>Độ chính xác: {accuracy}%</Text>
               <Text style={styles.metricText}>Streak: {streak} rounds 🔥</Text>
             </View>
           </View>
@@ -669,7 +854,7 @@ export default function Explore() {
             <Text style={styles.errorTipText}>
               {!isVersusMode && !overlappedTouch.current
                 ? 'Lỗi: Bạn phải chạm và vẽ đồng thời bằng cả 2 tay cùng một lúc!'
-                : 'Hãy đảm bảo Tay Phải vẽ góc nhọn của hình vuông khớp với vị trí mẫu.'}
+                : 'Hãy đảm bảo vẽ khớp với hình dạng mẫu và vẽ đồng thời bằng cả 2 tay.'}
             </Text>
           </View>
 
@@ -879,6 +1064,103 @@ export default function Explore() {
     </View>
   );
 }
+
+const shapeLabels: Record<string, string> = {
+  circle: 'Hình Tròn',
+  square: 'Hình Vuông',
+  triangle: 'Hình Tam Giác',
+};
+
+const shapeGuides: Record<string, string> = {
+  circle: 'Vẽ đường tròn khép kín',
+  square: 'Vẽ hình vuông nghiêng',
+  triangle: 'Vẽ ba cạnh tam giác',
+};
+
+interface ShapePreviewProps {
+  shape: 'circle' | 'square' | 'triangle';
+  color: string;
+  size?: number;
+  dotted?: boolean;
+}
+
+const ShapePreview = ({ shape, color, size = 120, dotted = true }: ShapePreviewProps) => {
+  if (shape === 'circle') {
+    return (
+      <View
+        style={{
+          width: size,
+          height: size,
+          borderRadius: size / 2,
+          borderWidth: 2,
+          borderStyle: dotted ? 'dashed' : 'solid',
+          borderColor: color,
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'absolute',
+        }}
+      />
+    );
+  }
+  if (shape === 'square') {
+    return (
+      <View
+        style={{
+          width: size,
+          height: size,
+          borderRadius: 4,
+          borderWidth: 2,
+          borderStyle: dotted ? 'dashed' : 'solid',
+          borderColor: color,
+          transform: [{ rotate: '45deg' }],
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'absolute',
+        }}
+      />
+    );
+  }
+  
+  return (
+    <View style={{ width: size, height: size, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
+      <View style={{
+        position: 'absolute',
+        width: size * 0.85,
+        height: size * 0.85,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <View style={{
+          position: 'absolute',
+          width: 2,
+          height: size * 0.85,
+          borderStyle: dotted ? 'dashed' : 'solid',
+          borderWidth: 1,
+          borderColor: color,
+          transform: [{ rotate: '30deg' }, { translateX: -size * 0.22 }],
+        }} />
+        <View style={{
+          position: 'absolute',
+          width: 2,
+          height: size * 0.85,
+          borderStyle: dotted ? 'dashed' : 'solid',
+          borderWidth: 1,
+          borderColor: color,
+          transform: [{ rotate: '-30deg' }, { translateX: size * 0.22 }],
+        }} />
+        <View style={{
+          position: 'absolute',
+          width: size * 0.85,
+          height: 2,
+          borderStyle: dotted ? 'dashed' : 'solid',
+          borderWidth: 1,
+          borderColor: color,
+          bottom: size * 0.08,
+        }} />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   fullscreenCentered: {

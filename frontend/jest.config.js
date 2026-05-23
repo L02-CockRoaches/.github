@@ -16,9 +16,11 @@ module.exports = {
   testPathIgnorePatterns: ["/node_modules/", "/backend/"],
   coverageProvider: "v8",
 
-  // Đo coverage cho app/ và src/
+  // Đo coverage cho app/, services/ và utils/
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
+    "services/**/*.ts",
+    "utils/**/*.ts",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/sentry-example-page/**",

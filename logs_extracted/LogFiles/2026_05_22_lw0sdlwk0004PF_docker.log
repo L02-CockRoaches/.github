@@ -1,0 +1,650 @@
+2026-05-22T06:59:42.1911745Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T06:59:45.5536877Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T06:59:45.5538213Z Container start method called.
+2026-05-22T06:59:45.5538699Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T06:59:45.5539628Z Establishing network.
+2026-05-22T06:59:45.5540768Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:00:35.0368000Z Image game2shapeacr.azurecr.io/game2shape-backend:latest is pulled from registry game2shapeacr.azurecr.io
+2026-05-22T07:00:35.0607150Z Container is starting.
+2026-05-22T07:00:35.0765629Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:00:35.0789921Z Establishing user namespace if not established already.
+2026-05-22T07:00:35.0874264Z Establishing network if not established already.
+2026-05-22T07:00:35.0958121Z Mounting volumes.
+2026-05-22T07:00:35.0964661Z Nested mountpoint volatile/logs
+2026-05-22T07:00:35.1249240Z Nested mountpoint 
+2026-05-22T07:00:35.2547477Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:00:35.2566955Z Creating container.
+2026-05-22T07:00:35.2568537Z Creating pipes for streaming container io.
+2026-05-22T07:00:35.2569709Z Creating stdout named pipe at /podr/container/pipe/3cd45dc7330f_game2shape-backend/stdout_23cb855e5f7e48c482a280115f46487c.
+2026-05-22T07:00:35.2749520Z Successfully created stdout named pipe at: /podr/container/pipe/3cd45dc7330f_game2shape-backend/stdout_23cb855e5f7e48c482a280115f46487c.
+2026-05-22T07:00:35.2758146Z Opening named pipe /podr/container/pipe/3cd45dc7330f_game2shape-backend/stdout_23cb855e5f7e48c482a280115f46487c for reading in non-blocking mode.
+2026-05-22T07:00:35.2765852Z Successfully opened named pipe: /podr/container/pipe/3cd45dc7330f_game2shape-backend/stdout_23cb855e5f7e48c482a280115f46487c.
+2026-05-22T07:00:35.2770469Z Successfully removed non-blocking flag from /podr/container/pipe/3cd45dc7330f_game2shape-backend/stdout_23cb855e5f7e48c482a280115f46487c.
+2026-05-22T07:00:35.2855474Z Creating stderr named pipe at /podr/container/pipe/3cd45dc7330f_game2shape-backend/stderr_91d2f45e1d49463e8c7c800c5388ac4b.
+2026-05-22T07:00:35.2865799Z Successfully created stderr named pipe at: /podr/container/pipe/3cd45dc7330f_game2shape-backend/stderr_91d2f45e1d49463e8c7c800c5388ac4b.
+2026-05-22T07:00:35.2871282Z Opening named pipe /podr/container/pipe/3cd45dc7330f_game2shape-backend/stderr_91d2f45e1d49463e8c7c800c5388ac4b for reading in non-blocking mode.
+2026-05-22T07:00:35.2952544Z Successfully opened named pipe: /podr/container/pipe/3cd45dc7330f_game2shape-backend/stderr_91d2f45e1d49463e8c7c800c5388ac4b.
+2026-05-22T07:00:35.2958350Z Successfully removed non-blocking flag from /podr/container/pipe/3cd45dc7330f_game2shape-backend/stderr_91d2f45e1d49463e8c7c800c5388ac4b.
+2026-05-22T07:00:35.2969489Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:00:36.1790037Z Starting container: 3cd45dc7330f_game2shape-backend.
+2026-05-22T07:00:36.5051598Z Starting watchers and probes.
+2026-05-22T07:00:36.5160899Z Starting metrics collection.
+2026-05-22T07:00:36.5249889Z Container is running.
+2026-05-22T07:00:36.5258656Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:00:36.7835694Z Container start method finished after 51211 ms.
+2026-05-22T07:00:36.7842707Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:00:36.7843400Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:00:51.8547763Z Container has finished running with exit code: 0.
+2026-05-22T07:00:51.8839557Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:00:51.9183127Z Stop and delete container. Retry count = 0
+2026-05-22T07:00:51.9229279Z Stopping container: 3cd45dc7330f_game2shape-backend.
+2026-05-22T07:00:52.0157903Z Deleting container: 3cd45dc7330f_game2shape-backend. Retry count = 0
+2026-05-22T07:00:52.2543895Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:00:52.2645284Z Container is terminated. Total time elapsed: 371 ms.
+2026-05-22T07:00:52.2649434Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:00:52.2752001Z State: Stopping, Action: CancellingStartup, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:52.3155148Z Site startup probe failed after 15.5239662 seconds.
+2026-05-22T07:00:52.5157712Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:52.5568828Z Failed to start site. Revert by stopping site.
+2026-05-22T07:00:52.5858562Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:52.6572508Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:52.6582916Z Site: game2shape-backend stopped.
+2026-05-22T07:00:52.7472415Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:53.3262703Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:00:54.0248109Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:00:54 (UTC), DetailsLevel: ERR
+2026-05-22T07:00:54.9175091Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:00:54 (UTC), DetailsLevel: ERR
+2026-05-22T07:01:00.0057592Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:00:54 (UTC), DetailsLevel: ERR
+2026-05-22T07:01:01.7246515Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:00:54 (UTC), DetailsLevel: ERR
+2026-05-22T07:01:01.7326050Z Container start method called.
+2026-05-22T07:01:01.7330613Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:01:01.7338863Z Establishing network.
+2026-05-22T07:01:01.7343675Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:01:02.1479145Z Container is starting.
+2026-05-22T07:01:02.1553904Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:01:02.1556542Z Establishing user namespace if not established already.
+2026-05-22T07:01:02.1561814Z Establishing network if not established already.
+2026-05-22T07:01:02.1565787Z Mounting volumes.
+2026-05-22T07:01:02.1573034Z Nested mountpoint volatile/logs
+2026-05-22T07:01:02.1787590Z Nested mountpoint 
+2026-05-22T07:01:02.2587241Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:01:02.3060136Z Creating container.
+2026-05-22T07:01:02.3063354Z Creating pipes for streaming container io.
+2026-05-22T07:01:02.3068063Z Creating stdout named pipe at /podr/container/pipe/4cdb36345c34_game2shape-backend/stdout_8cbb70ef2f6d4d308b5bacbc788c1ee8.
+2026-05-22T07:01:02.3071497Z Successfully created stdout named pipe at: /podr/container/pipe/4cdb36345c34_game2shape-backend/stdout_8cbb70ef2f6d4d308b5bacbc788c1ee8.
+2026-05-22T07:01:02.3072676Z Opening named pipe /podr/container/pipe/4cdb36345c34_game2shape-backend/stdout_8cbb70ef2f6d4d308b5bacbc788c1ee8 for reading in non-blocking mode.
+2026-05-22T07:01:02.3077691Z Successfully opened named pipe: /podr/container/pipe/4cdb36345c34_game2shape-backend/stdout_8cbb70ef2f6d4d308b5bacbc788c1ee8.
+2026-05-22T07:01:02.3078965Z Successfully removed non-blocking flag from /podr/container/pipe/4cdb36345c34_game2shape-backend/stdout_8cbb70ef2f6d4d308b5bacbc788c1ee8.
+2026-05-22T07:01:02.3287398Z Creating stderr named pipe at /podr/container/pipe/4cdb36345c34_game2shape-backend/stderr_ad533d4f0e6c4a25ac81b891749533d0.
+2026-05-22T07:01:02.3370078Z Successfully created stderr named pipe at: /podr/container/pipe/4cdb36345c34_game2shape-backend/stderr_ad533d4f0e6c4a25ac81b891749533d0.
+2026-05-22T07:01:02.3376164Z Opening named pipe /podr/container/pipe/4cdb36345c34_game2shape-backend/stderr_ad533d4f0e6c4a25ac81b891749533d0 for reading in non-blocking mode.
+2026-05-22T07:01:02.3384372Z Successfully opened named pipe: /podr/container/pipe/4cdb36345c34_game2shape-backend/stderr_ad533d4f0e6c4a25ac81b891749533d0.
+2026-05-22T07:01:02.3455620Z Successfully removed non-blocking flag from /podr/container/pipe/4cdb36345c34_game2shape-backend/stderr_ad533d4f0e6c4a25ac81b891749533d0.
+2026-05-22T07:01:02.3467461Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:01:02.7295721Z Starting container: 4cdb36345c34_game2shape-backend.
+2026-05-22T07:01:02.8086438Z Starting watchers and probes.
+2026-05-22T07:01:02.8092159Z Starting metrics collection.
+2026-05-22T07:01:02.8109799Z Container is running.
+2026-05-22T07:01:02.8111852Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:01:02.8702369Z Container start method finished after 1137 ms.
+2026-05-22T07:01:02.8706596Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:01:02.8707201Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:01:20.2015754Z Container has finished running with exit code: 0.
+2026-05-22T07:01:20.2018184Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:01:20.2403028Z Stop and delete container. Retry count = 0
+2026-05-22T07:01:20.2419009Z Stopping container: 4cdb36345c34_game2shape-backend.
+2026-05-22T07:01:20.3674351Z Deleting container: 4cdb36345c34_game2shape-backend. Retry count = 0
+2026-05-22T07:01:20.5889089Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:01:20.5898517Z Container is terminated. Total time elapsed: 387 ms.
+2026-05-22T07:01:20.5904178Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:01:20.5906474Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:00:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:01:20.6000261Z Site startup probe failed after 17.7195962 seconds.
+2026-05-22T07:01:20.7397837Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:01:20.7415502Z Failed to start site. Revert by stopping site.
+2026-05-22T07:01:20.7419402Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:01:20.7599009Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:01:20.7599373Z Site: game2shape-backend stopped.
+2026-05-22T07:02:02.5655468Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:02:21, DetailsLevel: WARN
+2026-05-22T07:02:05.7157452Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:02:21, DetailsLevel: WARN
+2026-05-22T07:02:05.7162429Z Container start method called.
+2026-05-22T07:02:05.7263415Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:02:05.7266511Z Establishing network.
+2026-05-22T07:02:05.7268141Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:02:06.1944973Z Container is starting.
+2026-05-22T07:02:06.1945936Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:02:06.1946722Z Establishing user namespace if not established already.
+2026-05-22T07:02:06.1947492Z Establishing network if not established already.
+2026-05-22T07:02:06.1948666Z Mounting volumes.
+2026-05-22T07:02:06.1950236Z Nested mountpoint volatile/logs
+2026-05-22T07:02:06.2342473Z Nested mountpoint 
+2026-05-22T07:02:06.4072681Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:02:06.4074727Z Creating container.
+2026-05-22T07:02:06.4075596Z Creating pipes for streaming container io.
+2026-05-22T07:02:06.4248863Z Creating stdout named pipe at /podr/container/pipe/b2508da65871_game2shape-backend/stdout_cd1608ec67844fe2ad8041da73686e3c.
+2026-05-22T07:02:06.4256763Z Successfully created stdout named pipe at: /podr/container/pipe/b2508da65871_game2shape-backend/stdout_cd1608ec67844fe2ad8041da73686e3c.
+2026-05-22T07:02:06.4257843Z Opening named pipe /podr/container/pipe/b2508da65871_game2shape-backend/stdout_cd1608ec67844fe2ad8041da73686e3c for reading in non-blocking mode.
+2026-05-22T07:02:06.4258971Z Successfully opened named pipe: /podr/container/pipe/b2508da65871_game2shape-backend/stdout_cd1608ec67844fe2ad8041da73686e3c.
+2026-05-22T07:02:06.4259740Z Successfully removed non-blocking flag from /podr/container/pipe/b2508da65871_game2shape-backend/stdout_cd1608ec67844fe2ad8041da73686e3c.
+2026-05-22T07:02:06.4262856Z Creating stderr named pipe at /podr/container/pipe/b2508da65871_game2shape-backend/stderr_b2fb42112b064abda9446e88944f14e4.
+2026-05-22T07:02:06.4264194Z Successfully created stderr named pipe at: /podr/container/pipe/b2508da65871_game2shape-backend/stderr_b2fb42112b064abda9446e88944f14e4.
+2026-05-22T07:02:06.4265042Z Opening named pipe /podr/container/pipe/b2508da65871_game2shape-backend/stderr_b2fb42112b064abda9446e88944f14e4 for reading in non-blocking mode.
+2026-05-22T07:02:06.4265891Z Successfully opened named pipe: /podr/container/pipe/b2508da65871_game2shape-backend/stderr_b2fb42112b064abda9446e88944f14e4.
+2026-05-22T07:02:06.4266646Z Successfully removed non-blocking flag from /podr/container/pipe/b2508da65871_game2shape-backend/stderr_b2fb42112b064abda9446e88944f14e4.
+2026-05-22T07:02:06.4267671Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:02:07.4270392Z Starting container: b2508da65871_game2shape-backend.
+2026-05-22T07:02:07.7738158Z Starting watchers and probes.
+2026-05-22T07:02:07.7741470Z Starting metrics collection.
+2026-05-22T07:02:07.7742620Z Container is running.
+2026-05-22T07:02:07.7743501Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:02:08.0328472Z Container start method finished after 2316 ms.
+2026-05-22T07:02:08.0330649Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:02:08.0330889Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:02:34.5017206Z Container has finished running with exit code: 0.
+2026-05-22T07:02:34.5023720Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:02:34.5106049Z Stop and delete container. Retry count = 0
+2026-05-22T07:02:34.5107404Z Stopping container: b2508da65871_game2shape-backend.
+2026-05-22T07:02:34.5801912Z Deleting container: b2508da65871_game2shape-backend. Retry count = 0
+2026-05-22T07:02:34.8152658Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:02:34.8154293Z Container is terminated. Total time elapsed: 312 ms.
+2026-05-22T07:02:34.8155132Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:02:34.8156660Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:01:20, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:34.8164820Z Site startup probe failed after 26.725352 seconds.
+2026-05-22T07:02:35.0172919Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:35.0459369Z Failed to start site. Revert by stopping site.
+2026-05-22T07:02:35.0464401Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:35.0869698Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:35.0870173Z Site: game2shape-backend stopped.
+2026-05-22T07:02:35.1064463Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:35.3487757Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:35.8863262Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:02:35 (UTC), DetailsLevel: ERR
+2026-05-22T07:02:36.2715654Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:02:35 (UTC), DetailsLevel: ERR
+2026-05-22T07:02:36.3822132Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:02:35 (UTC), DetailsLevel: ERR
+2026-05-22T07:02:38.2790257Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:02:35 (UTC), DetailsLevel: ERR
+2026-05-22T07:02:38.2791736Z Container start method called.
+2026-05-22T07:02:38.2792359Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:02:38.2793165Z Establishing network.
+2026-05-22T07:02:38.2887347Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:02:38.5248707Z Container is starting.
+2026-05-22T07:02:38.5255459Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:02:38.5259085Z Establishing user namespace if not established already.
+2026-05-22T07:02:38.5262097Z Establishing network if not established already.
+2026-05-22T07:02:38.5340183Z Mounting volumes.
+2026-05-22T07:02:38.5350612Z Nested mountpoint volatile/logs
+2026-05-22T07:02:38.5547164Z Nested mountpoint 
+2026-05-22T07:02:38.6921289Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:02:38.6922726Z Creating container.
+2026-05-22T07:02:38.6923542Z Creating pipes for streaming container io.
+2026-05-22T07:02:38.6924353Z Creating stdout named pipe at /podr/container/pipe/6fe2722bd723_game2shape-backend/stdout_46e60fa58bb34c73a50d43d7d0c9ba72.
+2026-05-22T07:02:38.6926449Z Successfully created stdout named pipe at: /podr/container/pipe/6fe2722bd723_game2shape-backend/stdout_46e60fa58bb34c73a50d43d7d0c9ba72.
+2026-05-22T07:02:38.6927182Z Opening named pipe /podr/container/pipe/6fe2722bd723_game2shape-backend/stdout_46e60fa58bb34c73a50d43d7d0c9ba72 for reading in non-blocking mode.
+2026-05-22T07:02:38.7119529Z Successfully opened named pipe: /podr/container/pipe/6fe2722bd723_game2shape-backend/stdout_46e60fa58bb34c73a50d43d7d0c9ba72.
+2026-05-22T07:02:38.7122670Z Successfully removed non-blocking flag from /podr/container/pipe/6fe2722bd723_game2shape-backend/stdout_46e60fa58bb34c73a50d43d7d0c9ba72.
+2026-05-22T07:02:38.7124320Z Creating stderr named pipe at /podr/container/pipe/6fe2722bd723_game2shape-backend/stderr_5e79a2f8e705487b9caba05cec27e55a.
+2026-05-22T07:02:38.7125929Z Successfully created stderr named pipe at: /podr/container/pipe/6fe2722bd723_game2shape-backend/stderr_5e79a2f8e705487b9caba05cec27e55a.
+2026-05-22T07:02:38.7126723Z Opening named pipe /podr/container/pipe/6fe2722bd723_game2shape-backend/stderr_5e79a2f8e705487b9caba05cec27e55a for reading in non-blocking mode.
+2026-05-22T07:02:38.7127677Z Successfully opened named pipe: /podr/container/pipe/6fe2722bd723_game2shape-backend/stderr_5e79a2f8e705487b9caba05cec27e55a.
+2026-05-22T07:02:38.7128369Z Successfully removed non-blocking flag from /podr/container/pipe/6fe2722bd723_game2shape-backend/stderr_5e79a2f8e705487b9caba05cec27e55a.
+2026-05-22T07:02:38.7137311Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:02:39.2453821Z Starting container: 6fe2722bd723_game2shape-backend.
+2026-05-22T07:02:39.3630301Z Starting watchers and probes.
+2026-05-22T07:02:39.3642719Z Starting metrics collection.
+2026-05-22T07:02:39.3647836Z Container is running.
+2026-05-22T07:02:39.3649092Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:02:39.4791702Z Container start method finished after 1198 ms.
+2026-05-22T07:02:39.5372124Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:02:39.5376231Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:02:52.6372898Z Container has finished running with exit code: 0.
+2026-05-22T07:02:52.6450872Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:02:52.6457391Z Stop and delete container. Retry count = 0
+2026-05-22T07:02:52.6458584Z Stopping container: 6fe2722bd723_game2shape-backend.
+2026-05-22T07:02:52.7056106Z Deleting container: 6fe2722bd723_game2shape-backend. Retry count = 0
+2026-05-22T07:02:52.8958943Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:02:52.8961096Z Container is terminated. Total time elapsed: 250 ms.
+2026-05-22T07:02:52.8962144Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:02:52.8963006Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:35, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:52.8971934Z Site startup probe failed after 13.3576285 seconds.
+2026-05-22T07:02:53.0477418Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:53.0588191Z Failed to start site. Revert by stopping site.
+2026-05-22T07:02:53.0666681Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:53.0679620Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:02:53.0680048Z Site: game2shape-backend stopped.
+2026-05-22T07:03:57.7333515Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:03:53, DetailsLevel: WARN
+2026-05-22T07:03:59.4245875Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:03:53, DetailsLevel: WARN
+2026-05-22T07:03:59.4247192Z Container start method called.
+2026-05-22T07:03:59.4417597Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:03:59.4420961Z Establishing network.
+2026-05-22T07:03:59.4422603Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:03:59.8324936Z Container is starting.
+2026-05-22T07:03:59.8330704Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:03:59.8332581Z Establishing user namespace if not established already.
+2026-05-22T07:03:59.8333804Z Establishing network if not established already.
+2026-05-22T07:03:59.8338584Z Mounting volumes.
+2026-05-22T07:03:59.8343260Z Nested mountpoint volatile/logs
+2026-05-22T07:03:59.8645049Z Nested mountpoint 
+2026-05-22T07:03:59.9121359Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:03:59.9122948Z Creating container.
+2026-05-22T07:03:59.9124132Z Creating pipes for streaming container io.
+2026-05-22T07:03:59.9125278Z Creating stdout named pipe at /podr/container/pipe/11d4b455e560_game2shape-backend/stdout_5c38d75cd58e41bf9e1b5d6283ebfd7b.
+2026-05-22T07:03:59.9140357Z Successfully created stdout named pipe at: /podr/container/pipe/11d4b455e560_game2shape-backend/stdout_5c38d75cd58e41bf9e1b5d6283ebfd7b.
+2026-05-22T07:03:59.9141836Z Opening named pipe /podr/container/pipe/11d4b455e560_game2shape-backend/stdout_5c38d75cd58e41bf9e1b5d6283ebfd7b for reading in non-blocking mode.
+2026-05-22T07:03:59.9143354Z Successfully opened named pipe: /podr/container/pipe/11d4b455e560_game2shape-backend/stdout_5c38d75cd58e41bf9e1b5d6283ebfd7b.
+2026-05-22T07:03:59.9240669Z Successfully removed non-blocking flag from /podr/container/pipe/11d4b455e560_game2shape-backend/stdout_5c38d75cd58e41bf9e1b5d6283ebfd7b.
+2026-05-22T07:03:59.9242849Z Creating stderr named pipe at /podr/container/pipe/11d4b455e560_game2shape-backend/stderr_7e16cb7d6a2a44e0a80bd7d1dd62f2cf.
+2026-05-22T07:03:59.9410081Z Successfully created stderr named pipe at: /podr/container/pipe/11d4b455e560_game2shape-backend/stderr_7e16cb7d6a2a44e0a80bd7d1dd62f2cf.
+2026-05-22T07:03:59.9411458Z Opening named pipe /podr/container/pipe/11d4b455e560_game2shape-backend/stderr_7e16cb7d6a2a44e0a80bd7d1dd62f2cf for reading in non-blocking mode.
+2026-05-22T07:03:59.9412699Z Successfully opened named pipe: /podr/container/pipe/11d4b455e560_game2shape-backend/stderr_7e16cb7d6a2a44e0a80bd7d1dd62f2cf.
+2026-05-22T07:03:59.9413508Z Successfully removed non-blocking flag from /podr/container/pipe/11d4b455e560_game2shape-backend/stderr_7e16cb7d6a2a44e0a80bd7d1dd62f2cf.
+2026-05-22T07:03:59.9511401Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:04:00.5307803Z Starting container: 11d4b455e560_game2shape-backend.
+2026-05-22T07:04:00.6131882Z Starting watchers and probes.
+2026-05-22T07:04:00.6227901Z Starting metrics collection.
+2026-05-22T07:04:00.6308077Z Container is running.
+2026-05-22T07:04:00.6314458Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:04:00.7322071Z Container start method finished after 1297 ms.
+2026-05-22T07:04:00.7329318Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:04:00.7330433Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:04:16.1298208Z Container has finished running with exit code: 0.
+2026-05-22T07:04:16.1310978Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:04:16.1402792Z Stop and delete container. Retry count = 0
+2026-05-22T07:04:16.1502381Z Stopping container: 11d4b455e560_game2shape-backend.
+2026-05-22T07:04:16.2296178Z Deleting container: 11d4b455e560_game2shape-backend. Retry count = 0
+2026-05-22T07:04:16.4504017Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:04:16.4579609Z Container is terminated. Total time elapsed: 319 ms.
+2026-05-22T07:04:16.4586575Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:04:16.4589355Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:02:53, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:16.4774782Z Site startup probe failed after 15.6368532 seconds.
+2026-05-22T07:04:16.6760449Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:16.6778111Z Failed to start site. Revert by stopping site.
+2026-05-22T07:04:16.6781767Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:16.6787204Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:16.6787437Z Site: game2shape-backend stopped.
+2026-05-22T07:04:16.7467374Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:17.4020443Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:18.1945514Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:18 (UTC), DetailsLevel: ERR
+2026-05-22T07:04:19.4742913Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:18 (UTC), DetailsLevel: ERR
+2026-05-22T07:04:24.8037169Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:18 (UTC), DetailsLevel: ERR
+2026-05-22T07:04:26.5730905Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:18 (UTC), DetailsLevel: ERR
+2026-05-22T07:04:26.5816013Z Container start method called.
+2026-05-22T07:04:26.5818068Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:04:26.5820468Z Establishing network.
+2026-05-22T07:04:26.5836684Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:04:26.7649316Z Container is starting.
+2026-05-22T07:04:26.7650192Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:04:26.7650987Z Establishing user namespace if not established already.
+2026-05-22T07:04:26.7651848Z Establishing network if not established already.
+2026-05-22T07:04:26.7652828Z Mounting volumes.
+2026-05-22T07:04:26.7839516Z Nested mountpoint volatile/logs
+2026-05-22T07:04:26.8145944Z Nested mountpoint 
+2026-05-22T07:04:26.8454315Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:04:26.8552704Z Creating container.
+2026-05-22T07:04:26.8627431Z Creating pipes for streaming container io.
+2026-05-22T07:04:26.8630171Z Creating stdout named pipe at /podr/container/pipe/61fb1d25cf87_game2shape-backend/stdout_77a58ebc1ef9466289fbb6b2b97b6f32.
+2026-05-22T07:04:26.8635276Z Successfully created stdout named pipe at: /podr/container/pipe/61fb1d25cf87_game2shape-backend/stdout_77a58ebc1ef9466289fbb6b2b97b6f32.
+2026-05-22T07:04:26.8638136Z Opening named pipe /podr/container/pipe/61fb1d25cf87_game2shape-backend/stdout_77a58ebc1ef9466289fbb6b2b97b6f32 for reading in non-blocking mode.
+2026-05-22T07:04:26.8640434Z Successfully opened named pipe: /podr/container/pipe/61fb1d25cf87_game2shape-backend/stdout_77a58ebc1ef9466289fbb6b2b97b6f32.
+2026-05-22T07:04:26.8641520Z Successfully removed non-blocking flag from /podr/container/pipe/61fb1d25cf87_game2shape-backend/stdout_77a58ebc1ef9466289fbb6b2b97b6f32.
+2026-05-22T07:04:26.8643823Z Creating stderr named pipe at /podr/container/pipe/61fb1d25cf87_game2shape-backend/stderr_779b989af92f4f37b5373a3f33da12f1.
+2026-05-22T07:04:26.8648229Z Successfully created stderr named pipe at: /podr/container/pipe/61fb1d25cf87_game2shape-backend/stderr_779b989af92f4f37b5373a3f33da12f1.
+2026-05-22T07:04:26.8649472Z Opening named pipe /podr/container/pipe/61fb1d25cf87_game2shape-backend/stderr_779b989af92f4f37b5373a3f33da12f1 for reading in non-blocking mode.
+2026-05-22T07:04:26.8651069Z Successfully opened named pipe: /podr/container/pipe/61fb1d25cf87_game2shape-backend/stderr_779b989af92f4f37b5373a3f33da12f1.
+2026-05-22T07:04:26.8652087Z Successfully removed non-blocking flag from /podr/container/pipe/61fb1d25cf87_game2shape-backend/stderr_779b989af92f4f37b5373a3f33da12f1.
+2026-05-22T07:04:26.8741832Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:04:27.4068553Z Starting container: 61fb1d25cf87_game2shape-backend.
+2026-05-22T07:04:27.5257464Z Starting watchers and probes.
+2026-05-22T07:04:27.5451214Z Starting metrics collection.
+2026-05-22T07:04:27.5456397Z Container is running.
+2026-05-22T07:04:27.5461721Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:04:27.7550420Z Container start method finished after 1173 ms.
+2026-05-22T07:04:27.7552321Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:04:27.7552539Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:04:39.3539735Z Container has finished running with exit code: 0.
+2026-05-22T07:04:39.3630047Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:04:39.3722259Z Stop and delete container. Retry count = 0
+2026-05-22T07:04:39.3725394Z Stopping container: 61fb1d25cf87_game2shape-backend.
+2026-05-22T07:04:39.4325981Z Deleting container: 61fb1d25cf87_game2shape-backend. Retry count = 0
+2026-05-22T07:04:39.6125633Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:04:39.6130386Z Container is terminated. Total time elapsed: 249 ms.
+2026-05-22T07:04:39.6132935Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:04:39.6135649Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:16, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:39.6143156Z Site startup probe failed after 11.8573421 seconds.
+2026-05-22T07:04:39.7342415Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:39.7351165Z Failed to start site. Revert by stopping site.
+2026-05-22T07:04:39.7351997Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:39.7353791Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:39.7353944Z Site: game2shape-backend stopped.
+2026-05-22T07:04:39.7549882Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:39.9852256Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:04:40.3201869Z Site: game2shape-backend will be blocked for 1 minutes till 05/22/2026 07:05:40
+2026-05-22T07:04:40.3215348Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: game2shape-backend will be blocked for 1 minutes till 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:04:40.3303229Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:40 (UTC), DetailsLevel: WARN
+2026-05-22T07:04:40.8257025Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:04:40 (UTC), DetailsLevel: WARN
+2026-05-22T07:04:45.8090778Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:04:45.8092394Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:04:50.9506395Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:04:50.9506809Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:04:56.1907794Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:04:56.1910096Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:01.3952043Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:01.3956704Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:06.5534881Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:06.5536218Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:11.7169025Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:11.7170038Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:16.9983089Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:16.9983363Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:22.1834868Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:22.1835919Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:27.3630985Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:27.3632460Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:32.5982591Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:32.5985143Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:37.7649574Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:37.7650836Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:05:40.3247840Z Site: game2shape-backend is unblocked.
+2026-05-22T07:05:42.9456760Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:44.3819222Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:05:40, DetailsLevel: WARN
+2026-05-22T07:05:44.3820757Z Container start method called.
+2026-05-22T07:05:44.3821570Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:05:44.3822687Z Establishing network.
+2026-05-22T07:05:44.3828853Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:05:44.7785273Z Container is starting.
+2026-05-22T07:05:44.7796127Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:05:44.7797879Z Establishing user namespace if not established already.
+2026-05-22T07:05:44.7799325Z Establishing network if not established already.
+2026-05-22T07:05:44.7800652Z Mounting volumes.
+2026-05-22T07:05:44.7806312Z Nested mountpoint volatile/logs
+2026-05-22T07:05:44.8077426Z Nested mountpoint 
+2026-05-22T07:05:44.8509826Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:05:44.8678403Z Creating container.
+2026-05-22T07:05:44.8685720Z Creating pipes for streaming container io.
+2026-05-22T07:05:44.8690441Z Creating stdout named pipe at /podr/container/pipe/68ce7e65f52c_game2shape-backend/stdout_d2b9c5a51c614d3ca595abcee8242645.
+2026-05-22T07:05:44.8693059Z Successfully created stdout named pipe at: /podr/container/pipe/68ce7e65f52c_game2shape-backend/stdout_d2b9c5a51c614d3ca595abcee8242645.
+2026-05-22T07:05:44.8694144Z Opening named pipe /podr/container/pipe/68ce7e65f52c_game2shape-backend/stdout_d2b9c5a51c614d3ca595abcee8242645 for reading in non-blocking mode.
+2026-05-22T07:05:44.8695428Z Successfully opened named pipe: /podr/container/pipe/68ce7e65f52c_game2shape-backend/stdout_d2b9c5a51c614d3ca595abcee8242645.
+2026-05-22T07:05:44.8703349Z Successfully removed non-blocking flag from /podr/container/pipe/68ce7e65f52c_game2shape-backend/stdout_d2b9c5a51c614d3ca595abcee8242645.
+2026-05-22T07:05:44.8791947Z Creating stderr named pipe at /podr/container/pipe/68ce7e65f52c_game2shape-backend/stderr_2825317b231344f0ae940aff7e4501b9.
+2026-05-22T07:05:44.8799080Z Successfully created stderr named pipe at: /podr/container/pipe/68ce7e65f52c_game2shape-backend/stderr_2825317b231344f0ae940aff7e4501b9.
+2026-05-22T07:05:44.8804287Z Opening named pipe /podr/container/pipe/68ce7e65f52c_game2shape-backend/stderr_2825317b231344f0ae940aff7e4501b9 for reading in non-blocking mode.
+2026-05-22T07:05:44.8809158Z Successfully opened named pipe: /podr/container/pipe/68ce7e65f52c_game2shape-backend/stderr_2825317b231344f0ae940aff7e4501b9.
+2026-05-22T07:05:44.8812740Z Successfully removed non-blocking flag from /podr/container/pipe/68ce7e65f52c_game2shape-backend/stderr_2825317b231344f0ae940aff7e4501b9.
+2026-05-22T07:05:44.8968890Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:05:45.3483960Z Starting container: 68ce7e65f52c_game2shape-backend.
+2026-05-22T07:05:45.4288485Z Starting watchers and probes.
+2026-05-22T07:05:45.4293766Z Starting metrics collection.
+2026-05-22T07:05:45.4503726Z Container is running.
+2026-05-22T07:05:45.4505158Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:05:45.5195110Z Container start method finished after 1136 ms.
+2026-05-22T07:05:45.5210625Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:05:45.5212135Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:06:00.2558820Z Container has finished running with exit code: 0.
+2026-05-22T07:06:00.2561140Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:06:00.2741092Z Stop and delete container. Retry count = 0
+2026-05-22T07:06:00.2743385Z Stopping container: 68ce7e65f52c_game2shape-backend.
+2026-05-22T07:06:00.4054201Z Deleting container: 68ce7e65f52c_game2shape-backend. Retry count = 0
+2026-05-22T07:06:00.7934425Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:06:00.8019019Z Container is terminated. Total time elapsed: 537 ms.
+2026-05-22T07:06:00.8022186Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:06:00.8023564Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:04:39, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:00.8030779Z Site startup probe failed after 15.2330316 seconds.
+2026-05-22T07:06:00.9609729Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:00.9705774Z Failed to start site. Revert by stopping site.
+2026-05-22T07:06:00.9720265Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:00.9724082Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:00.9724295Z Site: game2shape-backend stopped.
+2026-05-22T07:06:01.0205772Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:01.2645438Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:06:01.6142578Z Site: game2shape-backend will be blocked for 1 minutes till 05/22/2026 07:07:01
+2026-05-22T07:06:01.6144643Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: game2shape-backend will be blocked for 1 minutes till 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:01.6423191Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:06:01 (UTC), DetailsLevel: WARN
+2026-05-22T07:06:02.5017698Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:06:01 (UTC), DetailsLevel: WARN
+2026-05-22T07:06:07.6605798Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:07.6606333Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:12.8193500Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:12.8194827Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:17.9823114Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:17.9848232Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:23.1736510Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:23.1737020Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:28.3909732Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:28.3910373Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:33.6035547Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:33.6036076Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:38.7022610Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:38.7022886Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:43.9136699Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:43.9138415Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:49.0593463Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:49.0594028Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:54.2857441Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:54.2927687Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:06:59.3719183Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:06:59.3719735Z Start site prohibitted because the site is being blocked.
+2026-05-22T07:07:01.6151775Z Site: game2shape-backend is unblocked.
+2026-05-22T07:07:04.5904576Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:07:06.3609832Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:07:01, DetailsLevel: WARN
+2026-05-22T07:07:06.3615979Z Container start method called.
+2026-05-22T07:07:06.3617005Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:07:06.3618374Z Establishing network.
+2026-05-22T07:07:06.3619755Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:07:06.6855109Z Container is starting.
+2026-05-22T07:07:06.6942233Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:07:06.6954622Z Establishing user namespace if not established already.
+2026-05-22T07:07:06.7033047Z Establishing network if not established already.
+2026-05-22T07:07:06.7036142Z Mounting volumes.
+2026-05-22T07:07:06.7045121Z Nested mountpoint volatile/logs
+2026-05-22T07:07:06.7234638Z Nested mountpoint 
+2026-05-22T07:07:06.8031361Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:07:06.8047933Z Creating container.
+2026-05-22T07:07:06.8129265Z Creating pipes for streaming container io.
+2026-05-22T07:07:06.8135702Z Creating stdout named pipe at /podr/container/pipe/2f1b031098c0_game2shape-backend/stdout_eedc6cfbf86a4657a7aeb15d81d67fc2.
+2026-05-22T07:07:06.8141967Z Successfully created stdout named pipe at: /podr/container/pipe/2f1b031098c0_game2shape-backend/stdout_eedc6cfbf86a4657a7aeb15d81d67fc2.
+2026-05-22T07:07:06.8143703Z Opening named pipe /podr/container/pipe/2f1b031098c0_game2shape-backend/stdout_eedc6cfbf86a4657a7aeb15d81d67fc2 for reading in non-blocking mode.
+2026-05-22T07:07:06.8145427Z Successfully opened named pipe: /podr/container/pipe/2f1b031098c0_game2shape-backend/stdout_eedc6cfbf86a4657a7aeb15d81d67fc2.
+2026-05-22T07:07:06.8148329Z Successfully removed non-blocking flag from /podr/container/pipe/2f1b031098c0_game2shape-backend/stdout_eedc6cfbf86a4657a7aeb15d81d67fc2.
+2026-05-22T07:07:06.8235492Z Creating stderr named pipe at /podr/container/pipe/2f1b031098c0_game2shape-backend/stderr_c07064b98ff64c6ca4a4963734b08860.
+2026-05-22T07:07:06.8540965Z Successfully created stderr named pipe at: /podr/container/pipe/2f1b031098c0_game2shape-backend/stderr_c07064b98ff64c6ca4a4963734b08860.
+2026-05-22T07:07:06.8550155Z Opening named pipe /podr/container/pipe/2f1b031098c0_game2shape-backend/stderr_c07064b98ff64c6ca4a4963734b08860 for reading in non-blocking mode.
+2026-05-22T07:07:06.9127397Z Successfully opened named pipe: /podr/container/pipe/2f1b031098c0_game2shape-backend/stderr_c07064b98ff64c6ca4a4963734b08860.
+2026-05-22T07:07:06.9135847Z Successfully removed non-blocking flag from /podr/container/pipe/2f1b031098c0_game2shape-backend/stderr_c07064b98ff64c6ca4a4963734b08860.
+2026-05-22T07:07:06.9338548Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:07:07.6349383Z Starting container: 2f1b031098c0_game2shape-backend.
+2026-05-22T07:07:07.7549524Z Starting watchers and probes.
+2026-05-22T07:07:07.7858548Z Starting metrics collection.
+2026-05-22T07:07:07.8040928Z Container is running.
+2026-05-22T07:07:07.8043022Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:07:07.9539321Z Container start method finished after 1591 ms.
+2026-05-22T07:07:07.9552625Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:07:07.9553424Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:07:33.7486130Z Container has finished running with exit code: 0.
+2026-05-22T07:07:33.7488354Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:07:33.7595352Z Stop and delete container. Retry count = 0
+2026-05-22T07:07:33.7673153Z Stopping container: 2f1b031098c0_game2shape-backend.
+2026-05-22T07:07:33.8292368Z Deleting container: 2f1b031098c0_game2shape-backend. Retry count = 0
+2026-05-22T07:07:34.0599792Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:07:34.0875310Z Container is terminated. Total time elapsed: 311 ms.
+2026-05-22T07:07:34.0890044Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:07:34.0893083Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:06:00, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:07:34.0986156Z Site startup probe failed after 26.0933668 seconds.
+2026-05-22T07:07:34.2385773Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:07:34.2479737Z Failed to start site. Revert by stopping site.
+2026-05-22T07:07:34.2483382Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:07:34.2492017Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:07:34.2492271Z Site: game2shape-backend stopped.
+2026-05-22T07:09:22.7521894Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:09:34, DetailsLevel: WARN
+2026-05-22T07:09:25.3263393Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 05/22/2026 07:09:34, DetailsLevel: WARN
+2026-05-22T07:09:25.3273871Z Container start method called.
+2026-05-22T07:09:25.3275019Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:09:25.3277114Z Establishing network.
+2026-05-22T07:09:25.3278333Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:09:25.7581120Z Container is starting.
+2026-05-22T07:09:25.7586660Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:09:25.7659811Z Establishing user namespace if not established already.
+2026-05-22T07:09:25.7673750Z Establishing network if not established already.
+2026-05-22T07:09:25.7684234Z Mounting volumes.
+2026-05-22T07:09:25.7687300Z Nested mountpoint volatile/logs
+2026-05-22T07:09:25.7961643Z Nested mountpoint 
+2026-05-22T07:09:25.9576970Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:09:25.9581092Z Creating container.
+2026-05-22T07:09:25.9662760Z Creating pipes for streaming container io.
+2026-05-22T07:09:25.9665184Z Creating stdout named pipe at /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stdout_ad7a283290884715b29b95cbb9c55ce3.
+2026-05-22T07:09:25.9758470Z Successfully created stdout named pipe at: /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stdout_ad7a283290884715b29b95cbb9c55ce3.
+2026-05-22T07:09:25.9760441Z Opening named pipe /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stdout_ad7a283290884715b29b95cbb9c55ce3 for reading in non-blocking mode.
+2026-05-22T07:09:25.9762131Z Successfully opened named pipe: /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stdout_ad7a283290884715b29b95cbb9c55ce3.
+2026-05-22T07:09:25.9769459Z Successfully removed non-blocking flag from /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stdout_ad7a283290884715b29b95cbb9c55ce3.
+2026-05-22T07:09:26.0583017Z Creating stderr named pipe at /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stderr_7386caa5cad24337b96ef82dbc5fbaf3.
+2026-05-22T07:09:26.0585866Z Successfully created stderr named pipe at: /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stderr_7386caa5cad24337b96ef82dbc5fbaf3.
+2026-05-22T07:09:26.0586745Z Opening named pipe /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stderr_7386caa5cad24337b96ef82dbc5fbaf3 for reading in non-blocking mode.
+2026-05-22T07:09:26.0587790Z Successfully opened named pipe: /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stderr_7386caa5cad24337b96ef82dbc5fbaf3.
+2026-05-22T07:09:26.0588554Z Successfully removed non-blocking flag from /podr/container/pipe/ad0a4be6e5a7_game2shape-backend/stderr_7386caa5cad24337b96ef82dbc5fbaf3.
+2026-05-22T07:09:26.0963801Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:09:26.8837026Z Starting container: ad0a4be6e5a7_game2shape-backend.
+2026-05-22T07:09:27.0168323Z Starting watchers and probes.
+2026-05-22T07:09:27.0173593Z Starting metrics collection.
+2026-05-22T07:09:27.0263637Z Container is running.
+2026-05-22T07:09:27.0264630Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:09:27.1193266Z Container start method finished after 1791 ms.
+2026-05-22T07:09:27.1194980Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:09:27.1195187Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:09:27.1683911Z Container has finished running with exit code: 2.
+2026-05-22T07:09:27.1684909Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:09:27.1696057Z Stop and delete container. Retry count = 0
+2026-05-22T07:09:27.1696953Z Stopping container: ad0a4be6e5a7_game2shape-backend.
+2026-05-22T07:09:27.2790922Z Deleting container: ad0a4be6e5a7_game2shape-backend. Retry count = 0
+2026-05-22T07:09:27.4895877Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:09:27.4904523Z Container is terminated. Total time elapsed: 321 ms.
+2026-05-22T07:09:27.4905744Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:09:27.4906453Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:07:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:27.5302561Z Site startup probe failed after 0.3624332 seconds.
+2026-05-22T07:09:27.6780665Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:27.6965050Z Failed to start site. Revert by stopping site.
+2026-05-22T07:09:27.6986721Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:27.7057928Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:27.7058273Z Site: game2shape-backend stopped.
+2026-05-22T07:09:48.8858218Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:28 (UTC), DetailsLevel: ERR
+2026-05-22T07:09:51.8751878Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:28 (UTC), DetailsLevel: ERR
+2026-05-22T07:09:51.8943950Z Container start method called.
+2026-05-22T07:09:51.9016579Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:09:51.9118236Z Establishing network.
+2026-05-22T07:09:51.9128115Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:09:52.3596750Z Container is starting.
+2026-05-22T07:09:52.3598284Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:09:52.3600884Z Establishing user namespace if not established already.
+2026-05-22T07:09:52.3689324Z Establishing network if not established already.
+2026-05-22T07:09:52.3807897Z Mounting volumes.
+2026-05-22T07:09:52.3993921Z Nested mountpoint volatile/logs
+2026-05-22T07:09:52.4197390Z Nested mountpoint 
+2026-05-22T07:09:52.6871336Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:09:52.6873660Z Creating container.
+2026-05-22T07:09:52.6956009Z Creating pipes for streaming container io.
+2026-05-22T07:09:52.6959596Z Creating stdout named pipe at /podr/container/pipe/ab758f701218_game2shape-backend/stdout_522ee6f0eb0a425f943ebd2675fd1012.
+2026-05-22T07:09:52.6967277Z Successfully created stdout named pipe at: /podr/container/pipe/ab758f701218_game2shape-backend/stdout_522ee6f0eb0a425f943ebd2675fd1012.
+2026-05-22T07:09:52.6970553Z Opening named pipe /podr/container/pipe/ab758f701218_game2shape-backend/stdout_522ee6f0eb0a425f943ebd2675fd1012 for reading in non-blocking mode.
+2026-05-22T07:09:52.6973280Z Successfully opened named pipe: /podr/container/pipe/ab758f701218_game2shape-backend/stdout_522ee6f0eb0a425f943ebd2675fd1012.
+2026-05-22T07:09:52.6975173Z Successfully removed non-blocking flag from /podr/container/pipe/ab758f701218_game2shape-backend/stdout_522ee6f0eb0a425f943ebd2675fd1012.
+2026-05-22T07:09:52.6978270Z Creating stderr named pipe at /podr/container/pipe/ab758f701218_game2shape-backend/stderr_70438b71139d46d5bab54fa902306c5f.
+2026-05-22T07:09:52.7254630Z Successfully created stderr named pipe at: /podr/container/pipe/ab758f701218_game2shape-backend/stderr_70438b71139d46d5bab54fa902306c5f.
+2026-05-22T07:09:52.7259837Z Opening named pipe /podr/container/pipe/ab758f701218_game2shape-backend/stderr_70438b71139d46d5bab54fa902306c5f for reading in non-blocking mode.
+2026-05-22T07:09:52.7265987Z Successfully opened named pipe: /podr/container/pipe/ab758f701218_game2shape-backend/stderr_70438b71139d46d5bab54fa902306c5f.
+2026-05-22T07:09:52.7268248Z Successfully removed non-blocking flag from /podr/container/pipe/ab758f701218_game2shape-backend/stderr_70438b71139d46d5bab54fa902306c5f.
+2026-05-22T07:09:52.7272381Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:09:53.6805286Z Starting container: ab758f701218_game2shape-backend.
+2026-05-22T07:09:53.8306479Z Starting watchers and probes.
+2026-05-22T07:09:53.8702204Z Starting metrics collection.
+2026-05-22T07:09:53.8705385Z Container is running.
+2026-05-22T07:09:53.8710279Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:09:53.9915530Z Container start method finished after 2096 ms.
+2026-05-22T07:09:54.0699868Z Container has finished running with exit code: 2.
+2026-05-22T07:09:54.0700933Z Container is terminating. Grace period: 5 seconds.
+2026-05-22T07:09:54.0710294Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:09:54.0710568Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:09:54.0724728Z Stop and delete container. Retry count = 0
+2026-05-22T07:09:54.0725821Z Stopping container: ab758f701218_game2shape-backend.
+2026-05-22T07:09:54.2425463Z Deleting container: ab758f701218_game2shape-backend. Retry count = 0
+2026-05-22T07:09:54.6095523Z Container spec TerminationMessagePolicy  path 
+2026-05-22T07:09:54.6108147Z Container is terminated. Total time elapsed: 539 ms.
+2026-05-22T07:09:54.6113591Z Site container: game2shape-backend terminated during site startup.
+2026-05-22T07:09:54.6482508Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:27, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:54.6685289Z Site startup probe failed after 0.5893881 seconds.
+2026-05-22T07:09:55.0259794Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:55.0360791Z Failed to start site. Revert by stopping site.
+2026-05-22T07:09:55.0364693Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:55.0468006Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: game2shape-backend terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-05-22T07:09:55.0468316Z Site: game2shape-backend stopped.
+2026-05-22T07:12:56.6348646Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:55 (UTC), DetailsLevel: ERR
+2026-05-22T07:12:58.4912407Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:55 (UTC), DetailsLevel: ERR
+2026-05-22T07:12:58.4913490Z Container start method called.
+2026-05-22T07:12:58.4913863Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:12:58.4914602Z Establishing network.
+2026-05-22T07:12:58.4915530Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:12:58.8654877Z Container is starting.
+2026-05-22T07:12:58.8722741Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:12:58.8731714Z Establishing user namespace if not established already.
+2026-05-22T07:12:58.8736424Z Establishing network if not established already.
+2026-05-22T07:12:58.8826936Z Mounting volumes.
+2026-05-22T07:12:58.8832579Z Nested mountpoint volatile/logs
+2026-05-22T07:12:58.9333864Z Nested mountpoint 
+2026-05-22T07:12:58.9717509Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:12:58.9719831Z Creating container.
+2026-05-22T07:12:58.9720755Z Creating pipes for streaming container io.
+2026-05-22T07:12:58.9721569Z Creating stdout named pipe at /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9723540Z Successfully created stdout named pipe at: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9724259Z Opening named pipe /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833 for reading in non-blocking mode.
+2026-05-22T07:12:58.9725193Z Successfully opened named pipe: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9725954Z Successfully removed non-blocking flag from /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9728117Z Creating stderr named pipe at /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9729420Z Successfully created stderr named pipe at: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9730132Z Opening named pipe /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565 for reading in non-blocking mode.
+2026-05-22T07:12:58.9731041Z Successfully opened named pipe: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9731738Z Successfully removed non-blocking flag from /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9732707Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:12:59.5670068Z Starting container: 70f5fa5133fc_game2shape-backend.
+2026-05-22T07:12:59.6740400Z Starting watchers and probes.
+2026-05-22T07:12:59.6854226Z Starting metrics collection.
+2026-05-22T07:12:59.6935138Z Container is running.
+2026-05-22T07:12:59.6938268Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:12:59.8544729Z Container start method finished after 1343 ms.
+2026-05-22T07:12:59.8655343Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:12:59.8656047Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:13:16.0053988Z Site startup probe succeeded after 16.1378167 seconds.
+2026-05-22T07:13:16.1851917Z State: Starting, Action: WarmUpProbeSucceeded, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site startup probe succeeded after 16.1378167 seconds., DetailsLevel: INFO
+2026-05-22T07:13:16.4564278Z Site started.
+2026-05-22T07:13:16.4623261Z State: Started, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 05/22/2026 07:13:16 (UTC), DetailsLevel: INFO
+2026-05-22T07:46:27.7016946Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T07:46:30.7812413Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T07:46:30.7819813Z Container start method called.
+2026-05-22T07:46:30.7820716Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:46:30.7902139Z Establishing network.
+2026-05-22T07:46:30.7904683Z Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:47:45.9433709Z Image game2shapeacr.azurecr.io/game2shape-backend:latest is pulled from registry game2shapeacr.azurecr.io
+2026-05-22T07:47:45.9525604Z Container is starting.
+2026-05-22T07:47:46.0725753Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:47:46.0742635Z Establishing user namespace if not established already.
+2026-05-22T07:47:46.0745058Z Establishing network if not established already.
+2026-05-22T07:47:46.0746499Z Mounting volumes.
+2026-05-22T07:47:46.0750834Z Nested mountpoint volatile/logs
+2026-05-22T07:47:46.1124492Z Nested mountpoint 
+2026-05-22T07:47:46.3750753Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:47:46.3752057Z Creating container.
+2026-05-22T07:47:46.3753230Z Creating pipes for streaming container io.
+2026-05-22T07:47:46.4035210Z Creating stdout named pipe at /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4043374Z Successfully created stdout named pipe at: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4046870Z Opening named pipe /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c for reading in non-blocking mode.
+2026-05-22T07:47:46.4048499Z Successfully opened named pipe: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4049703Z Successfully removed non-blocking flag from /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4051381Z Creating stderr named pipe at /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4054205Z Successfully created stderr named pipe at: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4542299Z Opening named pipe /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171 for reading in non-blocking mode.
+2026-05-22T07:47:46.4695276Z Successfully opened named pipe: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4855168Z Successfully removed non-blocking flag from /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4970805Z Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:47:47.8398148Z Starting container: fc06bee73e3e_game2shape-backend.
+2026-05-22T07:47:48.1215657Z Starting watchers and probes.
+2026-05-22T07:47:48.1226840Z Starting metrics collection.
+2026-05-22T07:47:48.1616093Z Container is running.
+2026-05-22T07:47:48.2619435Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:47:48.9095994Z Container start method finished after 78126 ms.
+2026-05-22T07:47:48.9190885Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:47:48.9676677Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:48:21.3460495Z Site startup probe succeeded after 32.1372715 seconds.
+2026-05-22T07:48:21.5470223Z State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 32.1372715 seconds., DetailsLevel: INFO
+2026-05-22T07:48:21.8877704Z Site started.
+2026-05-22T07:48:21.8929599Z State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 05/22/2026 07:48:21 (UTC), DetailsLevel: INFO

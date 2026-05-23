@@ -1,0 +1,246 @@
+2026-05-22T07:09:57.1985920+00:00 ContainerStream: Exiting Configure : 07.09.57.157977
+2026-05-22T07:09:57.7112986+00:00 ContainerStream: Hosting environment: Production
+2026-05-22T07:09:57.7113379+00:00 ContainerStream: Content root path: /opt/Kudu
+2026-05-22T07:09:57.7113408+00:00 ContainerStream: Now listening on: http://0.0.0.0:8181
+2026-05-22T07:09:57.7113482+00:00 ContainerStream: Application started. Press Ctrl+C to shut down.
+2026-05-22T07:11:50.5755152+00:00 ContainerStream:     __ __          __      __    _ __     
+2026-05-22T07:11:50.5756188+00:00 ContainerStream:    / //_/_  _ ____/ /_  __/ /   (_) /____ 
+2026-05-22T07:11:50.5835643+00:00 ContainerStream:   / ,< / / / / __  / / / / /   / / __/ _  
+2026-05-22T07:11:50.5835712+00:00 ContainerStream:  / /| / /_/ / /_/ / /_/ / /___/ / /_/  __/
+2026-05-22T07:11:50.5835734+00:00 ContainerStream: /_/ |_\__,_/\__,_/\__,_/_____/_/\__/\___/ 
+2026-05-22T07:11:50.5835761+00:00 ContainerStream: 
+2026-05-22T07:11:50.5835788+00:00 ContainerStream:                                           
+2026-05-22T07:11:50.5835808+00:00 ContainerStream: DEBUG CONSOLE | AZURE APP SERVICE ON LINUX
+2026-05-22T07:11:50.5835850+00:00 ContainerStream: 
+2026-05-22T07:11:50.5835873+00:00 ContainerStream: Documentation: http://aka.ms/webapp-linux
+2026-05-22T07:11:50.5835894+00:00 ContainerStream: Kudu Version : 20260420.5
+2026-05-22T07:11:50.5835916+00:00 ContainerStream: Commit       : 7a094e2df1cfed4581bd19068ff5e3be7c578796
+2026-05-22T07:11:50.5835935+00:00 ContainerStream: Instance Name: lw0sdlwk0004PF
+2026-05-22T07:11:50.5835961+00:00 ContainerStream: Instance Id  : f6a2f6331f4f00e2a37fa63ce570f4969682760abef5ebfc12f34db509512afb
+2026-05-22T07:11:50.5835979+00:00 ContainerStream: 
+2026-05-22T07:11:51.2974171+00:00 ContainerStream: chown: changing ownership of '/temp': Operation not permitted
+2026-05-22T07:11:51.3057516+00:00 ContainerStream: chmod: changing permissions of '/temp': Operation not permitted
+2026-05-22T07:11:53.3460173+00:00 ContainerStream: Restarting OpenBSD Secure Shell server: sshd.
+2026-05-22T07:11:53.4875462+00:00 ContainerStream: node not running, starting node /opt/webssh/index.js
+2026-05-22T07:12:04.1574962+00:00 ContainerStream: Fri May 22 07:12:04 UTC 2026 running .net core
+2026-05-22T07:12:06.4315679+00:00 ContainerStream: Startup : 07.12.06.376591
+2026-05-22T07:12:06.4914197+00:00 ContainerStream: Configure Services : 07.12.06.491140
+2026-05-22T07:12:07.8319772+00:00 ContainerStream: Configure : 07.12.07.831745
+2026-05-22T07:12:09.3358391+00:00 ContainerStream: Setting Up Routes : 07.12.09.316628
+2026-05-22T07:12:09.3960005+00:00 ContainerStream: Exiting Configure : 07.12.09.395843
+2026-05-22T07:12:09.6256067+00:00 ContainerStream: Hosting environment: Production
+2026-05-22T07:12:09.6452238+00:00 ContainerStream: Content root path: /opt/Kudu
+2026-05-22T07:12:09.6452473+00:00 ContainerStream: Now listening on: http://0.0.0.0:8181
+2026-05-22T07:12:09.6452508+00:00 ContainerStream: Application started. Press Ctrl+C to shut down.
+2026-05-22T07:12:56.6348646+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:55 (UTC), DetailsLevel: ERR
+2026-05-22T07:12:58.4912407+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 05/22/2026 07:09:55 (UTC), DetailsLevel: ERR
+2026-05-22T07:12:58.4913490+00:00 ContainerStatus: Container start method called.
+2026-05-22T07:12:58.4913863+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:12:58.4914602+00:00 ContainerStatus: Establishing network.
+2026-05-22T07:12:58.4915530+00:00 ContainerStatus: Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:12:58.8654877+00:00 ContainerStatus: Container is starting.
+2026-05-22T07:12:58.8722741+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:12:58.8731714+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-05-22T07:12:58.8736424+00:00 ContainerStatus: Establishing network if not established already.
+2026-05-22T07:12:58.8826936+00:00 ContainerStatus: Mounting volumes.
+2026-05-22T07:12:58.8832579+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-05-22T07:12:58.9333864+00:00 ContainerStatus: Nested mountpoint 
+2026-05-22T07:12:58.9717509+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:12:58.9719831+00:00 ContainerStatus: Creating container.
+2026-05-22T07:12:58.9720755+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-05-22T07:12:58.9721569+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9723540+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9724259+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833 for reading in non-blocking mode.
+2026-05-22T07:12:58.9725193+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9725954+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/70f5fa5133fc_game2shape-backend/stdout_c387b65325bd45958d7d657ce8aa8833.
+2026-05-22T07:12:58.9728117+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9729420+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9730132+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565 for reading in non-blocking mode.
+2026-05-22T07:12:58.9731041+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9731738+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/70f5fa5133fc_game2shape-backend/stderr_336c41e66fdf488f9270ef2b4b742565.
+2026-05-22T07:12:58.9732707+00:00 ContainerStatus: Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:12:59.5670068+00:00 ContainerStatus: Starting container: 70f5fa5133fc_game2shape-backend.
+2026-05-22T07:12:59.6740400+00:00 ContainerStatus: Starting watchers and probes.
+2026-05-22T07:12:59.6854226+00:00 ContainerStatus: Starting metrics collection.
+2026-05-22T07:12:59.6935138+00:00 ContainerStatus: Container is running.
+2026-05-22T07:12:59.6938268+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:12:59.8544729+00:00 ContainerStatus: Container start method finished after 1343 ms.
+2026-05-22T07:12:59.8655343+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:12:59.8656047+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:13:03.1904597+00:00 ContainerStream: 
+2026-05-22T07:13:03.1906423+00:00 ContainerStream: > game2shape-backend@1.0.0 start:prod
+2026-05-22T07:13:03.1906477+00:00 ContainerStream: > node dist/main
+2026-05-22T07:13:03.1906500+00:00 ContainerStream: 
+2026-05-22T07:13:11.2116967+00:00 ContainerStream: ◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+2026-05-22T07:13:12.9558257+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:12 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-05-22T07:13:13.1559807+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +201ms[39m
+2026-05-22T07:13:13.1563972+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSentryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.1638559+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +7ms[39m
+2026-05-22T07:13:13.1640620+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.1837734+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +12ms[39m
+2026-05-22T07:13:13.1842116+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.1845252+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.2066866+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +22ms[39m
+2026-05-22T07:13:13.2235734+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.2243080+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.2355460+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGamesModule dependencies initialized[39m[38;5;3m +11ms[39m
+2026-05-22T07:13:13.2747484+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +39ms[39m
+2026-05-22T07:13:13.2752039+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.2764287+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScoresModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.2840647+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMatchmakingModule dependencies initialized[39m[38;5;3m +7ms[39m
+2026-05-22T07:13:13.2844621+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.5537373+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth} (version: 1):[39m[38;5;3m +269ms[39m
+2026-05-22T07:13:13.5937695+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/signup, POST} (version: 1) route[39m[38;5;3m +40ms[39m
+2026-05-22T07:13:13.6023052+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6023210+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGamesController {/games} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6211638+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6212177+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games/:id, GET} (version: 1) route[39m[38;5;3m +2ms[39m
+2026-05-22T07:13:13.6212294+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mScoresController {/scores} (version: 1):[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6410819+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores, POST} (version: 1) route[39m[38;5;3m +19ms[39m
+2026-05-22T07:13:13.6411427+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/leaderboard, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6411468+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/me, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6411598+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health} (version: 1):[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6411627+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6432545+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health/debug-sentry, GET} (version: 1) route[39m[38;5;3m +10ms[39m
+2026-05-22T07:13:13.6610460+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMatchmakingController {/matchmaking} (version: 1):[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6611236+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/join, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6611309+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6626007+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/leave, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.6636631+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/create, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6810718+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/rooms, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6811053+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/join, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6811089+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6811118+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/leave, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:15.1562359+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:15 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1483ms[39m
+2026-05-22T07:13:15.1846739+00:00 ContainerStream: Application is running on: http://0.0.0.0:3000/api
+2026-05-22T07:13:16.0053988+00:00 ContainerStatus: Site startup probe succeeded after 16.1378167 seconds.
+2026-05-22T07:13:16.1851917+00:00 ContainerStatus: State: Starting, Action: WarmUpProbeSucceeded, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site startup probe succeeded after 16.1378167 seconds., DetailsLevel: INFO
+2026-05-22T07:13:16.4564278+00:00 ContainerStatus: Site started.
+2026-05-22T07:13:16.4623261+00:00 ContainerStatus: State: Started, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 05/22/2026 07:09:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 05/22/2026 07:13:16 (UTC), DetailsLevel: INFO
+========== New Cold Start Attempt (2026-05-22T07:13:26.1100368+00:00) ==========
+2026-05-22T07:13:26.1100368+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:13:26 AM [32m    LOG[39m [38;5;3m[HTTP] [39m[32mGET /v1/scores/leaderboard?gameId=2 200 - 42ms[39m
+2026-05-22T07:16:10.5590710+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:16:10 AM [32m    LOG[39m [38;5;3m[HTTP] [39m[32mGET /v1/scores/leaderboard?gameId=2 200 - 78ms[39m
+2026-05-22T07:46:27.7016946+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T07:46:30.7812413+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-05-22T07:46:30.7819813+00:00 ContainerStatus: Container start method called.
+2026-05-22T07:46:30.7820716+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image game2shapeacr.azurecr.io/game2shape-backend:latest for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:46:30.7902139+00:00 ContainerStatus: Establishing network.
+2026-05-22T07:46:30.7904683+00:00 ContainerStatus: Pulling image: game2shapeacr.azurecr.io/game2shape-backend:latest.
+2026-05-22T07:46:33.5695063+00:00 ContainerStream:     __ __          __      __    _ __     
+2026-05-22T07:46:33.5799581+00:00 ContainerStream:    / //_/_  _ ____/ /_  __/ /   (_) /____ 
+2026-05-22T07:46:33.5799751+00:00 ContainerStream:   / ,< / / / / __  / / / / /   / / __/ _  
+2026-05-22T07:46:33.5799774+00:00 ContainerStream:  / /| / /_/ / /_/ / /_/ / /___/ / /_/  __/
+2026-05-22T07:46:33.5799794+00:00 ContainerStream: /_/ |_\__,_/\__,_/\__,_/_____/_/\__/\___/ 
+2026-05-22T07:46:33.5799859+00:00 ContainerStream: 
+2026-05-22T07:46:33.5799990+00:00 ContainerStream:                                           
+2026-05-22T07:46:33.5800011+00:00 ContainerStream: DEBUG CONSOLE | AZURE APP SERVICE ON LINUX
+2026-05-22T07:46:33.5800028+00:00 ContainerStream: 
+2026-05-22T07:46:33.5800051+00:00 ContainerStream: Documentation: http://aka.ms/webapp-linux
+2026-05-22T07:46:33.5800070+00:00 ContainerStream: Kudu Version : 20260420.5
+2026-05-22T07:46:33.5800091+00:00 ContainerStream: Commit       : 7a094e2df1cfed4581bd19068ff5e3be7c578796
+2026-05-22T07:46:33.5800112+00:00 ContainerStream: Instance Name: lw0sdlwk0004PF
+2026-05-22T07:46:33.5800153+00:00 ContainerStream: Instance Id  : f6a2f6331f4f00e2a37fa63ce570f4969682760abef5ebfc12f34db509512afb
+2026-05-22T07:46:33.5800173+00:00 ContainerStream: 
+2026-05-22T07:46:34.5233201+00:00 ContainerStream: chown: changing ownership of '/temp': Operation not permitted
+2026-05-22T07:46:34.5841783+00:00 ContainerStream: chmod: changing permissions of '/temp': Operation not permitted
+2026-05-22T07:46:38.0180461+00:00 ContainerStream: Restarting OpenBSD Secure Shell server: sshd.
+2026-05-22T07:46:38.2439060+00:00 ContainerStream: node not running, starting node /opt/webssh/index.js
+2026-05-22T07:47:00.2932143+00:00 ContainerStream: Fri May 22 07:47:00 UTC 2026 running .net core
+2026-05-22T07:47:06.2227908+00:00 ContainerStream: Startup : 07.47.06.013469
+2026-05-22T07:47:06.3729111+00:00 ContainerStream: Configure Services : 07.47.06.365442
+2026-05-22T07:47:08.7412826+00:00 ContainerStream: Configure : 07.47.08.733915
+2026-05-22T07:47:10.7049814+00:00 ContainerStream: Setting Up Routes : 07.47.10.695282
+2026-05-22T07:47:10.7957511+00:00 ContainerStream: Exiting Configure : 07.47.10.778673
+2026-05-22T07:47:11.6295291+00:00 ContainerStream: Hosting environment: Production
+2026-05-22T07:47:11.6295670+00:00 ContainerStream: Content root path: /opt/Kudu
+2026-05-22T07:47:11.6295771+00:00 ContainerStream: Now listening on: http://0.0.0.0:8181
+2026-05-22T07:47:11.6295808+00:00 ContainerStream: Application started. Press Ctrl+C to shut down.
+2026-05-22T07:47:45.9433709+00:00 ContainerStatus: Image game2shapeacr.azurecr.io/game2shape-backend:latest is pulled from registry game2shapeacr.azurecr.io
+2026-05-22T07:47:45.9525604+00:00 ContainerStatus: Container is starting.
+2026-05-22T07:47:46.0725753+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for game2shape-backend., DetailsLevel: INFO
+2026-05-22T07:47:46.0742635+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-05-22T07:47:46.0745058+00:00 ContainerStatus: Establishing network if not established already.
+2026-05-22T07:47:46.0746499+00:00 ContainerStatus: Mounting volumes.
+2026-05-22T07:47:46.0750834+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-05-22T07:47:46.1124492+00:00 ContainerStatus: Nested mountpoint 
+2026-05-22T07:47:46.3750753+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for game2shape-backend. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-05-22T07:47:46.3752057+00:00 ContainerStatus: Creating container.
+2026-05-22T07:47:46.3753230+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-05-22T07:47:46.4035210+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4043374+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4046870+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c for reading in non-blocking mode.
+2026-05-22T07:47:46.4048499+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4049703+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/fc06bee73e3e_game2shape-backend/stdout_53f495a6034b4d5592d7ed41ee5bf68c.
+2026-05-22T07:47:46.4051381+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4054205+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4542299+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171 for reading in non-blocking mode.
+2026-05-22T07:47:46.4695276+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4855168+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/fc06bee73e3e_game2shape-backend/stderr_8303378680f94e47a812af3f5f2e7171.
+2026-05-22T07:47:46.4970805+00:00 ContainerStatus: Creating container with image: game2shapeacr.azurecr.io/game2shape-backend:latest from registry: game2shapeacr.azurecr.io and fully qualified image name: game2shapeacr.azurecr.io/game2shape-backend:latest
+2026-05-22T07:47:47.8398148+00:00 ContainerStatus: Starting container: fc06bee73e3e_game2shape-backend.
+2026-05-22T07:47:48.1215657+00:00 ContainerStatus: Starting watchers and probes.
+2026-05-22T07:47:48.1226840+00:00 ContainerStatus: Starting metrics collection.
+2026-05-22T07:47:48.1616093+00:00 ContainerStatus: Container is running.
+2026-05-22T07:47:48.2619435+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:47:48.9095994+00:00 ContainerStatus: Container start method finished after 78126 ms.
+2026-05-22T07:47:48.9190885+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container game2shape-backend successfully created and is running., DetailsLevel: INFO
+2026-05-22T07:47:48.9676677+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-05-22T07:47:55.4017130+00:00 ContainerStream: 
+2026-05-22T07:47:55.4023361+00:00 ContainerStream: > game2shape-backend@1.0.0 start:prod
+2026-05-22T07:47:55.4023578+00:00 ContainerStream: > prisma migrate deploy && node dist/main
+2026-05-22T07:47:55.4023665+00:00 ContainerStream: 
+2026-05-22T07:48:04.7517893+00:00 ContainerStream: warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:48:04.7518602+00:00 ContainerStream: For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:48:04.7518648+00:00 ContainerStream: 
+2026-05-22T07:48:06.0746093+00:00 ContainerStream: Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:48:06.2735462+00:00 ContainerStream: Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:48:07.6965722+00:00 ContainerStream: 
+2026-05-22T07:48:07.6974913+00:00 ContainerStream: No migration found in prisma/migrations
+2026-05-22T07:48:07.7077524+00:00 ContainerStream: 
+2026-05-22T07:48:08.4387443+00:00 ContainerStream: 
+2026-05-22T07:48:08.4397596+00:00 ContainerStream: No pending migrations to apply.
+2026-05-22T07:48:16.9253746+00:00 ContainerStream: ◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+2026-05-22T07:48:18.5721293+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-05-22T07:48:18.8308242+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +259ms[39m
+2026-05-22T07:48:18.8312503+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSentryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.8316565+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8319184+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8498645+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +11ms[39m
+2026-05-22T07:48:18.8506628+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:18.8509373+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8904487+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +40ms[39m
+2026-05-22T07:48:18.9003213+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +10ms[39m
+2026-05-22T07:48:18.9016043+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.9216983+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGamesModule dependencies initialized[39m[38;5;3m +20ms[39m
+2026-05-22T07:48:18.9423097+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +21ms[39m
+2026-05-22T07:48:18.9904701+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +30ms[39m
+2026-05-22T07:48:18.9905435+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScoresModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.9905540+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMatchmakingModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.9905570+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.3466853+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth} (version: 1):[39m[38;5;3m +373ms[39m
+2026-05-22T07:48:19.3658892+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/signup, POST} (version: 1) route[39m[38;5;3m +13ms[39m
+2026-05-22T07:48:19.3683121+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.3775046+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/google, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.3861250+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGamesController {/games} (version: 1):[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.3886427+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games, GET} (version: 1) route[39m[38;5;3m +3ms[39m
+2026-05-22T07:48:19.4051849+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games/:id, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.4052358+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mScoresController {/scores} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4052398+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4075994+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/leaderboard, GET} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.4166316+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/me, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.4166796+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4282530+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: 1) route[39m[38;5;3m +12ms[39m
+2026-05-22T07:48:19.4370345+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health/debug-sentry, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370618+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMatchmakingController {/matchmaking} (version: 1):[39m[38;5;3m +5ms[39m
+2026-05-22T07:48:19.4370651+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/join, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370681+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/status, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.4370735+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/leave, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370784+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/create, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.4443537+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/rooms, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4450723+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/join, POST} (version: 1) route[39m[38;5;3m +7ms[39m
+2026-05-22T07:48:19.4458113+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4462065+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/leave, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:21.1262971+00:00 ContainerStream: [32m[Nest] 18  - [39m05/22/2026, 7:48:21 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1680ms[39m
+2026-05-22T07:48:21.1457087+00:00 ContainerStream: Application is running on: http://0.0.0.0:3000/api
+2026-05-22T07:48:21.3460495+00:00 ContainerStatus: Site startup probe succeeded after 32.1372715 seconds.
+2026-05-22T07:48:21.5470223+00:00 ContainerStatus: State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 32.1372715 seconds., DetailsLevel: INFO

@@ -1,0 +1,197 @@
+2026-05-22T07:02:32.1967437Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:02:32.2243974Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:02:32.2244312Z 
+2026-05-22T07:02:32.7222266Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:02:32.7730544Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:02:33.6574431Z 
+2026-05-22T07:02:33.6596653Z No migration found in prisma/migrations
+2026-05-22T07:02:33.6604611Z 
+2026-05-22T07:02:34.2820453Z 
+2026-05-22T07:02:34.2991002Z No pending migrations to apply.
+2026-05-22T07:02:34.3919620Z npm notice
+2026-05-22T07:02:34.3920478Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:02:34.3920602Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:02:34.3920635Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:02:34.3920663Z npm notice
+2026-05-22T07:02:50.3306902Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:02:50.3307425Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:02:50.3307451Z 
+2026-05-22T07:02:51.0935013Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:02:51.1345144Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:02:51.8052455Z 
+2026-05-22T07:02:51.8064348Z No migration found in prisma/migrations
+2026-05-22T07:02:51.8074023Z 
+2026-05-22T07:02:52.4253939Z 
+2026-05-22T07:02:52.4269839Z No pending migrations to apply.
+2026-05-22T07:02:52.5166583Z npm notice
+2026-05-22T07:02:52.5169770Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:02:52.5169848Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:02:52.5169870Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:02:52.5169912Z npm notice
+2026-05-22T07:04:13.7468773Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:04:13.7470923Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:04:13.7470976Z 
+2026-05-22T07:04:14.2809667Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:04:14.3326653Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:04:14.9268604Z 
+2026-05-22T07:04:14.9345810Z No migration found in prisma/migrations
+2026-05-22T07:04:14.9346031Z 
+2026-05-22T07:04:15.7476824Z 
+2026-05-22T07:04:15.7477370Z No pending migrations to apply.
+2026-05-22T07:04:16.0113740Z npm notice
+2026-05-22T07:04:16.0114492Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:04:16.0114637Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:04:16.0114667Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:04:16.0114693Z npm notice
+2026-05-22T07:04:37.1689633Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:04:37.1690101Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:04:37.1690124Z 
+2026-05-22T07:04:37.6600622Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:04:37.6881669Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:04:38.2902374Z 
+2026-05-22T07:04:38.2911911Z No migration found in prisma/migrations
+2026-05-22T07:04:38.3082135Z 
+2026-05-22T07:04:39.1128436Z 
+2026-05-22T07:04:39.1326079Z No pending migrations to apply.
+2026-05-22T07:04:39.2829770Z npm notice
+2026-05-22T07:04:39.2830223Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:04:39.2830247Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:04:39.2830266Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:04:39.2830282Z npm notice
+2026-05-22T07:05:56.1728984Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:05:56.1918003Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:05:56.1918084Z 
+2026-05-22T07:05:58.0154630Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:05:58.1677310Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:05:59.2213153Z 
+2026-05-22T07:05:59.2216577Z No migration found in prisma/migrations
+2026-05-22T07:05:59.2217014Z 
+2026-05-22T07:05:59.9529988Z 
+2026-05-22T07:05:59.9542121Z No pending migrations to apply.
+2026-05-22T07:06:00.1859069Z npm notice
+2026-05-22T07:06:00.1859756Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:06:00.1859785Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:06:00.1859805Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:06:00.2033560Z npm notice
+2026-05-22T07:07:31.3032355Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:07:31.3033208Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:07:31.3033229Z 
+2026-05-22T07:07:31.8511752Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:07:31.9012987Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:07:32.5571314Z 
+2026-05-22T07:07:32.5743660Z No migration found in prisma/migrations
+2026-05-22T07:07:32.5747243Z 
+2026-05-22T07:07:33.5168695Z 
+2026-05-22T07:07:33.5188616Z No pending migrations to apply.
+2026-05-22T07:07:33.6189153Z npm notice
+2026-05-22T07:07:33.6189734Z npm notice New major version of npm available! 10.8.2 -> 11.15.0
+2026-05-22T07:07:33.6189764Z npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+2026-05-22T07:07:33.6189785Z npm notice To update run: npm install -g npm@11.15.0
+2026-05-22T07:07:33.6189803Z npm notice
+2026-05-22T07:09:27.0179050Z prisma: line 0: syntax error: unterminated quoted string
+2026-05-22T07:09:53.8691123Z prisma: line 0: syntax error: unterminated quoted string
+2026-05-22T07:13:03.1904597Z 
+2026-05-22T07:13:03.1906423Z > game2shape-backend@1.0.0 start:prod
+2026-05-22T07:13:03.1906477Z > node dist/main
+2026-05-22T07:13:03.1906500Z 
+2026-05-22T07:13:11.2116967Z ◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+2026-05-22T07:13:12.9558257Z [32m[Nest] 18  - [39m05/22/2026, 7:13:12 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-05-22T07:13:13.1559807Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +201ms[39m
+2026-05-22T07:13:13.1563972Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSentryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.1638559Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +7ms[39m
+2026-05-22T07:13:13.1640620Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.1837734Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +12ms[39m
+2026-05-22T07:13:13.1842116Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.1845252Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.2066866Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +22ms[39m
+2026-05-22T07:13:13.2235734Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.2243080Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.2355460Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGamesModule dependencies initialized[39m[38;5;3m +11ms[39m
+2026-05-22T07:13:13.2747484Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +39ms[39m
+2026-05-22T07:13:13.2752039Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.2764287Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScoresModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.2840647Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMatchmakingModule dependencies initialized[39m[38;5;3m +7ms[39m
+2026-05-22T07:13:13.2844621Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.5537373Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth} (version: 1):[39m[38;5;3m +269ms[39m
+2026-05-22T07:13:13.5937695Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/signup, POST} (version: 1) route[39m[38;5;3m +40ms[39m
+2026-05-22T07:13:13.6023052Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6023210Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGamesController {/games} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6211638Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6212177Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games/:id, GET} (version: 1) route[39m[38;5;3m +2ms[39m
+2026-05-22T07:13:13.6212294Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mScoresController {/scores} (version: 1):[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6410819Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores, POST} (version: 1) route[39m[38;5;3m +19ms[39m
+2026-05-22T07:13:13.6411427Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/leaderboard, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6411468Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/me, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6411598Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health} (version: 1):[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6411627Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6432545Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health/debug-sentry, GET} (version: 1) route[39m[38;5;3m +10ms[39m
+2026-05-22T07:13:13.6610460Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMatchmakingController {/matchmaking} (version: 1):[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6611236Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/join, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6611309Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6626007Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/leave, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:13:13.6636631Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/create, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6810718Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/rooms, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:13:13.6811053Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/join, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:13.6811089Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:13:13.6811118Z [32m[Nest] 18  - [39m05/22/2026, 7:13:13 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/leave, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:13:15.1562359Z [32m[Nest] 18  - [39m05/22/2026, 7:13:15 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1483ms[39m
+2026-05-22T07:13:15.1846739Z Application is running on: http://0.0.0.0:3000/api
+2026-05-22T07:13:26.1100368Z [32m[Nest] 18  - [39m05/22/2026, 7:13:26 AM [32m    LOG[39m [38;5;3m[HTTP] [39m[32mGET /v1/scores/leaderboard?gameId=2 200 - 42ms[39m
+2026-05-22T07:16:10.5590710Z [32m[Nest] 18  - [39m05/22/2026, 7:16:10 AM [32m    LOG[39m [38;5;3m[HTTP] [39m[32mGET /v1/scores/leaderboard?gameId=2 200 - 78ms[39m
+2026-05-22T07:47:55.4017130Z 
+2026-05-22T07:47:55.4023361Z > game2shape-backend@1.0.0 start:prod
+2026-05-22T07:47:55.4023578Z > prisma migrate deploy && node dist/main
+2026-05-22T07:47:55.4023665Z 
+2026-05-22T07:48:04.7517893Z warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+2026-05-22T07:48:04.7518602Z For more information, see: https://pris.ly/prisma-config
+2026-05-22T07:48:04.7518648Z 
+2026-05-22T07:48:06.0746093Z Prisma schema loaded from prisma/schema.prisma
+2026-05-22T07:48:06.2735462Z Datasource "db": PostgreSQL database "game2shape", schema "public" at "game2shape-db-server.postgres.database.azure.com"
+2026-05-22T07:48:07.6965722Z 
+2026-05-22T07:48:07.6974913Z No migration found in prisma/migrations
+2026-05-22T07:48:07.7077524Z 
+2026-05-22T07:48:08.4387443Z 
+2026-05-22T07:48:08.4397596Z No pending migrations to apply.
+2026-05-22T07:48:16.9253746Z ◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+2026-05-22T07:48:18.5721293Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-05-22T07:48:18.8308242Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +259ms[39m
+2026-05-22T07:48:18.8312503Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSentryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.8316565Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8319184Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8498645Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +11ms[39m
+2026-05-22T07:48:18.8506628Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:18.8509373Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.8904487Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +40ms[39m
+2026-05-22T07:48:18.9003213Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +10ms[39m
+2026-05-22T07:48:18.9016043Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.9216983Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGamesModule dependencies initialized[39m[38;5;3m +20ms[39m
+2026-05-22T07:48:18.9423097Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +21ms[39m
+2026-05-22T07:48:18.9904701Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +30ms[39m
+2026-05-22T07:48:18.9905435Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScoresModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:18.9905540Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMatchmakingModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:18.9905570Z [32m[Nest] 18  - [39m05/22/2026, 7:48:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.3466853Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth} (version: 1):[39m[38;5;3m +373ms[39m
+2026-05-22T07:48:19.3658892Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/signup, POST} (version: 1) route[39m[38;5;3m +13ms[39m
+2026-05-22T07:48:19.3683121Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.3775046Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/google, POST} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.3861250Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGamesController {/games} (version: 1):[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.3886427Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games, GET} (version: 1) route[39m[38;5;3m +3ms[39m
+2026-05-22T07:48:19.4051849Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/games/:id, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.4052358Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mScoresController {/scores} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4052398Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4075994Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/leaderboard, GET} (version: 1) route[39m[38;5;3m +9ms[39m
+2026-05-22T07:48:19.4166316Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/scores/me, GET} (version: 1) route[39m[38;5;3m +8ms[39m
+2026-05-22T07:48:19.4166796Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health} (version: 1):[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4282530Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: 1) route[39m[38;5;3m +12ms[39m
+2026-05-22T07:48:19.4370345Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health/debug-sentry, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370618Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMatchmakingController {/matchmaking} (version: 1):[39m[38;5;3m +5ms[39m
+2026-05-22T07:48:19.4370651Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/join, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370681Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/status, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.4370735Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/leave, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4370784Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/create, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+2026-05-22T07:48:19.4443537Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/rooms, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4450723Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/join, POST} (version: 1) route[39m[38;5;3m +7ms[39m
+2026-05-22T07:48:19.4458113Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/status, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:19.4462065Z [32m[Nest] 18  - [39m05/22/2026, 7:48:19 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/matchmaking/room/leave, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+2026-05-22T07:48:21.1262971Z [32m[Nest] 18  - [39m05/22/2026, 7:48:21 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1680ms[39m
+2026-05-22T07:48:21.1457087Z Application is running on: http://0.0.0.0:3000/api
