@@ -51,3 +51,7 @@ app-example
 
 # zip
 *.zip
+
+# artifacts
+artifacts/
+logs_extracted/
