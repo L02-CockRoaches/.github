@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
-import { Pressable, Text, View, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import * as Haptics from 'expo-haptics';
+import { api, getToken } from '@/services/api';
 import { Ionicons } from '@expo/vector-icons';
+import * as Haptics from 'expo-haptics';
+import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { api, getToken } from '../services/api';
 
 type GameState = 'get-ready' | 'playing' | 'success' | 'mismatch' | 'game-over';
 
@@ -14,17 +14,44 @@ interface Point {
   y: number;
 }
 
+// Per-round shape configurations
+interface RoundShapeConfig {
+  leftLabel: string;
+  leftGuide: string;
+  rightLabel: string;
+  rightGuide: string;
+}
+
+const ROUND_SHAPES: RoundShapeConfig[] = [
+  { leftLabel: 'Vẽ hình Tròn',     leftGuide: 'Vẽ đường tròn khép kín',      rightLabel: 'Vẽ hình Vuông nghiêng', rightGuide: 'Vẽ hình vuông nghiêng' },
+  { leftLabel: 'Vẽ hình Oval',     leftGuide: 'Vẽ hình bầu dục khép kín',   rightLabel: 'Vẽ hình Tam giác',      rightGuide: 'Vẽ hình tam giác khép kín' },
+  { leftLabel: 'Vẽ hình Tròn lớn', leftGuide: 'Vẽ đường tròn lớn khép kín', rightLabel: 'Vẽ hình Chữ nhật',      rightGuide: 'Vẽ hình chữ nhật khép kín' },
+];
+
+/** Equilateral triangle outline built from 3 rotated View lines. */
+function TriangleOutline({ size, color }: { size: number; color: string }) {
+  const h = size * Math.sqrt(3) / 2;
+  const line = { position: 'absolute' as const, height: 2, backgroundColor: color };
+  return (
+    <View style={{ width: size, height: h }}>
+      <View style={[line, { left: 0, top: h - 2, width: size }]} />
+      <View style={[line, { left: -(size / 4), top: h / 2 - 1, width: size, transform: [{ rotate: '-60deg' }] }]} />
+      <View style={[line, { left: size / 4,    top: h / 2 - 1, width: size, transform: [{ rotate: '60deg'  }] }]} />
+    </View>
+  );
+}
+
 export default function Explore() {
   const params = useLocalSearchParams();
   const isVersusMode = params.mode === 'versus';
   const opponentName = (params.opponentName as string) || 'Đối thủ';
-  const isBotMatch = params.isBot === 'true';
 
   const [gameState, setGameState] = useState<GameState>('get-ready');
   const [countdown, setCountdown] = useState(3);
   const [timer, setTimer] = useState(10);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
+  const currentShape = ROUND_SHAPES[(round - 1) % ROUND_SHAPES.length];
   const [streak, setStreak] = useState(0);
   const [accuracy, setAccuracy] = useState(96);
   
@@ -44,11 +71,22 @@ export default function Explore() {
   // Layout refs
   const leftCanvasRef = useRef<View>(null);
   const rightCanvasRef = useRef<View>(null);
+  const splitContainerRef = useRef<View>(null);
+  const containerPageX = useRef(0);
+  const containerPageY = useRef(0);
+  const containerWidth = useRef(0);
 
   // Multi-touch simultaneous drawing tracking refs
   const isLeftActive = useRef(false);
   const isRightActive = useRef(false);
   const overlappedTouch = useRef(false);
+  // Prevent validateDrawing from being called more than once per round
+  const hasValidated = useRef(false);
+  // Stable refs for callbacks — kept in sync via useEffect after function declarations below
+  const timerRef = useRef(10);
+  const handleOpponentSurrenderRef = useRef<(() => void) | null>(null);
+  const handleRoundTimeoutRef = useRef<(() => void) | null>(null);
+  const validateDrawingRef = useRef<(() => void) | null>(null);
 
   const triggerHaptic = (style = Haptics.ImpactFeedbackStyle.Light) => {
     Haptics.impactAsync(style).catch(() => {});
@@ -91,6 +129,7 @@ export default function Explore() {
           overlappedTouch.current = false;
           isLeftActive.current = false;
           isRightActive.current = false;
+          hasValidated.current = false;
           return 0;
         }
         triggerHaptic(Haptics.ImpactFeedbackStyle.Light);
@@ -109,14 +148,14 @@ export default function Explore() {
       // Simulate 1.5% chance per second of opponent surrendering in versus mode!
       if (isVersusMode && Math.random() < 0.015) {
         clearInterval(interval);
-        handleOpponentSurrender();
+        handleOpponentSurrenderRef.current?.();
         return;
       }
 
       setTimer((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
-          handleRoundTimeout();
+          handleRoundTimeoutRef.current?.();
           return 0;
         }
         return prev - 1;
@@ -124,8 +163,7 @@ export default function Explore() {
     }, 1000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameState, isPaused]);
+  }, [gameState, isPaused, isVersusMode]);
 
   // 3. Versus Mode: Opponent Drawing Simulation Loop
   useEffect(() => {
@@ -135,36 +173,49 @@ export default function Explore() {
     setRightLines([]);
     setOpponentStatus('drawing');
 
-    // Create a path for a tilted square
-    const centerX = 100;
-    const centerY = 130;
-    const size = 55;
-    const steps: Point[] = [];
+    // Build opponent drawing path based on current round
+    const cx = 100;
+    const cy = 130;
 
-    // Tilted square vertices:
-    const v1 = { x: centerX, y: centerY - size };
-    const v2 = { x: centerX + size, y: centerY };
-    const v3 = { x: centerX, y: centerY + size };
-    const v4 = { x: centerX - size, y: centerY };
-
-    const interp = (p1: Point, p2: Point, count: number) => {
-      const pts = [];
+    const interp = (p1: Point, p2: Point, count: number): Point[] => {
+      const pts: Point[] = [];
       for (let i = 0; i <= count; i++) {
         const t = i / count;
         pts.push({
-          x: p1.x + (p2.x - p1.x) * t + (Math.random() - 0.5) * 3, // Hand jitter simulation
+          x: p1.x + (p2.x - p1.x) * t + (Math.random() - 0.5) * 3,
           y: p1.y + (p2.y - p1.y) * t + (Math.random() - 0.5) * 3,
         });
       }
       return pts;
     };
 
-    const side1 = interp(v1, v2, 8);
-    const side2 = interp(v2, v3, 8);
-    const side3 = interp(v3, v4, 8);
-    const side4 = interp(v4, v1, 8);
+    let fullPath: Point[];
 
-    const fullPath = [...side1, ...side2, ...side3, ...side4];
+    if (round === 2) {
+      // Triangle (equilateral)
+      const s = 100;
+      const h = s * Math.sqrt(3) / 2;
+      const top        = { x: cx,         y: cy - h / 2 };
+      const bottomLeft  = { x: cx - s / 2, y: cy + h / 2 };
+      const bottomRight = { x: cx + s / 2, y: cy + h / 2 };
+      fullPath = [...interp(top, bottomRight, 10), ...interp(bottomRight, bottomLeft, 10), ...interp(bottomLeft, top, 10)];
+    } else if (round === 3) {
+      // Rectangle
+      const rw = 120, rh = 80;
+      const tl = { x: cx - rw / 2, y: cy - rh / 2 };
+      const tr = { x: cx + rw / 2, y: cy - rh / 2 };
+      const br = { x: cx + rw / 2, y: cy + rh / 2 };
+      const bl = { x: cx - rw / 2, y: cy + rh / 2 };
+      fullPath = [...interp(tl, tr, 10), ...interp(tr, br, 6), ...interp(br, bl, 10), ...interp(bl, tl, 6)];
+    } else {
+      // Round 1: Tilted square (diamond)
+      const size = 55;
+      const v1 = { x: cx,        y: cy - size };
+      const v2 = { x: cx + size, y: cy        };
+      const v3 = { x: cx,        y: cy + size };
+      const v4 = { x: cx - size, y: cy        };
+      fullPath = [...interp(v1, v2, 8), ...interp(v2, v3, 8), ...interp(v3, v4, 8), ...interp(v4, v1, 8)];
+    }
 
     let currentIdx = 0;
     const drawInterval = setInterval(() => {
@@ -188,21 +239,59 @@ export default function Explore() {
     if (!isVersusMode || gameState !== 'playing' || opponentStatus !== 'done' || isPaused) return;
 
     if (leftLines.length > 8) {
-      validateDrawing();
+      validateDrawingRef.current?.();
     }
   }, [opponentStatus, leftLines.length, gameState, isVersusMode, isPaused]);
 
-  // Handlers for Drawing Traces
-  const handleLeftTouchMove = (e: any) => {
-    if (gameState !== 'playing' || isPaused) return;
-    const { locationX, locationY } = e.nativeEvent;
-    setLeftLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]); // Limit to 40 points for performance
+  // Unified multi-touch handler on the parent container
+  const handleSplitContainerLayout = () => {
+    splitContainerRef.current?.measure((_x, _y, width, _height, pageX, pageY) => {
+      containerPageX.current = pageX;
+      containerPageY.current = pageY;
+      containerWidth.current = width;
+    });
   };
 
-  const handleRightTouchMove = (e: any) => {
-    if (isVersusMode || gameState !== 'playing' || isPaused) return;
-    const { locationX, locationY } = e.nativeEvent;
-    setRightLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
+  const handleParentResponderMove = (e: any) => {
+    if (gameState !== 'playing' || isPaused) return;
+    const nativeEvent = e.nativeEvent;
+    const midPageX = containerPageX.current + containerWidth.current / 2;
+
+    // On native: use touches array (multi-touch). On web (mouse): fall back to pageX/pageY.
+    const pointers: { pageX: number; pageY: number }[] =
+      nativeEvent.touches && nativeEvent.touches.length > 0
+        ? Array.from(nativeEvent.touches)
+        : nativeEvent.pageX != null
+          ? [{ pageX: nativeEvent.pageX, pageY: nativeEvent.pageY }]
+          : [];
+
+    let latestLeft: Point | null = null;
+    let latestRight: Point | null = null;
+    let hasLeft = false;
+    let hasRight = false;
+
+    for (const pointer of pointers) {
+      const localX = pointer.pageX - containerPageX.current;
+      const localY = pointer.pageY - containerPageY.current;
+      if (isNaN(localX) || isNaN(localY)) continue;
+      if (pointer.pageX < midPageX) {
+        hasLeft = true;
+        latestLeft = { x: localX, y: localY };
+      } else if (!isVersusMode) {
+        hasRight = true;
+        latestRight = { x: localX - containerWidth.current / 2, y: localY };
+      }
+    }
+
+    if (hasLeft) isLeftActive.current = true;
+    if (hasRight) isRightActive.current = true;
+    // On web (mouse), a single cursor can only be on one side at a time —
+    // treat any drawing activity as "simultaneous" so the game is still playable.
+    if (hasLeft && hasRight) overlappedTouch.current = true;
+    if (Platform.OS === 'web' && (hasLeft || hasRight)) overlappedTouch.current = true;
+
+    if (latestLeft) setLeftLines((prev) => [...prev.slice(-40), latestLeft!]);
+    if (latestRight) setRightLines((prev) => [...prev.slice(-40), latestRight!]);
   };
 
   const handleTouchEnd = () => {
@@ -218,6 +307,10 @@ export default function Explore() {
   };
 
   const validateDrawing = () => {
+    // Guard: only validate once per round
+    if (hasValidated.current) return;
+    hasValidated.current = true;
+
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
 
     // Chơi đơn yêu cầu phải vẽ đồng thời cả 2 tay cùng lúc
@@ -232,7 +325,7 @@ export default function Explore() {
 
     if (isSuccess) {
       setGameState('success');
-      setScore((prev) => prev + 2500 + timer * 100);
+      setScore((prev) => prev + 2500 + timerRef.current * 100);
       setStreak((prev) => prev + 1);
     } else {
       setGameState('mismatch');
@@ -259,6 +352,11 @@ export default function Explore() {
       setOpponentAccuracy((prev) => Math.max(65, prev - 4));
     }
   };
+
+  // Sync all stable callback refs and timerRef after every render
+  useEffect(() => { timerRef.current = timer; }, [timer]);
+  useEffect(() => { handleRoundTimeoutRef.current = handleRoundTimeout; });
+  useEffect(() => { validateDrawingRef.current = validateDrawing; });
 
   const handleNextRound = () => {
     triggerHaptic();
@@ -323,20 +421,28 @@ export default function Explore() {
           <View style={styles.readyVisualContainer}>
             {/* Left Box Preview */}
             <View style={[styles.readyBoxHalf, { borderColor: '#00E5FF' }]}>
-              <View style={[styles.readyShapeDotted, { borderRadius: 30, borderColor: '#00E5FF' }]} />
+              {round === 2
+                ? <View style={[styles.readyShapeDotted, { borderRadius: 20, height: 40, borderColor: '#00E5FF' }]} />
+                : <View style={[styles.readyShapeDotted, { borderRadius: 30, borderColor: '#00E5FF' }]} />
+              }
               <Text style={[styles.readyBoxLabel, { color: '#00E5FF' }]}>
                 {isVersusMode ? 'BẠN (YOU)' : 'TAY TRÁI'}
               </Text>
-              <Text style={styles.readyBoxDesc}>Vẽ hình Tròn</Text>
+              <Text style={styles.readyBoxDesc}>{currentShape.leftLabel}</Text>
             </View>
 
             {/* Right Box Preview */}
             <View style={[styles.readyBoxHalf, { borderColor: '#E040FB' }]}>
-              <View style={[styles.readyShapeDotted, { transform: [{ rotate: '45deg' }], borderColor: '#E040FB' }]} />
+              {round === 2
+                ? <View style={{ marginVertical: 10 }}><TriangleOutline size={48} color="rgba(224, 64, 251, 0.8)" /></View>
+                : round === 3
+                ? <View style={[styles.readyShapeDotted, { borderRadius: 0, height: 38, borderColor: '#E040FB' }]} />
+                : <View style={[styles.readyShapeDotted, { transform: [{ rotate: '45deg' }], borderColor: '#E040FB' }]} />
+              }
               <Text style={[styles.readyBoxLabel, { color: '#E040FB' }]}>
                 {isVersusMode ? opponentName.toUpperCase() : 'TAY PHẢI'}
               </Text>
-              <Text style={styles.readyBoxDesc}>Vẽ hình Vuông</Text>
+              <Text style={styles.readyBoxDesc}>{currentShape.rightLabel}</Text>
             </View>
           </View>
 
@@ -387,40 +493,39 @@ export default function Explore() {
           </View>
 
           {/* Split Screen Canvas */}
-          <View style={styles.splitScreenContainer}>
+          <View
+            ref={splitContainerRef}
+            onLayout={handleSplitContainerLayout}
+            onStartShouldSetResponder={() => true}
+            onMoveShouldSetResponder={() => true}
+            onResponderMove={handleParentResponderMove}
+            onResponderRelease={() => {
+              isLeftActive.current = false;
+              isRightActive.current = false;
+              handleTouchEnd();
+            }}
+            onResponderTerminate={() => {
+              isLeftActive.current = false;
+              isRightActive.current = false;
+            }}
+            style={styles.splitScreenContainer}
+          >
             {/* Left Screen Canvas */}
             <View
               ref={leftCanvasRef}
-              onStartShouldSetResponder={() => true}
-              onResponderMove={(e: any) => {
-                if (gameState !== 'playing' || isPaused) return;
-                const { locationX, locationY } = e.nativeEvent;
-                if (locationX === undefined || locationY === undefined || isNaN(locationX) || isNaN(locationY)) return;
-                setLeftLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
-              }}
-              onResponderRelease={handleTouchEnd}
-              onTouchStart={() => {
-                isLeftActive.current = true;
-                if (isRightActive.current) {
-                  overlappedTouch.current = true;
-                }
-              }}
-              onTouchMove={handleLeftTouchMove}
-              onTouchEnd={() => {
-                isLeftActive.current = false;
-                handleTouchEnd();
-              }}
-              onTouchCancel={() => {
-                isLeftActive.current = false;
-              }}
               style={[styles.canvasContainerHalf, { borderRightWidth: 1, borderRightColor: '#202D33' }]}
             >
               {/* Target Outline Shape */}
-              <View style={[styles.targetShapeDotted, { width: 140, height: 140, borderRadius: 70, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
+              {round === 2
+                ? <View style={[styles.targetShapeDotted, { width: 160, height: 110, borderRadius: 55, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
+                : round === 3
+                ? <View style={[styles.targetShapeDotted, { width: 160, height: 160, borderRadius: 80, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
+                : <View style={[styles.targetShapeDotted, { width: 140, height: 140, borderRadius: 70, borderColor: 'rgba(0, 229, 255, 0.15)' }]} />
+              }
               <Text style={[styles.canvasHandIndicator, { color: '#00E5FF' }]}>
                 {isVersusMode ? 'BẠN (YOU)' : 'TAY TRÁI (LEFT)'}
               </Text>
-              <Text style={styles.canvasShapeGuide}>Vẽ đường tròn khép kín</Text>
+              <Text style={styles.canvasShapeGuide}>{currentShape.leftGuide}</Text>
 
               {/* Render points */}
               {leftLines.map((pt, i) => {
@@ -440,40 +545,20 @@ export default function Explore() {
             {/* Right Screen Canvas */}
             <View
               ref={rightCanvasRef}
-              onStartShouldSetResponder={() => true}
-              onResponderMove={(e: any) => {
-                if (isVersusMode || gameState !== 'playing' || isPaused) return;
-                const { locationX, locationY } = e.nativeEvent;
-                if (locationX === undefined || locationY === undefined || isNaN(locationX) || isNaN(locationY)) return;
-                setRightLines((prev) => [...prev.slice(-40), { x: locationX, y: locationY }]);
-              }}
-              onResponderRelease={handleTouchEnd}
-              onTouchStart={() => {
-                if (isVersusMode) return;
-                isRightActive.current = true;
-                if (isLeftActive.current) {
-                  overlappedTouch.current = true;
-                }
-              }}
-              onTouchMove={handleRightTouchMove}
-              onTouchEnd={() => {
-                if (isVersusMode) return;
-                isRightActive.current = false;
-                handleTouchEnd();
-              }}
-              onTouchCancel={() => {
-                if (isVersusMode) return;
-                isRightActive.current = false;
-              }}
               style={styles.canvasContainerHalf}
             >
               {/* Target Outline Shape */}
-              <View style={[styles.targetShapeDotted, { width: 130, height: 130, borderRadius: 4, transform: [{ rotate: '45deg' }], borderColor: 'rgba(224, 64, 251, 0.15)' }]} />
+              {round === 2
+                ? <View style={{ position: 'absolute' }}><TriangleOutline size={110} color="rgba(224, 64, 251, 0.15)" /></View>
+                : round === 3
+                ? <View style={[styles.targetShapeDotted, { width: 150, height: 100, borderRadius: 4, borderColor: 'rgba(224, 64, 251, 0.15)' }]} />
+                : <View style={[styles.targetShapeDotted, { width: 130, height: 130, borderRadius: 4, transform: [{ rotate: '45deg' }], borderColor: 'rgba(224, 64, 251, 0.15)' }]} />
+              }
               <Text style={[styles.canvasHandIndicator, { color: '#E040FB' }]}>
                 {isVersusMode ? opponentName.toUpperCase() : 'TAY PHẢI (RIGHT)'}
               </Text>
               <Text style={styles.canvasShapeGuide}>
-                {isVersusMode ? 'Đang vẽ đối ứng...' : 'Vẽ hình vuông nghiêng'}
+                {isVersusMode ? 'Đang vẽ đối ứng...' : currentShape.rightGuide}
               </Text>
 
               {/* Render points */}
