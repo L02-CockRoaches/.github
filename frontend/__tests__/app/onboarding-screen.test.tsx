@@ -19,6 +19,9 @@ describe('<OnboardingScreen />', () => {
   });
 
   afterEach(() => {
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
     jest.useRealTimers();
   });
 
@@ -27,7 +30,7 @@ describe('<OnboardingScreen />', () => {
 
     // Fast forward the splash screen progress simulation
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(10000);
     });
 
     expect(getByText(/GameTwoShape/i)).toBeTruthy();
@@ -41,7 +44,7 @@ describe('<OnboardingScreen />', () => {
 
     // Fast forward the splash screen progress simulation
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(10000);
     });
 
     fireEvent.press(getByText(/Bắt đầu tập luyện/i));
@@ -51,6 +54,10 @@ describe('<OnboardingScreen />', () => {
 
   it('mounts without crashing', () => {
     const { toJSON } = render(<OnboardingScreen />);
+
+    act(() => {
+      jest.advanceTimersByTime(10000);
+    });
 
     expect(toJSON()).toBeTruthy();
   });

@@ -359,7 +359,7 @@ File: [Dockerfile](file:///c:/University/HK252/Mobile/main-app/backend/Dockerfil
 | Metric | Coverage | Chi tiết |
 |---|---|---|
 | **Statements** | **66.26%** | 3,606 / 5,442 |
-| **Branches** | **72.54%** | 325 / 448 |
+| **Branches** | **72.48%** | 324 / 447 |
 | **Functions** | **71.00%** | 71 / 100 |
 | **Lines** | **66.26%** | 3,606 / 5,442 |
 
