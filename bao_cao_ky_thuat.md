@@ -358,17 +358,17 @@ File: [Dockerfile](file:///c:/University/HK252/Mobile/main-app/backend/Dockerfil
 
 | Metric | Coverage | Chi tiết |
 |---|---|---|
-| **Statements** | **66.26%** | 3,606 / 5,442 |
-| **Branches** | **72.48%** | 324 / 447 |
+| **Statements** | **66.57%** | 3,623 / 5,442 |
+| **Branches** | **71.24%** | 327 / 459 |
 | **Functions** | **71.00%** | 71 / 100 |
-| **Lines** | **66.26%** | 3,606 / 5,442 |
+| **Lines** | **66.57%** | 3,623 / 5,442 |
 
 ### 9.2. Phân Tích Chi Tiết Theo Module
 
 | Module | Statements | Branches | Functions | Lines | Đánh giá |
 |---|---|---|---|---|---|
-| `app/` (index.tsx) | **96.96%** ✅ | **95.34%** ✅ | **93.75%** ✅ | **96.96%** ✅ | Xuất sắc |
-| `app/(tabs)/` (home, profile) | **89.90%** ✅ | **65.00%** ✅ | **57.50%** ⚠️ | **89.90%** ✅ | Xuất sắc (home.tsx đạt 89.4%) |
+| `app/` (index.tsx) | **96.96%** ✅ | **95.23%** ✅ | **93.75%** ✅ | **96.96%** ✅ | Xuất sắc |
+| `app/(tabs)/` (home, profile) | **90.30%** ✅ | **63.50%** ✅ | **57.50%** ⚠️ | **90.30%** ✅ | Xuất sắc (home.tsx đạt 90.09%) |
 | `app/services/` (api.ts) | **100%** ✅ | **75.45%** ✅ | **100%** ✅ | **100%** ✅ | Xuất sắc |
 
 > [!NOTE]

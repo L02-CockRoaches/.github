@@ -64,6 +64,14 @@ describe('<Home />', () => {
     mockPush.mockClear();
     mockSetParams.mockClear();
     jest.clearAllMocks();
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    jest.useRealTimers();
   });
 
   const getSubmitButton = (getAllByText: any) => {
@@ -249,11 +257,17 @@ describe('<Home />', () => {
 
     // 1. Quick Match
     fireEvent.press(getByText('TÌM TRẬN NHANH / QUICK MATCH'));
+    
+    // Advance fake timers so matchmaking interval runs
+    await act(async () => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(getByText(/HỦY TÌM TRẬN/i)).toBeTruthy();
 
     // Cancel Quick Match
     await act(async () => {
       fireEvent.press(getByText(/HỦY TÌM TRẬN/i));
+      jest.advanceTimersByTime(1000);
     });
     expect(getByText('TÌM TRẬN NHANH / QUICK MATCH')).toBeTruthy();
 
@@ -264,30 +278,35 @@ describe('<Home />', () => {
     // 3. Create Room
     await act(async () => {
       fireEvent.press(getByText('TẠO PHÒNG MỚI'));
+      jest.advanceTimersByTime(1500);
     });
     expect(api.createRoom).toHaveBeenCalled();
 
     // Cancel Room Hosting
     await act(async () => {
       fireEvent.press(getByText(/HỦY PHÒNG/i));
+      jest.advanceTimersByTime(1500);
     });
 
     // 4. Join Room by Code
     fireEvent.changeText(getByPlaceholderText(/Nhập mã/i), '12345');
     await act(async () => {
       fireEvent.press(getByText('VÀO PHÒNG'));
+      jest.advanceTimersByTime(1000);
     });
     expect(api.joinRoomByCode).toHaveBeenCalled();
 
     // Cancel Room Join
     await act(async () => {
       fireEvent.press(getByText(/RỜI PHÒNG/i));
+      jest.advanceTimersByTime(1000);
     });
 
     // 5. Refresh Public Rooms List
     const refreshBtn = getByText('refresh');
     await act(async () => {
       fireEvent.press(refreshBtn);
+      jest.advanceTimersByTime(1000);
     });
     expect(api.getPublicRooms).toHaveBeenCalled();
   });
