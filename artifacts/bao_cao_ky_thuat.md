@@ -271,6 +271,23 @@ Swagger UI được cấu hình tự động tại endpoint `/api` với:
 
 - **LoggingInterceptor:** Ghi log mọi HTTP request: `METHOD /path STATUS_CODE - XXms`
 - **Sentry Integration:** Error tracking + performance profiling (`tracesSampleRate: 1.0`)
+- **Metrics Endpoint:** `/v1/metrics` nhận event engagement, retention và performance từ client, sau đó chuyển tiếp sang Sentry dưới dạng context/message có cấu trúc.
+
+### 7.7. Metrics & Real Usage Insights
+
+Hệ thống metrics hiện theo dõi các mốc tương tác chính: onboarding view/CTA, home view, modal open, leaderboard load, matchmaking start/match/leave, room create/join, game start/round result/game complete, score submission và profile contact. Mỗi event kèm chỉ số retention như first seen date, last seen date, session count, số ngày từ lần đầu/lần trước và returning-user flag.
+
+Nhóm performance tập trung vào thời gian bootstrap app, splash onboarding, API chậm, game duration và lỗi client/network. Backend tiếp tục ghi request duration qua `LoggingInterceptor` và gửi cảnh báo Sentry cho request vượt ngưỡng `METRICS_SLOW_REQUEST_MS`.
+
+Khi có dữ liệu thực tế, báo cáo nên ưu tiên ba insight: người dùng rời onboarding ở bước nào, tỷ lệ quay lại sau phiên đầu tiên, và flow nào tạo latency cao nhất. Các insight này giúp tối ưu lời dẫn onboarding, độ hấp dẫn game-loop và hiệu năng API trước khi mở rộng sang dashboard analytics chuyên dụng.
+
+### 7.8. Quy trình phân tích dữ liệu thực tế
+
+Dữ liệu được theo dõi trong Sentry bằng các message dạng `metric:<event_name>` và trong backend logs bằng dòng `metric <event_name> session=<sessionId>`. Nhóm có thể export danh sách event từ Sentry hoặc Azure App Service logs sang CSV với các cột chính: `timestamp`, `event`, `sessionId`, `screen`, `durationMs`, `success`, `sessionCount`, `isReturningUser`, `daysSinceLastSeen`.
+
+Từ bộ CSV này có thể phân tích hành vi người dùng theo funnel: `onboarding_viewed → onboarding_cta_pressed → play_pressed → game_started → game_completed`. Retention được tính bằng tỷ lệ session có `isReturningUser = true` và phân nhóm theo `sessionCount`. Hiệu năng được phân tích bằng các event `performance_api_slow`, `performance_app_bootstrap`, `performance_game_duration` để tìm API hoặc màn hình có `durationMs` cao.
+
+Ví dụ insight sau khi có dữ liệu thật: nếu nhiều session có `onboarding_viewed` nhưng ít `onboarding_cta_pressed`, onboarding cần CTA rõ hơn; nếu `game_started` cao nhưng `game_completed` thấp, game-loop có thể quá khó hoặc timeout quá nhanh; nếu `performance_api_slow` tập trung ở leaderboard/matchmaking, cần ưu tiên tối ưu endpoint đó.
 
 ---
 

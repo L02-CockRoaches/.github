@@ -1,4 +1,13 @@
-const BASE_URL = 'https://game2shape-backend.azurewebsites.net/v1';
+const DEFAULT_BASE_URL = 'https://game2shape-backend.azurewebsites.net/v1';
+export const BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? DEFAULT_BASE_URL;
+
+export interface MetricEventPayload {
+  event: string;
+  timestamp: string;
+  sessionId?: string;
+  userId?: string;
+  properties?: Record<string, unknown>;
+}
 
 let authToken: string | null = null;
 
@@ -35,6 +44,26 @@ export interface ScoreRecord {
 }
 
 export const api = {
+  async trackMetric(payload: MetricEventPayload): Promise<{ success: boolean; error?: string }> {
+    try {
+      const response = await fetch(`${BASE_URL}/metrics`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        return { success: false, error: 'Metric rejected by server' };
+      }
+
+      return { success: true };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Metric network error' };
+    }
+  },
+
   async signup(email: string, password: string, name: string): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const response = await fetch(`${BASE_URL}/auth/signup`, {

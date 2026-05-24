@@ -8,6 +8,7 @@ import { GamesModule } from './games/games.module';
 import { ScoresModule } from './scores/scores.module';
 import { SentryModule } from '@sentry/nestjs/setup';
 import { MatchmakingModule } from './matchmaking/matchmaking.module';
+import { MetricsModule } from './metrics/metrics.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { MatchmakingModule } from './matchmaking/matchmaking.module';
     ScoresModule,
     HealthModule,
     MatchmakingModule,
+    MetricsModule,
   ],
 })
 export class AppModule {}

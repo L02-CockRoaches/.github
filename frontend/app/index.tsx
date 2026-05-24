@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { trackEvent, trackPerformance, trackScreenView } from '@/services/analytics';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, Text, View, StatusBar } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -15,9 +16,15 @@ import Animated, {
 } from 'react-native-reanimated';
 
 export default function OnboardingScreen() {
+  const splashStartedAt = useRef(Date.now());
   const [showSplash, setShowSplash] = useState(true);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('CONNECTING TO NEURAL PATHWAYS...');
+
+  useEffect(() => {
+    void trackScreenView('onboarding');
+    void trackEvent('onboarding_viewed');
+  }, []);
 
   // Splash Screen progress simulation
   useEffect(() => {
@@ -56,7 +63,10 @@ export default function OnboardingScreen() {
       if (currentProgress >= 100) {
         clearInterval(interval);
         setTimeout(() => {
+          const durationMs = Date.now() - splashStartedAt.current;
           Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+          void trackPerformance('onboarding_splash', durationMs);
+          void trackEvent('onboarding_splash_completed', { durationMs });
           setShowSplash(false);
         }, 500);
       }
@@ -67,6 +77,8 @@ export default function OnboardingScreen() {
 
   const handleStartPress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
+    void trackEvent('onboarding_cta_pressed');
+    void trackEvent('onboarding_completed');
     router.replace('/(tabs)/home');
   };
 

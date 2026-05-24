@@ -1,4 +1,5 @@
 import { api, getToken } from '@/services/api';
+import { trackEvent, trackPerformance, trackScreenView } from '@/services/analytics';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -70,6 +71,12 @@ export default function Explore() {
   const handleOpponentSurrenderRef = useRef<(() => void) | null>(null);
   const handleRoundTimeoutRef = useRef<(() => void) | null>(null);
   const validateDrawingRef = useRef<(() => void) | null>(null);
+  const gameStartedAt = useRef(Date.now());
+
+  useEffect(() => {
+    void trackScreenView('game');
+    void trackEvent('game_started', { mode: isVersusMode ? 'versus' : 'solo', category });
+  }, [category, isVersusMode]);
 
   const triggerHaptic = (style = Haptics.ImpactFeedbackStyle.Light) => {
     Haptics.impactAsync(style).catch(() => {});
@@ -77,6 +84,7 @@ export default function Explore() {
 
   const handleSurrender = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
+    void trackEvent('game_abandoned', { reason: 'user_surrender', round, score });
     setScore(0);
     setSurrendered(true);
     setGameState('game-over');
@@ -87,6 +95,7 @@ export default function Explore() {
 
   const handleOpponentSurrender = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+    void trackEvent('opponent_surrendered', { round, score });
     setOpponentScore(0);
     setOpponentSurrendered(true);
     setGameState('game-over');
@@ -300,6 +309,7 @@ export default function Explore() {
 
     // Chơi đơn yêu cầu phải vẽ đồng thời cả 2 tay cùng lúc
     if (!isVersusMode && !overlappedTouch.current) {
+      void trackEvent('round_completed', { round, success: false, reason: 'not_simultaneous', mode: 'solo' });
       setGameState('mismatch');
       setStreak(0);
       setAccuracy(50);
@@ -323,6 +333,14 @@ export default function Explore() {
     }
 
     setAccuracy(computedAccuracy);
+    void trackEvent('round_completed', {
+      round,
+      success: isSuccess,
+      accuracy: computedAccuracy,
+      mode: isVersusMode ? 'versus' : 'solo',
+      leftPoints: actualLeft.length,
+      rightPoints: actualRight.length,
+    });
 
     if (isSuccess) {
       setGameState('success');
@@ -471,6 +489,7 @@ export default function Explore() {
 
   const handleRoundTimeout = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
+    void trackEvent('round_timeout', { round, mode: isVersusMode ? 'versus' : 'solo' });
     setGameState('mismatch');
     setStreak(0);
     setAccuracy((prev) => Math.max(70, prev - 6));
@@ -488,11 +507,18 @@ export default function Explore() {
   const handleNextRound = () => {
     triggerHaptic();
     if (round >= 3) {
+      const durationMs = Date.now() - gameStartedAt.current;
       setGameState('game-over');
-      // Submit score to NestJS database if logged in
+      void trackEvent('game_completed', { score, accuracy, durationMs, mode: isVersusMode ? 'versus' : 'solo' });
+      void trackPerformance('game_duration', durationMs, { score, rounds: round });
       if (getToken()) {
-        // gameId = 2: Shape Sorter
+        const scoreStartedAt = Date.now();
         api.postScore(score, accuracy / 100, 45, 2).then((res) => {
+          const scoreDurationMs = Date.now() - scoreStartedAt;
+          void trackEvent('score_submitted', { success: res.success, durationMs: scoreDurationMs });
+          if (scoreDurationMs >= 1000) {
+            void trackPerformance('api_slow', scoreDurationMs, { endpoint: 'scores' });
+          }
           if (res.success) {
             console.log('Score saved to NestJS database successfully:', res.data);
           } else {
@@ -508,6 +534,8 @@ export default function Explore() {
 
   const handleRestartGame = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+    gameStartedAt.current = Date.now();
+    void trackEvent('game_restarted', { mode: isVersusMode ? 'versus' : 'solo' });
     setRound(1);
     setScore(0);
     setStreak(0);
@@ -533,6 +561,7 @@ export default function Explore() {
 
   const handleGoHome = () => {
     triggerHaptic();
+    void trackEvent('game_home_pressed', { score, round, state: gameState });
     router.replace('/(tabs)/home');
   };
 

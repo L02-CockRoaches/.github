@@ -16,6 +16,37 @@ describe('API Service', () => {
     });
   });
 
+  describe('trackMetric', () => {
+    it('should send metric payload successfully', async () => {
+      global.fetch = jest.fn().mockResolvedValue({ ok: true });
+
+      const payload = {
+        event: 'play_pressed',
+        timestamp: '2026-05-24T10:30:00.000Z',
+        sessionId: 'session-1',
+        properties: { mode: 'solo' },
+      };
+      const res = await api.trackMetric(payload);
+
+      expect(res).toEqual({ success: true });
+      expect(global.fetch).toHaveBeenCalledWith(
+        expect.stringContaining('/metrics'),
+        expect.objectContaining({
+          method: 'POST',
+          body: JSON.stringify(payload),
+        })
+      );
+    });
+
+    it('should not throw when metric request fails', async () => {
+      global.fetch = jest.fn().mockRejectedValue(new Error('offline'));
+
+      const res = await api.trackMetric({ event: 'offline', timestamp: '2026-05-24T10:30:00.000Z' });
+
+      expect(res).toEqual({ success: false, error: 'offline' });
+    });
+  });
+
   describe('signup', () => {
     it('should signup successfully', async () => {
       const mockResponse = { message: 'Đăng ký thành công', userId: 1 };

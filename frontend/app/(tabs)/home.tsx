@@ -1,4 +1,5 @@
 import { api, clearToken } from '@/services/api';
+import { trackEvent, trackPerformance, trackScreenView } from '@/services/analytics';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -62,15 +63,28 @@ export default function Home() {
   const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
 
   const loadLeaderboard = async () => {
+    const startedAt = Date.now();
     setIsLoadingLeaderboard(true);
     const res = await api.getLeaderboard(2); // gameId = 2: Shape Sorter
+    const durationMs = Date.now() - startedAt;
     setIsLoadingLeaderboard(false);
+    void trackEvent('leaderboard_loaded', { success: res.success, durationMs, totalRows: res.data?.length ?? 0 });
+    if (durationMs >= 1000) {
+      void trackPerformance('api_slow', durationMs, { endpoint: 'scores/leaderboard' });
+    }
     if (res.success && res.data) {
       setLeaderboardData(res.data);
     }
   };
 
   useEffect(() => {
+    void trackScreenView('home');
+  }, []);
+
+  useEffect(() => {
+    if (activeModal) {
+      void trackEvent('modal_opened', { modal: activeModal });
+    }
     if (activeModal === 'leaderboard') {
       loadLeaderboard();
     }
@@ -108,7 +122,9 @@ export default function Home() {
     setIsAuthLoading(true);
     
     if (authMode === 'register') {
+      const signupStartedAt = Date.now();
       const signupRes = await api.signup(usernameInput.trim(), passwordInput, nameInput.trim());
+      void trackEvent('auth_signup_submitted', { success: signupRes.success, durationMs: Date.now() - signupStartedAt });
       if (!signupRes.success) {
         setIsAuthLoading(false);
         setAuthError(signupRes.error || 'Đăng ký thất bại');
@@ -116,7 +132,9 @@ export default function Home() {
         return;
       }
       
+      const loginStartedAt = Date.now();
       const loginRes = await api.login(usernameInput.trim(), passwordInput);
+      void trackEvent('auth_login_submitted', { mode: 'post_signup', success: loginRes.success, durationMs: Date.now() - loginStartedAt });
       setIsAuthLoading(false);
       if (loginRes.success && loginRes.user) {
         setUser({
@@ -135,7 +153,9 @@ export default function Home() {
         triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
       }
     } else {
+      const loginStartedAt = Date.now();
       const res = await api.login(usernameInput.trim(), passwordInput);
+      void trackEvent('auth_login_submitted', { mode: 'password', success: res.success, durationMs: Date.now() - loginStartedAt });
       setIsAuthLoading(false);
       if (res.success && res.user) {
         setUser({
@@ -168,6 +188,7 @@ export default function Home() {
         `&response_type=id_token` +
         `&scope=${encodeURIComponent('openid profile email')}` +
         `&nonce=${Math.random().toString(36).substring(2)}`;
+      void trackEvent('auth_google_started', { platform: 'web' });
       window.location.href = oauthUrl;
       return;
     }
@@ -177,7 +198,9 @@ export default function Home() {
     const password = 'googleSignInPassword123';
     const name = 'Google Player';
     
+    const googleStartedAt = Date.now();
     const loginRes = await api.login(email, password);
+    void trackEvent('auth_google_submitted', { success: loginRes.success, durationMs: Date.now() - googleStartedAt });
     if (loginRes.success && loginRes.user) {
       setIsAuthLoading(false);
       setUser({
@@ -232,7 +255,9 @@ export default function Home() {
           setAuthError('');
           setActiveModal('auth');
           
+          const googleStartedAt = Date.now();
           api.googleLogin(idToken).then(res => {
+            void trackEvent('auth_google_submitted', { success: res.success, durationMs: Date.now() - googleStartedAt });
             setIsAuthLoading(false);
             if (res.success && res.user) {
               setUser({
@@ -244,6 +269,7 @@ export default function Home() {
               setAuthError(res.error || 'Đăng nhập Google thất bại');
             }
           }).catch(err => {
+            void trackEvent('auth_google_submitted', { success: false, durationMs: Date.now() - googleStartedAt, error: err.message });
             setIsAuthLoading(false);
             setAuthError(err.message || 'Lỗi mạng khi đăng nhập Google');
           });
@@ -284,13 +310,19 @@ export default function Home() {
           setMatchmakingTimer(currentTimer);
 
           const allowBot = currentTimer >= 5;
+          const statusStartedAt = Date.now();
           const res = await api.getMatchmakingStatus(2, allowBot);
+          const durationMs = Date.now() - statusStartedAt;
+          if (durationMs >= 1000) {
+            void trackPerformance('api_slow', durationMs, { endpoint: 'matchmaking/status' });
+          }
 
           if (res.success && res.status === 'matched' && res.match) {
             isMatched = true;
             clearInterval(mainInterval);
             triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
             setMatchmakingStatus('matched');
+            void trackEvent('matchmaking_matched', { mode: 'quick_match', secondsToMatch: currentTimer, isBot: Boolean(res.match.isBot) });
 
             const opponent = res.match.players.find((p: any) => p.email !== user?.email) || res.match.players[1];
             setMatchedOpponent(opponent);
@@ -320,6 +352,7 @@ export default function Home() {
           }
         };
 
+        void trackEvent('matchmaking_started', { mode: 'quick_match' });
         api.joinMatchmaking(2);
         mainInterval = setInterval(runMatchmaking, 1000);
 
@@ -337,6 +370,7 @@ export default function Home() {
             clearInterval(mainInterval);
             triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
             setMatchmakingStatus('matched');
+            void trackEvent('matchmaking_matched', { mode: roomMode });
 
             const opponent = res.match.players.find((p: any) => p.email !== user?.email) || res.match.players[1];
             setMatchedOpponent(opponent);
@@ -382,6 +416,7 @@ export default function Home() {
             clearInterval(mainInterval);
             triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
             setMatchmakingStatus('matched');
+            void trackEvent('matchmaking_matched', { mode: roomMode });
 
             const opponent = res.match.players.find((p: any) => p.email !== user?.email) || res.match.players[0];
             setMatchedOpponent(opponent);
@@ -415,8 +450,10 @@ export default function Home() {
       }
     } else {
       if (roomMode === 'quick-match') {
+        void trackEvent('matchmaking_left', { mode: 'quick_match' });
         api.leaveMatchmaking();
       } else if (roomMode === 'hosting' && currentRoom) {
+        void trackEvent('matchmaking_left', { mode: 'hosting' });
         api.leaveRoom(currentRoom.roomId);
       }
       setMatchmakingStatus('idle');
@@ -438,9 +475,12 @@ export default function Home() {
   }, [params?.triggerMatchmaking]);
 
   const loadPublicRooms = async () => {
+    const startedAt = Date.now();
     setRoomLoading(true);
     const res = await api.getPublicRooms();
+    const durationMs = Date.now() - startedAt;
     setRoomLoading(false);
+    void trackEvent('public_rooms_loaded', { success: res.success, durationMs, totalRooms: res.rooms?.length ?? 0 });
     if (res.success) {
       setPublicRooms(res.rooms || []);
     }
@@ -452,6 +492,7 @@ export default function Home() {
     setRoomError(null);
     const res = await api.createRoom(2, roomType === 'private');
     setRoomLoading(false);
+    void trackEvent('room_created', { success: res.success, roomType });
     if (res.success && res.room) {
       setCurrentRoom(res.room);
       setRoomMode('hosting');
@@ -470,6 +511,7 @@ export default function Home() {
     setRoomError(null);
     const res = await api.joinRoomByCode(code.trim());
     setRoomLoading(false);
+    void trackEvent('room_joined', { success: res.success });
     if (res.success && res.room) {
       setCurrentRoom(res.room);
       setRoomMode('joining');
@@ -481,6 +523,7 @@ export default function Home() {
   const handleLeaveRoom = async () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
     if (currentRoom) {
+      void trackEvent('room_left', { mode: roomMode });
       api.leaveRoom(currentRoom.roomId);
     }
     setCurrentRoom(null);
@@ -490,6 +533,7 @@ export default function Home() {
 
   const handleStartMatchmaking = async () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+    void trackEvent('matchmaking_open_pressed', { loggedIn: Boolean(user) });
     if (!user) {
       setAuthMode('login');
       setAuthError(language === 'VI' ? 'Hãy đăng nhập để tham gia đấu đối kháng!' : 'Please login to participate in versus mode!');
@@ -505,6 +549,7 @@ export default function Home() {
 
   const handlePlayNow = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
+    void trackEvent('play_pressed', { mode: 'solo' });
     router.replace('/(tabs)/explore');
   };
 

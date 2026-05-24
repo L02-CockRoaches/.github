@@ -1,10 +1,21 @@
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useEffect } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
+import { trackEvent, trackScreenView } from '@/services/analytics';
 
 export default function Profile() {
+  useEffect(() => {
+    void trackScreenView('profile');
+  }, []);
+
   const triggerHaptic = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
+  };
+
+  const handleContactPress = () => {
+    triggerHaptic();
+    void trackEvent('profile_contact_pressed');
   };
 
   return (
@@ -157,7 +168,7 @@ export default function Profile() {
         {/* Contact Button */}
         <View style={{ gap: 10, marginTop: 8 }}>
           <Pressable
-            onPress={triggerHaptic}
+            onPress={handleContactPress}
             style={({ pressed }) => ({
               backgroundColor: pressed ? 'rgba(191, 0, 255, 0.15)' : 'transparent',
               borderWidth: 1.5,

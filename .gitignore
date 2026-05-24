@@ -55,3 +55,4 @@ app-example
 # artifacts
 artifacts/
 logs_extracted/
+.gstack/
