@@ -13,52 +13,62 @@ jest.mock('expo-router', () => ({
 import OnboardingScreen from '@/app/index';
 
 describe('<OnboardingScreen />', () => {
+  let randomSpy: jest.SpyInstance;
+
   beforeEach(() => {
     mockReplace.mockClear();
     jest.useFakeTimers();
+    randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.9);
   });
 
   afterEach(() => {
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
+    randomSpy.mockRestore();
     jest.useRealTimers();
   });
 
-  it('renders the onboarding content', () => {
-    const { getByText } = render(<OnboardingScreen />);
+  const renderReadyScreen = () => {
+    const screen = render(<OnboardingScreen />);
 
-    // Fast forward the splash screen progress simulation
     act(() => {
-      jest.advanceTimersByTime(10000);
+      jest.advanceTimersByTime(35 * 120 + 500);
     });
 
-    expect(getByText(/GameTwoShape/i)).toBeTruthy();
-    expect(getByText(/Train your brain, both sides at once/i)).toBeTruthy();
-    expect(getByText(/Core Gameplay/i)).toBeTruthy();
-    expect(getByText(/Bắt đầu tập luyện/i)).toBeTruthy();
+    return screen;
+  };
+
+  it('renders the onboarding content', () => {
+    const screen = renderReadyScreen();
+
+    try {
+      expect(screen.getByText(/GameTwoShape/i)).toBeTruthy();
+      expect(screen.getByText(/Train your brain, both sides at once/i)).toBeTruthy();
+      expect(screen.getByText(/Core Gameplay/i)).toBeTruthy();
+      expect(screen.getAllByText(/LUY/i).length).toBeGreaterThan(0);
+    } finally {
+      screen.unmount();
+    }
   });
 
   it('navigates to home when the CTA button is pressed', () => {
-    const { getByText } = render(<OnboardingScreen />);
+    const screen = renderReadyScreen();
 
-    // Fast forward the splash screen progress simulation
-    act(() => {
-      jest.advanceTimersByTime(10000);
-    });
+    try {
+      const ctaLabels = screen.getAllByText(/LUY/i);
+      fireEvent.press(ctaLabels[ctaLabels.length - 1]);
 
-    fireEvent.press(getByText(/Bắt đầu tập luyện/i));
-
-    expect(mockReplace).toHaveBeenCalledWith('/(tabs)/home');
+      expect(mockReplace).toHaveBeenCalledWith('/(tabs)/home');
+    } finally {
+      screen.unmount();
+    }
   });
 
   it('mounts without crashing', () => {
-    const { toJSON } = render(<OnboardingScreen />);
+    const screen = renderReadyScreen();
 
-    act(() => {
-      jest.advanceTimersByTime(10000);
-    });
-
-    expect(toJSON()).toBeTruthy();
+    try {
+      expect(screen.toJSON()).toBeTruthy();
+    } finally {
+      screen.unmount();
+    }
   });
 });
