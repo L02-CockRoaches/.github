@@ -4,7 +4,7 @@ import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Platform, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import Animated, {
     Easing,
     FadeIn,
@@ -154,103 +154,15 @@ export default function Home() {
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
-    setAuthError('');
-    setIsAuthLoading(true);
-    
-    if (Platform.OS === 'web') {
-      const clientId = '860435877394-1p0enmcu2v5u1t72do1kueq5dmr5lhps.apps.googleusercontent.com';
-      const redirectUri = window.location.origin + window.location.pathname;
-      const oauthUrl = `https://accounts.google.com/o/oauth2/v2/auth` +
-        `?client_id=${clientId}` +
-        `&redirect_uri=${encodeURIComponent(redirectUri)}` +
-        `&response_type=id_token` +
-        `&scope=${encodeURIComponent('openid profile email')}` +
-        `&nonce=${Math.random().toString(36).substring(2)}`;
-      window.location.href = oauthUrl;
-      return;
-    }
-
-    // Fallback/Mock cho thiết bị di động
-    const email = 'player.google@gmail.com';
-    const password = 'googleSignInPassword123';
-    const name = 'Google Player';
-    
-    const loginRes = await api.login(email, password);
-    if (loginRes.success && loginRes.user) {
-      setIsAuthLoading(false);
-      setUser({
-        username: loginRes.user.name,
-        email: loginRes.user.email
-      });
-      setUsernameInput('');
-      setNameInput('');
-      setPasswordInput('');
-      setActiveModal(null);
-      triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
-    } else {
-      const signupRes = await api.signup(email, password, name);
-      if (signupRes.success) {
-        const retryLogin = await api.login(email, password);
-        setIsAuthLoading(false);
-        if (retryLogin.success && retryLogin.user) {
-          setUser({
-            username: retryLogin.user.name,
-            email: retryLogin.user.email
-          });
-          setUsernameInput('');
-          setNameInput('');
-          setPasswordInput('');
-          setActiveModal(null);
-          triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);
-        } else {
-          setIsAuthLoading(false);
-          setAuthError('Google sign in failed');
-          triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
-        }
-      } else {
-        setIsAuthLoading(false);
-        setAuthError('Google signup failed');
-        triggerHaptic(Haptics.ImpactFeedbackStyle.Heavy);
-      }
-    }
+    setIsAuthLoading(false);
+    setAuthError(
+      language === 'VI'
+        ? 'Dang nhap Google chua duoc cau hinh cho ban build nay.'
+        : 'Google sign-in is not configured for this build.'
+    );
   };
-
-  // Bắt sự kiện Redirect từ Google OAuth Token trên Web
-  useEffect(() => {
-    if (Platform.OS === 'web') {
-      const hash = window.location.hash;
-      if (hash && hash.includes('id_token=')) {
-        const params = new URLSearchParams(hash.substring(1));
-        const idToken = params.get('id_token');
-        if (idToken) {
-          // Xóa hash trên thanh địa chỉ URL để tránh lặp lại
-          window.history.replaceState(null, '', window.location.pathname + window.location.search);
-          
-          setIsAuthLoading(true);
-          setAuthError('');
-          setActiveModal('auth');
-          
-          api.googleLogin(idToken).then(res => {
-            setIsAuthLoading(false);
-            if (res.success && res.user) {
-              setUser({
-                username: res.user.name,
-                email: res.user.email
-              });
-              setActiveModal(null);
-            } else {
-              setAuthError(res.error || 'Đăng nhập Google thất bại');
-            }
-          }).catch(err => {
-            setIsAuthLoading(false);
-            setAuthError(err.message || 'Lỗi mạng khi đăng nhập Google');
-          });
-        }
-      }
-    }
-  }, []);
 
   const handleLogOut = () => {
     triggerHaptic(Haptics.ImpactFeedbackStyle.Medium);

@@ -26,15 +26,11 @@ export default function OnboardingScreen() {
     let currentProgress = 0;
     const interval = setInterval(() => {
       let increment = 1;
-      
+
       if (currentProgress < 30) {
-        increment = Math.floor(Math.random() * 3) + 2; // Fast start
+        increment = 3;
       } else if (currentProgress < 75) {
-        increment = Math.floor(Math.random() * 2) + 1; // Steady progress
-      } else if (currentProgress < 95) {
-        increment = Math.random() > 0.4 ? 1 : 0; // Slow down near completion
-      } else {
-        increment = 1; // Finish
+        increment = 2;
       }
 
       currentProgress = Math.min(100, currentProgress + increment);

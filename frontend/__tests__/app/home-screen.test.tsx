@@ -204,16 +204,13 @@ describe('<Home />', () => {
     fireEvent.press(getByText('ĐĂNG XUẤT (LOG OUT)'));
     expect(queryByText('TÀI KHOẢN CỦA BẠN')).toBeNull();
 
-    // Test Google Sign In fallback on mobile environment
+    // Google Sign In requires OAuth config and should not use mock credentials.
     fireEvent.press(getByText(/TÌM TRẬN THI ĐẤU/i));
     await act(async () => {
       fireEvent.press(getByText('Tiếp tục với Google'));
     });
-    expect(api.login).toHaveBeenCalled();
-
-    // Now log out Google user
-    fireEvent.press(getByText('Test User'));
-    fireEvent.press(getByText('ĐĂNG XUẤT (LOG OUT)'));
+    expect(getByText('Dang nhap Google chua duoc cau hinh cho ban build nay.')).toBeTruthy();
+    fireEvent.press(getByText('close'));
 
     // Open Auth modal again to test signup switch
     fireEvent.press(getByText(/TÌM TRẬN THI ĐẤU/i));
